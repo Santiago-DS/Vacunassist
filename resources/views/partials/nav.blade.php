@@ -6,6 +6,6 @@
     <a href="#" onclick="this.closest('form').submit()">Salir</a>
 </form>
 @else
-<a href="/login">login</a>
+<a href="/login">Login</a>
 <a href="/register">Registrarse</a>
 @endauth
