@@ -176,3 +176,14 @@ body {
 .social-login__icon:hover {
 	transform: scale(1.5);	
 }
+
+.error {
+	border: 1px solid;
+    padding: 15px 10px 15px 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    text-align: left;
+    color: #D8000C;
+    background-color: #FFBABA;
+    border-radius: 10px;
+}

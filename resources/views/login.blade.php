@@ -13,13 +13,13 @@
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
                         <input name="email" type="email" autofous value="{{ old('email') }}" class="login__input" placeholder="Email">
-                        @error('email') {{ $message }} @enderror
                     </div>
+                    @error('email')<span class="error">{{ $message }}</span>@enderror
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
                         <input type="password" name='password' class="login__input" placeholder="Password">
-                        @error('password') {{ $message }} @enderror
                     </div>
+                    @error('password') <span class="error">{{ $message }}</span> @enderror
                     <button type="submit" class="button login__submit">
                         <span class="button__text">Log In Now</span>
                         <i class="button__icon fas fa-chevron-right"></i>
