@@ -1,6 +1,6 @@
 <a href="/">inicio</a>
 @auth
-<a href="/dashboard">dashboard</a>
+<a href="/home">Home</a>
 <form action="/logout" method="POST">
     @csrf
     <a href="#" onclick="this.closest('form').submit()">Salir</a>

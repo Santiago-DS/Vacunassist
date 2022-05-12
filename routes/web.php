@@ -16,22 +16,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+/*
+|--------------------------------------------------------------------------
+| View Routes
+|--------------------------------------------------------------------------
+*/
 
 Route::view('/', 'welcome');
 Route::view('login', 'login')->name('login')->middleware('guest');
 Route::view('dashboard', 'dashboard')->middleware('auth');
+Route::view('home', 'home')->name('home')->middleware('auth');
+Route::view('register', 'register')->name('register')->middleware('guest');
 
+/*
+|--------------------------------------------------------------------------
+| Get Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Post Routes
+|--------------------------------------------------------------------------
+*/
 
 Route::post('login', [LoginController::class, 'login']);
-
 Route::post('logout', [LoginController::class, 'logout']);
-
-// IRIA EN EL CONTROLADOR
-Route::view('register', 'register')->name('register')->middleware('guest');
-Route::post('register', function() {
-    
-});
+Route::post('register', [RegisterController::class, 'register']);
