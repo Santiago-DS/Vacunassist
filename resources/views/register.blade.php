@@ -35,10 +35,17 @@
                         <i class="login__icon fas fa-lock"></i>
                         <input type="text" name='telefono' class="login__input" placeholder="Teléfono">
                     </div>
+                    <label>Tiene dosis de covid aplicada?<br>
+                        <input type="checkbox" id="cbox1" value="first_checkbox"> 
+                        ningna</label><br>
+                        <input type="checkbox" id="cbox1" value="first_checkbox"> 
+                        1 dosis</label><br>
+                        <input type="checkbox" id="cbox2" value="second_checkbox">
+                         <label for="cbox2">2 dosis</label>	
                     <button type="submit" class="button register_submit">
                         <span class="button__text">Registrarse</span>
                         <i class="button__icon fas fa-chevron-right"></i>
-                    </button>				
+                    </button>			
                 </form>
             </div>
             <div class="screen__background">
