@@ -13,7 +13,7 @@ class RegisterController extends Controller
         User::create([ 
         'name'=> request()->get('nombre'),
         'email'=>request()->get('email'),
-        'password'=> request()->get('password'),
+        'password'=> bcrypt(request()->get('password')),
         'apellido'=> request()->get('apellido'),
         'direccion'=> request()->get('direccion'),
         'telefono' => request()->get('telefono'),
