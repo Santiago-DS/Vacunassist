@@ -23,11 +23,12 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::view('/', 'welcome');
+Route::view('/', 'index');
 Route::view('login', 'login')->name('login')->middleware('guest');
 Route::view('dashboard', 'dashboard')->middleware('auth');
 Route::view('home', 'home')->name('home')->middleware('auth');
 Route::view('register', 'register')->name('register')->middleware('guest');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +36,9 @@ Route::view('register', 'register')->name('register')->middleware('guest');
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 /*
 |--------------------------------------------------------------------------
