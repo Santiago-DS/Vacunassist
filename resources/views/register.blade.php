@@ -9,7 +9,7 @@
     <div class="container">
         <div class="screen_register">
             <div class="screen__content">
-                <form class="login" method="POST">
+                <form action="{{ route('register') }}" class="login" method="POST">
                     @csrf
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
