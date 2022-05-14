@@ -57,6 +57,9 @@
             <li class="nav-item">
               <a class="btn btn-primary ml-lg-3" href="/login">Login</a>
             </li>
+            <li class="nav-item">
+              <a class="btn btn-primary ml-lg-3" href="/register">Register</a>
+            </li>
           </ul>
         </div> <!-- .navbar-collapse -->
       </div> <!-- .container -->
