@@ -66,13 +66,7 @@
     </nav>
   </header>
 
-  <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg);">
-    <div class="hero-section">
-      <div class="container text-center wow zoomIn">
-        <img src="../assets/img/logo.png" width="200" height="150"/> <!-- HACER CLASE CSS TAREA PARA SOFI -->
-      </div>
-    </div>
-  </div>
+  <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg);"></div>
 
 
   <div class="bg-light">
@@ -89,10 +83,9 @@
           </div>
           <div class="col-md-4 py-3 py-md-0">
             <div class="card-service wow fadeInUp">
-              <div class="circle-shape bg-primary text-white">
-                <span class="mai-shield-checkmark"></span>
-              </div>
-              <p><span>One</span>-Health Protection</p>
+            
+              <img src="../assets/img/logo.png" width="200 " height="100" style="margin-left: 10px"/>
+              
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">

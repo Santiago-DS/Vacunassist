@@ -29,7 +29,7 @@ Route::view('login', 'login')->name('login')->middleware('guest');
 Route::view('dashboard', 'dashboard')->middleware('auth');
 Route::view('home', 'home')->name('home')->middleware('auth');
 Route::view('register', 'register')->name('register')->middleware('guest');
-
+Route::view('ver-turnos', 'ver-turnos')->name('ver-turnos')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
