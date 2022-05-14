@@ -121,7 +121,7 @@
                                             <a class="nav-link" href="ver-turnos">Ver Turnos</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/form-validation.html">Parsely Validations</a>
+                                            <a class="nav-link" href="solicitar-turno">Solicitar Turno</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="pages/multiselect.html">Multiselect</a>
