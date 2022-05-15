@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\LoginController; 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\RegisterController;
 use App\Mail\TurnoMailable;
 use App\Models\Turno;
@@ -41,15 +42,7 @@ Route::view('solicitar-turno', 'solicitar-turno')->name('solicitar-turno')->midd
 |--------------------------------------------------------------------------
 */
 
-Route::get('contactanos', function () {
-    $correo = new TurnoMailable;
-    Mail::to('othazlorena@gmail.com')->send($correo);
-    return "Mensaje enviado";
-}); 
-
-/* Route::get('/', function () {
-    return view('welcome');
-}); */
+Route::get('contactanos', [MailController::class, 'send']);
 
 /*
 |--------------------------------------------------------------------------

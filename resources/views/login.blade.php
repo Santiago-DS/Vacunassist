@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-	<link href="{{ asset('css/login.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
 </head>
+
+@include('partials.nav')
+
 <body>
-    @include('partials.nav')
-    <div class="container">
-        <div class="screen">
-            <div class="screen__content">
-                <form class="login" method="POST">
-                    @csrf
-                    <div class="login__field">
-                        <i class="login__icon fas fa-user"></i>
-                        <input name="email" type="email" autofous value="{{ old('email') }}" class="login__input" placeholder="Email">
+    
+    <section class="vh-100" style="background-color: rgb(158, 209, 168);">
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-6">
+              <div class="card text-black" style="border-radius: 25px;">
+                <div class="card-body p-md-8">
+                  <div class="row justify-content-center">
+                    <div class="col-md-10">
+                      <p class="text-center h1 fw-bold mb-11 mx-1 mx-md-12 mt-4">Ingresá</p>
+                      <form class="mx-1 mx-md-4" method="POST">
+                        @csrf
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
+                            <label class="form-label">Correo</label>
+                            <input name="email" type="email" autofous value="{{ old('email') }}" class="form-control">
+                          </div>
+                        </div>
+                        @error('email')<span class="error">{{ $message }}</span>@enderror
+
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" name='password' class="form-control">
+                          </div>
+                        </div>
+                        @error('password') <span class="error">{{ $message }}</span> @enderror
+
+                        <div class="d-flex justify-content-left mx-0 mb-3 mb-lg-4">
+                          <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+                        </div>
+      
+                      </form>
+      
                     </div>
-                    @error('email')<span class="error">{{ $message }}</span>@enderror
-                    <div class="login__field">
-                        <i class="login__icon fas fa-lock"></i>
-                        <input type="password" name='password' class="login__input" placeholder="Password">
+                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                     </div>
-                    @error('password') <span class="error">{{ $message }}</span> @enderror
-                    <button type="submit" class="button login__submit">
-                        <span class="button__text">Log In Now</span>
-                        <i class="button__icon fas fa-chevron-right"></i>
-                    </button>				
-                </form>
-                <div class="social-login">
-                    <h3>log in via</h3>
-                    <div class="social-icons">
-                        <a href="#" class="social-login__icon fab fa-instagram"></a>
-                        <a href="#" class="social-login__icon fab fa-facebook"></a>
-                        <a href="#" class="social-login__icon fab fa-twitter"></a>
-                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-            <div class="screen__background">
-                <span class="screen__background__shape screen__background__shape4"></span>
-                <span class="screen__background__shape screen__background__shape3"></span>		
-                <span class="screen__background__shape screen__background__shape2"></span>
-                <span class="screen__background__shape screen__background__shape1"></span>
-            </div>		
+          </div>
         </div>
-    </div>
+      </section>
 </body>
 </html>

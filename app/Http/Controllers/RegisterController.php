@@ -10,6 +10,7 @@ use App\Models\User;
 class RegisterController extends Controller
 {
     public function store() {
+
         User::create([ 
         'name'=> request()->get('nombre'),
         'email'=>request()->get('email'),
@@ -18,5 +19,10 @@ class RegisterController extends Controller
         'direccion'=> request()->get('direccion'),
         'telefono' => request()->get('telefono'),
         ]);
+
+        // Una vez registrado, lo mandamos al home pero para eso la sesion debe estar iniciada
+        $objeto = new LoginController();
+        $objeto->login($_REQUEST);
+        return redirect('home');
     }
 }
