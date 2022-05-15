@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\RegisterController;
 use App\Mail\TurnoMailable;
 use App\Models\Turno;
@@ -53,3 +54,4 @@ Route::get('contactanos', [MailController::class, 'send']);
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout']);
 Route::post('register', [RegisterController::class, 'store']);
+Route::post('solicitar-turno', [TurnoController::class, 'store']);

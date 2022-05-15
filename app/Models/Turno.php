@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Turno extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+
+    protected $fillable = [
+        'fecha',
+        'estado',
+        'hora',
+        'id_paciente',
+        'id_zona',
+        'id_vacuna',
+    ];
 }
+

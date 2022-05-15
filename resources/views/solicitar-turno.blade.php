@@ -24,23 +24,24 @@
         <div class="card">
             <h5 class="card-header">Basic Form</h5>
             <div class="card-body">
-                <form action="#" id="basicform" data-parsley-validate="">
+                <form action="{{ route('solicitar-turno') }}" method="POST">
+                    @csrf 
                     <div class="form-group">
                         <label for="inputUserName">Seleccione una vacuna</label>
-                        <select class="form-control" aria-label="Default select example">
+                        <select class="form-control" aria-label="Default select example" name="vacuna">
                                 <?php $vacunas = DB::table('vacunas')->distinct()->get(); ?>
                                 @foreach ($vacunas as $vacuna)
-                                  <option value ="{{ $vacuna->id }}"> {{ $vacuna->nombreVacuna }}</option>
+                                  <option value ="{{ $vacuna->id }}" name="vacuna" > {{ $vacuna->nombreVacuna }} </option>
                                 @endforeach
                           </select>
                         
                     </div>
                     <div class="form-group">
                         <label for="inputUserName">Zona</label>
-                        <select class="form-control" aria-label="Default select example">
+                        <select class="form-control" aria-label="Default select example" name="zona">
                                 <?php $zonas = DB::table('zonas')->distinct()->get(); ?>
                                 @foreach ($zonas as $zona)
-                                  <option value ="{{ $zona->id }}"> {{ $zona->nombreZona }}</option>
+                                  <option value ="{{ $zona->id }}"  name="zona"> {{ $zona->nombreZona }}</option>
                                 @endforeach
                           </select>
                         
@@ -48,7 +49,7 @@
 
                     <div class="form-group">
                         <label for="inputRepeatPassword">Fecha del Turno</label>
-                        <input type="date" data-parsley-equalto="#inputPassword" required="" placeholder="Password" class="form-control">
+                        <input type="date" name="fecha" data-parsley-equalto="#inputPassword" required="" placeholder="Password" class="form-control">
                     </div>
                     <div class="row">
                         <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
