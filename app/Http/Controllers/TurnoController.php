@@ -12,7 +12,6 @@ public function store(){
  
     Turno::create([ 
         'fecha' => request()->get('fecha'),
-        'estado' => "pendiente",
         'hora' => new DateTime('today'),
         'id_paciente'=> auth()->id(),
         'id_zona' => request()->get('zona'),
