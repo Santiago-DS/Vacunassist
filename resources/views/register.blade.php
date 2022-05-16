@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('partials.nav')
 <body>
-    <section class="vh-100" style="background-color: rgb(158, 209, 168);">
+    <section style="background-color: rgb(158, 209, 168); padding-top:2%;">
         <div class="container h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
