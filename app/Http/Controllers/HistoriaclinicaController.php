@@ -15,6 +15,6 @@ class HistoriaclinicaController extends Controller
             'id_vacuna' => request()->get('vacuna'),
             ]);
     
-            return redirect('home');
+            return redirect('historiaclinica');
     }
 }

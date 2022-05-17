@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Ver Turnos</title>
+        <title>Ver Historia Clinica</title>
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -151,10 +151,10 @@
                     <div class="ecommerce-widget">
                     
                 <div class="row">
-        <div class="col-xl-9 col-lg-8 col-md-11 col-sm-12 col-2">
+                    <div class="col-xl-5 col-lg-12 col-md-6 col-sm-12 col-12">
             <div class="card">
                 <h5 class="card-header">Mis vacunas</h5>
-                <div class="card-body p-0">           
+                <div class="card-body">           
                 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -187,8 +187,11 @@
         </div>
                 </div>
             </div>
+            
         </div>
+        
         </div>
+        
         @include('partials.footer')
         </div>
     </body>
