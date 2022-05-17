@@ -10,7 +10,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HistoriaclinicaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +36,8 @@ Route::view('home', 'home')->name('home')->middleware('auth');
 Route::view('register', 'register')->name('register')->middleware('guest');
 Route::view('ver-turnos', 'ver-turnos')->name('ver-turnos')->middleware('auth');
 Route::view('solicitar-turno', 'solicitar-turno')->name('solicitar-turno')->middleware('auth');
+Route::view('historiaclinica', 'historiaclinica')->name('historiaclinica')->middleware('auth');
+Route::view('formhistoriaclinica', 'formhistoriaclinica')->name('formhistoriaclinica')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +57,4 @@ Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout']);
 Route::post('register', [RegisterController::class, 'store']);
 Route::post('solicitar-turno', [TurnoController::class, 'store']);
+Route::post('formhistoriaclinica', [HistoriaclinicaController::class, 'store']);

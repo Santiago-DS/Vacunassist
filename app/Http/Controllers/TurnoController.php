@@ -21,5 +21,8 @@ public function store(){
         return redirect('home');
 
 }
+public function cancelarTurno(){
 
+
+}
 }

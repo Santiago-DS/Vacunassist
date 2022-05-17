@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+
     <title>Solicitar Turno</title>
 </head>
 
@@ -24,7 +25,7 @@
         <div class="card">
             <h5 class="card-header">Basic Form</h5>
             <div class="card-body">
-                <form action="{{ route('solicitar-turno') }}" method="POST">
+                <form action="{{ route('formhistoriaclinica') }}" method="POST">
                     @csrf 
                     <div class="form-group">
                         <label for="inputUserName">Seleccione una vacuna</label>
@@ -34,21 +35,9 @@
                                   <option value ="{{ $vacuna->id }}"> {{ $vacuna->nombreVacuna }} </option>
                                 @endforeach
                           </select>
-                        
                     </div>
                     <div class="form-group">
-                        <label for="inputUserName">Zona</label>
-                        <select class="form-control" aria-label="Default select example" name="zona">
-                                <?php $zonas = DB::table('zonas')->distinct()->get(); ?>
-                                @foreach ($zonas as $zona)
-                                  <option value ="{{ $zona->id }}"> {{ $zona->nombreZona }}</option>
-                                @endforeach
-                          </select>
-                        
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputRepeatPassword">Fecha del Turno</label>
+                        <label for="inputRepeatPassword">Fecha de vacunación</label>
                         <input type="date" name="fecha" data-parsley-equalto="#inputPassword" required="" placeholder="Password" class="form-control">
                     </div>
                     <div class="row">
