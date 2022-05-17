@@ -15,6 +15,8 @@ class HistoriaClinica extends Model
      * @var array<int, string>
      */
 
+    protected $table='historiaclinica';
+
     protected $fillable = [
         'fecha',
         'id_paciente',
