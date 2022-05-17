@@ -16,28 +16,20 @@
           <ul class="navbar-nav ml-auto">
             @auth
             <li class="nav-item active">
-              <a class="nav-link" href="/home">Home</a>
+              <a class="btn btn-primary ml-lg-3" href="/home">Home</a>
             </li>
-            @endauth
-            <li class="nav-item">
-              <a class="nav-link" href="doctors.html">Doctors</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blog.html">News</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
+            @else
             <li class="nav-item">
               <a class="btn btn-primary ml-lg-3" href="/login">Login</a>
             </li>
             <li class="nav-item">
               <a class="btn btn-primary ml-lg-3" href="/register">Register</a>
             </li>
+            @endauth
             @auth
             <form action="/logout" method="POST">
                 @csrf
-                <a class="btn btn-primary ml-lg-3" href="#" onclick="this.closest('form').submit()">Cerrar Sesion</a>
+                <a class="btn btn-danger ml-lg-3" href="#" onclick="this.closest('form').submit()">Cerrar Sesion</a>
             </form>
             @endauth
           </ul>
