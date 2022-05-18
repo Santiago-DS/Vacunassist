@@ -22,6 +22,7 @@ class TurnoController extends Controller
 
     public function edit($id) {
         echo "$id";
+        Turno::where("id", $id)->update(["estado" => "cancelado"]);
         return Turno::find($id);
     }
 
