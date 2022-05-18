@@ -164,6 +164,7 @@
             <th scope="col">Vacuna</th>
             <th scope="col">Fecha del turno</th>
             <th scope="col">Zona</th>
+            <th scope="col">idturno</th>
             <th scope="col">Vacunatorio</th>
             <th scope="col">Acciones</th>
           </tr>        
@@ -171,12 +172,10 @@
         <tbody>
         <?php 
             $id_usuario=auth()->id();
-
-        
             $turnos = DB::table('turnos')
-            ->distinct()
             ->join('vacunas', 'vacunas.id', '=', 'turnos.id_vacuna')
             ->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
+            ->select('turnos.*')
             ->where('id_paciente', $id_usuario)
             ->where('estado' , 'pendiente')
             ->get();
@@ -189,9 +188,11 @@
         @foreach ($turnos as $turno)
                 
         <tr>
-          <th scope="row">{{ $turno->nombreVacuna }}</th>
-          <td>{{ $turno->fecha }}</td>
-          <td>{{ $turno->nombreZona }}</td>
+            <td>{{ $turno->id_vacuna}}</td>
+            <td>{{ $turno->fecha}}</td>
+            <td>{{ $turno->id_zona}}</td>
+            <td>{{ $turno->id}}</td>
+          
           
           <td>Vacunatorio </td>
           <td>
