@@ -178,12 +178,7 @@
             ->select('turnos.*')
             ->where('id_paciente', $id_usuario)
             ->where('estado' , 'pendiente')
-            ->get();
-
-            dump($turnos)
-                      
-
-          
+            ->get();        
         ?>
         @foreach ($turnos as $turno)
                 
