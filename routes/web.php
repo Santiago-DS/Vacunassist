@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HistoriaclinicaController;
+use App\Models\HistoriaClinica;
+use Illuminate\Support\Facades\App;
+use Barryvdh\DomPDF\Facade as PDF;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,6 +52,25 @@ Route::view('formhistoriaclinica', 'formhistoriaclinica')->name('formhistoriacli
 Route::get('contactanos', [MailController::class, 'send']);
 
 Route::get('turnos/{id}', [TurnoController::class, 'edit'])->name('turnos.edit');
+
+Route::view('prueba', 'prueba')->name('prueba')->middleware('auth');
+
+Route::get('prueba-pdf', function(){
+
+        $vacunas = Historiaclinica::All();
+        $pdf = PDF::loadView('prueba' , compact('vacunas'));
+
+        //$pdf = App::make('dompdf.wrapper');
+        //$pdf->loadView('prueba');
+        //return $pdf->stream();
+
+
+
+        return $pdf->download('prueba.pdf');
+
+
+})->name('prueba-pdf');
+
 
 /*
 |--------------------------------------------------------------------------

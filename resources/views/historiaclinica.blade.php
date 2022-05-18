@@ -141,7 +141,8 @@
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                         <a class="btn btn-warning ml-lg-3" href="/formhistoriaclinica">Agregar</a>
-                                         
+                                        <a class="btn btn-danger ml-lg-3" target="_blank" href="{{ route('prueba-pdf') }}">Emitir Certificado</a>
+
                                         </ol>
                                     </nav>
                                 </div>
@@ -173,9 +174,13 @@
         @foreach ($historiasclinica as $historiaclinica)
           <tr>
             <th scope="row">{{ $historiaclinica->nombreVacuna }}</th>
-            <td>{{ $historiaclinica->fecha }}</td>
+             <?php $date = date_create($historiaclinica->fecha) 
+                
+             
+             ?>
+            <td><?php echo date_format($date,"d/m/Y") ?></td>
           </tr>
-          @endforeach
+        @endforeach
         </tbody>
       </table>
     </div>
