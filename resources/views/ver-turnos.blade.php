@@ -164,7 +164,6 @@
             <th scope="col">Vacuna</th>
             <th scope="col">Fecha del turno</th>
             <th scope="col">Zona</th>
-            <th scope="col">idturno</th>
             <th scope="col">Vacunatorio</th>
             <th scope="col">Acciones</th>
           </tr>        
@@ -173,30 +172,25 @@
         <?php 
             $id_usuario=auth()->id();
             $turnos = DB::table('turnos')
+            ->select('turnos.id AS id_turno' , 'turnos.id_vacuna' , 
+            'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna' , 'zonas.nombreZona')
             ->join('vacunas', 'vacunas.id', '=', 'turnos.id_vacuna')
             ->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
-            ->select('turnos.*')
             ->where('id_paciente', $id_usuario)
             ->where('estado' , 'pendiente')
             ->get();        
         ?>
-        @foreach ($turnos as $turno)
-                
+        @foreach ($turnos as $turno)       
         <tr>
-            <td>{{ $turno->id_vacuna}}</td>
+            <td>{{ $turno->nombreVacuna}}</td>
             <td>{{ $turno->fecha}}</td>
-            <td>{{ $turno->id_zona}}</td>
-            <td>{{ $turno->id}}</td>
-          
-          
-          <td>Vacunatorio </td>
-          <td>
-          
-          <a href="{{ route('turnos.edit', ['id'=>$turno->id]) }}" class="btn btn-danger"><i class="far fa-trash-alt"></i> Cancelar turno </button>
-          </td>
+            <td>{{ $turno->nombreZona}}</td>
+            <td>HARDCODEAR AQUI</td>
+            <td>  
+                <a href="{{ route('turnos.edit', ['id'=>$turno->id_turno]) }}" class="btn btn-danger"><i class="far fa-trash-alt"></i> Cancelar turno </button>
+            </td>
         </tr>
-      @endforeach
-        
+        @endforeach
         </tbody>
       </table>
     </div>
