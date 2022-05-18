@@ -47,6 +47,8 @@ Route::view('formhistoriaclinica', 'formhistoriaclinica')->name('formhistoriacli
 
 Route::get('contactanos', [MailController::class, 'send']);
 
+Route::get('turnos/{id}', [TurnoController::class, 'edit'])->name('turnos.edit');
+
 /*
 |--------------------------------------------------------------------------
 | Post Routes
