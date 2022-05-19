@@ -9,9 +9,7 @@ class TurnoController extends Controller
 {
 
     public function store(){
-
-        if (usuarioNoTieneTurno()){
-
+        
         Turno::create([ 
             'fecha' => request()->get('fecha'),
             'hora' => new DateTime('today'),
@@ -19,7 +17,6 @@ class TurnoController extends Controller
             'id_zona' => request()->get('zona'),
             'id_vacuna' => request()->get('vacuna'),
         ]);
-    }
         return redirect('home');
         
     }
