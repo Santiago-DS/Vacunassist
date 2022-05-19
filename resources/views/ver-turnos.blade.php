@@ -213,8 +213,8 @@
     @if (session('eliminar') == 'ok')
     <script>
         Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
+        'Cancelado!',
+        'El turno se cancelo correctamente.',
         'success'
     )
     </script>
@@ -224,13 +224,14 @@
         $('.formulario-eliminar').submit(function(e){
             e.preventDefault();
             Swal.fire({
-  title: 'Esta seguro de cancelar el turno?',
-  text: "queseyo",
+  title: '¿Está seguro de cancelar el turno?',
+  text: "el turno se cancelara definitivamente",
   icon: 'warning',
   showCancelButton: true,
   confirmButtonColor: '#3085d6',
   cancelButtonColor: '#d33',
-  confirmButtonText: 'Si, cancelar!'
+  confirmButtonText: 'Aceptar!',
+  cancelButtonText: 'Cancelar'
 }).then((result) => {
   if (result.isConfirmed) {
     this.submit();
