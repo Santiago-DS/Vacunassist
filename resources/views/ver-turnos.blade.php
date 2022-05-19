@@ -187,7 +187,10 @@
             <td>{{ $turno->nombreZona}}</td>
             <td>HARDCODEAR AQUI</td>
             <td>  
-                <a href="{{ route('turnos.edit', ['id'=>$turno->id_turno]) }}" class="btn btn-danger"><i class="far fa-trash-alt"></i> Cancelar turno </button>
+                <form action="{{ route('turnos.edit', ['id'=>$turno->id_turno]) }}" method="get" class="formulario-eliminar">
+                    <button type="submit" class="btn btn-danger">
+                    <i class="far fa-trash-alt"></i> Cancelar turno </button>
+                </form>
             </td>
         </tr>
         @endforeach
@@ -207,4 +210,32 @@
         @include('partials.footer')
         </div>
     </body>
+    @if (session('eliminar') == 'ok')
+    <script>
+        Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+    )
+    </script>
+@endif
+    <script>
+        
+        $('.formulario-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+  title: 'Esta seguro de cancelar el turno?',
+  text: "queseyo",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Si, cancelar!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    this.submit();
+  }
+})
+        });
+    </script>
 </html>

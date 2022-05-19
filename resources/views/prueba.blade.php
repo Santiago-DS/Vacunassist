@@ -88,6 +88,7 @@ caption {
 }
   </style>
 <body>   
+  <h2>Certificado de Vacunacion</h2>
 <table>
     <thead>
       <tr>
@@ -103,7 +104,12 @@ caption {
     @foreach ($historiasclinica as $historiaclinica)
       <tr>
         <th scope="row">{{ $historiaclinica->nombreVacuna }}</th>
-        <td>{{ $historiaclinica->fecha }}</td>
+        <?php $date = date_create($historiaclinica->fecha) 
+           
+        
+        ?>
+       <td><?php echo date_format($date,"d/m/Y") ?></td>
+        
       </tr>
     @endforeach
     </tbody>
