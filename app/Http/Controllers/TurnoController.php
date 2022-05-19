@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use DateTime;
 use Illuminate\Http\Request;
 use App\Models\Turno;
+use App\Http\Controllers\MailController;
 
 class TurnoController extends Controller
 {
@@ -17,6 +18,10 @@ class TurnoController extends Controller
             'id_zona' => request()->get('zona'),
             'id_vacuna' => request()->get('vacuna'),
         ]);
+
+        $controlador = new MailController;
+        $controlador->send(); 
+
         return redirect('home');
         
     }

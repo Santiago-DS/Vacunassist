@@ -11,7 +11,8 @@ class MailController extends Controller
     // Envia el mail , se llama en routes/Web.php mediante el controlador
     public function send() {
         $correo = new TurnoMailable;
-        Mail::to('othazlorena@gmail.com')->send($correo);
+        Mail::to(auth()->user()->email)->send($correo);
         return "Mensaje enviado";
     }
+
 }
