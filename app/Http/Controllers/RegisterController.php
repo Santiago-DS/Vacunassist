@@ -18,6 +18,8 @@ class RegisterController extends Controller
         'apellido'=> request()->get('apellido'),
         'direccion'=> request()->get('direccion'),
         'telefono' => request()->get('telefono'),
+        'documento' => request()->get('documento'),
+        'fecha_nacimiento' => request()->get('fecha_nacimiento'),
         ]);
 
         // Una vez registrado, lo mandamos al home pero para eso la sesion debe estar iniciada

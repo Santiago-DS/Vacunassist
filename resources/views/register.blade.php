@@ -55,27 +55,53 @@
                             </div>
                         </div>
 
-                        <div class="d-flex flex-row align-items-center mb-2">
+                        <div class="d-flex flex-row align-items-center mb-3">
                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
                               <label class="form-label">Contraseña</label>
                               <input type="password" name='password' class="form-control"/>  
                             </div>
                         </div>
-      
+                        <div class="d-flex flex-row align-items-center mb-3">
+                          <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                          <div class="form-outline flex-fill mb-0">
+                            <label class="form-label">Repetir Contraseña</label>
+                            <input type="password" class="form-control"/>  
+                          </div>
+                      </div>
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <button type="submit" class="btn btn-primary btn-lg">Registrarse</button>
+                        </div>
                     </div>
                     
                     <div class="col-md-10 col-lg-6 col-xl-7 f-flex align-items-center order-1 order-lg-2">
                         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid">
                     <div class="d-flex flex-row align-items-right mb-2">
+
+                      </div>
+                        <div class="f-flex align-items-center mb-2">
+                          <i class="fas fa-user fa-lg me-1 fa-fw"></i>
+                          <div class="form-outline mb-4" style="margin-right: 70%">
+                            <label class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" name='fecha_nacimiento' class="form-control"/>  
                         </div>
+                        <div class="f-flex align-items-center mb-2">
+                          <i class="fas fa-user fa-lg me-1 fa-fw"></i>
+                          <div class="form-outline mb-0" style="margin-right: 70%">
+                            <label class="form-label">Documento</label>
+                            <input type="text" name='documento' class="form-control"/>  
+                          </div>
+                          <div>
+                            <br><br>
                             <label>¿Cúantas dosis tenés de la vacuna contra el COVID?</label><br><br>
                             <input type="checkbox" id="cbox1" value="first_checkbox"> Ningna</label><br><br>
                             <input type="checkbox" id="cbox1" value="first_checkbox"> 1 Dosis</label><br><br>
-                            <input type="checkbox" id="cbox1" value="first_checkbox"> 2 Dosis</label><br><br>
-                            <br><br>
-                            <button style="margin-left: 65%" type="submit" class="btn btn-primary btn-lg">Registrarse</button>
-                        </div>
+                            <input type="checkbox" id="cbox1" value="first_checkbox"> 2 Dosis</label><br><br>   
+                          </div> 
+                        </div>             
+                      </div>
+                            
+                    </div>
                         
                     </div>
                 </div>
