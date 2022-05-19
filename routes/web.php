@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HistoriaclinicaController;
 use App\Models\HistoriaClinica;
 use Illuminate\Support\Facades\App;
-use Barryvdh\DomPDF\Facade as PDF;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +41,7 @@ Route::view('ver-turnos', 'ver-turnos')->name('ver-turnos')->middleware('auth');
 Route::view('solicitar-turno', 'solicitar-turno')->name('solicitar-turno')->middleware('auth');
 Route::view('historiaclinica', 'historiaclinica')->name('historiaclinica')->middleware('auth');
 Route::view('formhistoriaclinica', 'formhistoriaclinica')->name('formhistoriaclinica')->middleware('auth');
+Route::view('generar-pdf', 'generar-pdf')->name('generar-pdf')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
@@ -50,26 +50,8 @@ Route::view('formhistoriaclinica', 'formhistoriaclinica')->name('formhistoriacli
 */
 
 Route::get('contactanos', [MailController::class, 'send']);
-
 Route::get('turnos/{id}', [TurnoController::class, 'edit'])->name('turnos.edit');
-
-Route::view('prueba', 'prueba')->name('prueba')->middleware('auth');
-
-Route::get('prueba-pdf', function(){
-
-        $vacunas = Historiaclinica::All();
-        $pdf = PDF::loadView('prueba' , compact('vacunas'));
-
-        //$pdf = App::make('dompdf.wrapper');
-        //$pdf->loadView('prueba');
-        //return $pdf->stream();
-
-
-
-        return $pdf->download('prueba.pdf');
-
-
-})->name('prueba-pdf');
+Route::get('emitir-certificado', [HistoriaclinicaController::class, 'generarPDF'])->name('emitir-certificado');
 
 
 /*

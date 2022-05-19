@@ -141,7 +141,7 @@
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                         <a class="btn btn-warning ml-lg-3" href="/formhistoriaclinica">Agregar</a>
-                                        <a class="btn btn-danger ml-lg-3" target="_blank" href="{{ route('prueba-pdf') }}">Emitir Certificado</a>
+                                        <a class="btn btn-danger ml-lg-3" target="_blank" href="{{ route('emitir-certificado') }}">Emitir Certificado</a>
 
                                         </ol>
                                     </nav>

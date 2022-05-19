@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Historiaclinica;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class HistoriaclinicaController extends Controller
 {
@@ -17,4 +18,10 @@ class HistoriaclinicaController extends Controller
     
             return redirect('historiaclinica');
     }
+
+    public function generarPDF() {
+        $pdf = PDF::loadView('generar-pdf');
+        return $pdf->download('Certificado Vacunassist.pdf');
+    }
+    
 }
