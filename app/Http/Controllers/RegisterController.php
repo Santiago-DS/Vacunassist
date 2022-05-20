@@ -16,8 +16,7 @@ class RegisterController extends Controller
 
         //Validacion
         request()->validate([
-            'nombre' => 'required'
-            
+            '*' => 'required' //   
         ]);
 
         User::create([ 

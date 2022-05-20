@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\App;
 |--------------------------------------------------------------------------
 */
 
-Route::view('/', 'index');
+Route::view('/', 'index')->middleware('guest');
 Route::view('login', 'login')->name('login')->middleware('guest');
 Route::view('dashboard', 'dashboard')->middleware('auth');
 Route::view('home', 'home')->name('home')->middleware('auth');

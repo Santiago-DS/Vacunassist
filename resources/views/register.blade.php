@@ -57,7 +57,7 @@
                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
                               <label class="form-label">Teléfono</label>
-                              <input type="text" name='telefono' class="form-control"/> \                            @error('nombre') <small style="color: red" >*{{ $message }}</small> @enderror
+                              <input type="text" name='telefono' class="form-control"/>                           
                               @error('telefono') <small style="color: red" >*{{ $message }}</small> @enderror
   
                             </div>
