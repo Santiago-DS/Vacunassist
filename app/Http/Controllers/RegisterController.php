@@ -9,7 +9,16 @@ use App\Models\User;
 
 class RegisterController extends Controller
 {
+
+    
+
     public function store() {
+
+        //Validacion
+        request()->validate([
+            'nombre' => 'required'
+            
+        ]);
 
         User::create([ 
         'name'=> request()->get('nombre'),

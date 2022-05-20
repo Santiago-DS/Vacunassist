@@ -19,6 +19,7 @@
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label">Nombre</label>
                             <input type="text" name='nombre' class="form-control"/>
+                            @error('nombre') <small style="color: red" >*{{ $message }}</small> @enderror
                           </div>
                         </div>
 
@@ -27,7 +28,8 @@
                             <div class="form-outline flex-fill mb-0">
                                 <label class="form-label">Apellido</label>
                                 <input type="text" name='apellido' class="form-control"/>
-                              
+                                @error('apellido') <small style="color: red" >*{{ $message }}</small> @enderror
+
                             </div>
                         </div>
 
@@ -35,7 +37,9 @@
                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
                               <label class="form-label">Correo</label>
-                              <input type="email" name="email" class="form-control"/>    
+                              <input type="email" name="email" class="form-control"/> 
+                              @error('email') <small style="color: red" >*{{ $message }}</small> @enderror
+   
                             </div>
                         </div>
 
@@ -44,6 +48,8 @@
                             <div class="form-outline flex-fill mb-0">
                               <label class="form-label">Dirección</label>
                               <input type="text" name='direccion' class="form-control"/>
+                              @error('direccion') <small style="color: red" >*{{ $message }}</small> @enderror
+
                             </div>
                         </div>
 
@@ -51,7 +57,9 @@
                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
                               <label class="form-label">Teléfono</label>
-                              <input type="text" name='telefono' class="form-control"/>   
+                              <input type="text" name='telefono' class="form-control"/> \                            @error('nombre') <small style="color: red" >*{{ $message }}</small> @enderror
+                              @error('telefono') <small style="color: red" >*{{ $message }}</small> @enderror
+  
                             </div>
                         </div>
 
@@ -59,14 +67,18 @@
                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
                               <label class="form-label">Contraseña</label>
-                              <input type="password" name='password' class="form-control"/>  
+                              <input type="password" name='password' class="form-control"/> 
+                              @error('password') <small style="color: red" >*{{ $message }}</small> @enderror
+ 
                             </div>
                         </div>
                         <div class="d-flex flex-row align-items-center mb-3">
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label">Repetir Contraseña</label>
-                            <input type="password" class="form-control"/>  
+                            <input name='password-confirm' type="password" class="form-control"/> 
+                            @error('password-confirm') <small style="color: red" >*{{ $message }}</small> @enderror
+ 
                           </div>
                       </div>
                         <div class="d-flex flex-row align-items-center mb-4">
@@ -83,13 +95,17 @@
                           <i class="fas fa-user fa-lg me-1 fa-fw"></i>
                           <div class="form-outline mb-4" style="margin-right: 70%">
                             <label class="form-label">Fecha de Nacimiento</label>
-                            <input type="date" name='fecha_nacimiento' class="form-control"/>  
+                            <input type="date" name='fecha_nacimiento' class="form-control"/> 
+                            @error('fecha_nacimiento') <small style="color: red" >*{{ $message }}</small> @enderror
+ 
                         </div>
                         <div class="f-flex align-items-center mb-2">
                           <i class="fas fa-user fa-lg me-1 fa-fw"></i>
                           <div class="form-outline mb-0" style="margin-right: 70%">
                             <label class="form-label">Documento</label>
                             <input type="text" name='documento' class="form-control"/>  
+                            @error('documento') <small style="color: red" >*{{ $message }}</small> @enderror
+
                           </div>
                           <div>
                             <br><br>
