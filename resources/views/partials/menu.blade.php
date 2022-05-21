@@ -61,10 +61,7 @@
                                 </div>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fas fa-fw fa-chart-pie"></i>Chart</a>
 
-                            </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="ver-turnos"><i class="fab fa-fw fa-wpforms"></i>Ver Turnos</a>
 
