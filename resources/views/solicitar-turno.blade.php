@@ -16,17 +16,17 @@
         <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
         <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     </head>
-    
+
     <body>
 
 
     <div class="dashboard-main-wrapper">
             <div class="dashboard-header">
                 <nav class="fixed-top">
-                    @include('partials.nav')  
+                    @include('partials.nav')
                 </nav>
             </div>
-    
+
         @include('partials.menu')
 
         <div class="dashboard-wrapper">
@@ -37,13 +37,12 @@
 
 
                             <div class="page-header">
-                                <h2 class="pageheader-title">E-commerce Dashboard Template </h2>
-                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                <h2 class="pageheader-title">Gestión de Turnos</h2>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">E-Commerce Dashboard Template</li>
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Solicitar Turno</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -53,7 +52,7 @@
                                 <h5 class="card-header">Solicitar turno</h5>
                                 <div class="card-body">
                                     <form action="{{ route('solicitar-turno') }}" method="POST">
-                                        @csrf 
+                                        @csrf
                                         <div class="form-group">
                                             <label for="inputUserName">Seleccione una vacuna</label>
                                             <select class="form-control" aria-label="Default select example" name="vacuna">
@@ -62,7 +61,7 @@
                                                       <option value ="{{ $vacuna->id }}"> {{ $vacuna->nombreVacuna }} </option>
                                                     @endforeach
                                               </select>
-                                            
+
                                         </div>
                                         <div class="form-group">
                                             <label for="inputUserName">Zona</label>
@@ -72,16 +71,16 @@
                                                       <option value ="{{ $zona->id }}"> {{ $zona->nombreZona }}</option>
                                                     @endforeach
                                               </select>
-                                            
+
                                         </div>
-                    
+
                                         <div class="form-group">
                                             <label for="inputRepeatPassword">Fecha del Turno</label>
                                             <input type="date" name="fecha" data-parsley-equalto="#inputPassword" required="" placeholder="Password" class="form-control">
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                                                
+
                                             </div>
                                             <div class="col-sm-6 pl-0">
                                                 <p class="text-right">
@@ -100,11 +99,11 @@
         </div>
                 </div>
             </div>
-            
+
         </div>
-        
+
         </div>
-        
+
         @include('partials.footer')
         </div>
     </body>
@@ -114,7 +113,7 @@
 
 
 
-    
+
     <!-- ============================================================== -->
     <!-- end basic form -->
     <!-- ============================================================== -->

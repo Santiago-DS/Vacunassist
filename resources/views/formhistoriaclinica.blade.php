@@ -16,14 +16,14 @@
         <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
         <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     </head>
-    
+
     <body>
-       
+
         <div class="dashboard-main-wrapper">
 
                 <div class="dashboard-header">
                     <nav class="fixed-top">
-                        @include('partials.nav')  
+                        @include('partials.nav')
                     </nav>
                 </div>
 
@@ -35,13 +35,12 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title"> Registro de vacunas </h2>
-                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                <h2 class="pageheader-title">Gestión de Vacunas</h2>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                       
-                                         
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Agregar Vacuna</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -49,14 +48,14 @@
                         </div>
                     </div>
                     <div class="ecommerce-widget">
-                    
-             
+
+
             <div class="col-xl-5 col-lg-12 col-md-6 col-sm-12 col-12">
                 <div class="card">
                     <h5 class="card-header">Agregar Vacuna</h5>
                     <div class="card-body">
                         <form action="{{ route('formhistoriaclinica') }}" method="POST">
-                            @csrf 
+                            @csrf
                             <div class="form-group">
                                 <label for="inputUserName">Seleccione una vacuna</label>
                                 <select class="form-control" aria-label="Default select example" name="vacuna">
@@ -72,23 +71,23 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                                    
+
                                 </div>
                             </div>
-                                    
+
                                         <button type="submit" class="btn btn-space btn-primary">Submit</button>
                                         <button class="btn btn-space btn-secondary">Cancel</button>
                         </div>
-                                
+
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         </div>
-        
+
         @include('partials.footer')
         </div>
     </body>

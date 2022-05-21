@@ -8,7 +8,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav flex-column">
+                        <ul class="navbar-nav flex-column" style="border: none">
                             <li class="nav-divider">
                                 Menu
                             </li>
@@ -60,18 +60,18 @@
                                     </ul>
                                 </div>
                             </li>
-                          
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#"><i class="fas fa-fw fa-chart-pie"></i>Chart</a>
-                
+
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="ver-turnos"><i class="fab fa-fw fa-wpforms"></i>Ver Turnos</a>
-                               
+
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="solicitar-turno"><i class="fas fa-fw fa-table"></i>Solicitar Turno</a>
-                               
+
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-file"></i>Historia Clínica</a>
@@ -86,8 +86,8 @@
                                     </ul>
                                 </div>
                             </li>
-                            
-                      
+
+
                         </ul>
                     </div>
                 </nav>

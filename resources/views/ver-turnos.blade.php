@@ -16,34 +16,33 @@
         <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
         <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     </head>
-    
+
     <body>
-                        
-        
-        
+
+
+
         <div class="dashboard-main-wrapper">
 
             <div class="dashboard-header">
                 <nav class="fixed-top">
-                    @include('partials.nav')  
+                    @include('partials.nav')
                 </nav>
             </div>
 
         @include('partials.menu')
-        
+
         <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">
                 <div class="container-fluid dashboard-content ">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">E-commerce Dashboard Template </h2>
-                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                <h2 class="pageheader-title">Gestión de Turnos</h2>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">E-Commerce Dashboard Template</li>
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Ver Turnos</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -51,12 +50,12 @@
                         </div>
                     </div>
                     <div class="ecommerce-widget">
-                    
+
                 <div class="row">
         <div class="col-xl-9 col-lg-8 col-md-11 col-sm-12 col-2">
             <div class="card">
                 <h5 class="card-header">Mis turnos</h5>
-                <div class="card-body">           
+                <div class="card-body">
                 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -66,29 +65,27 @@
             <th scope="col">Vacuna</th>
             <th scope="col">Fecha del turno</th>
             <th scope="col">Zona</th>
-            <th scope="col">Vacunatorio</th>
             <th scope="col">Acciones</th>
-          </tr>        
+          </tr>
         </thead>
         <tbody>
-        <?php 
+        <?php
             $id_usuario=auth()->id();
             $turnos = DB::table('turnos')
-            ->select('turnos.id AS id_turno' , 'turnos.id_vacuna' , 
+            ->select('turnos.id AS id_turno' , 'turnos.id_vacuna' ,
             'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna' , 'zonas.nombreZona')
             ->join('vacunas', 'vacunas.id', '=', 'turnos.id_vacuna')
             ->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
             ->where('id_paciente', $id_usuario)
             ->where('estado' , 'pendiente')
-            ->get();        
+            ->get();
         ?>
-        @foreach ($turnos as $turno)       
+        @foreach ($turnos as $turno)
         <tr>
             <td>{{ $turno->nombreVacuna}}</td>
             <td>{{ $turno->fecha}}</td>
             <td>{{ $turno->nombreZona}}</td>
-            <td>HARDCODEAR AQUI</td>
-            <td>  
+            <td>
                 <form action="{{ route('turnos.edit', ['id'=>$turno->id_turno]) }}" method="get" class="formulario-eliminar">
                     <button type="submit" class="btn btn-danger">
                     <i class="far fa-trash-alt"></i> Cancelar turno </button>
@@ -100,7 +97,7 @@
       </table>
     </div>
   </div>
-</div>    
+</div>
                     </div>
                 </div>
             </div>
@@ -122,7 +119,7 @@
     </script>
 @endif
     <script>
-        
+
         $('.formulario-eliminar').submit(function(e){
             e.preventDefault();
             Swal.fire({
@@ -132,7 +129,7 @@
   showCancelButton: true,
   confirmButtonColor: '#3085d6',
   cancelButtonColor: '#d33',
-  confirmButtonText: 'Aceptar!',
+  confirmButtonText: 'Aceptar',
   cancelButtonText: 'Cancelar'
 }).then((result) => {
   if (result.isConfirmed) {
