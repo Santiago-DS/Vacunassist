@@ -74,9 +74,7 @@
 
                                 </div>
                             </div>
-
-                                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                        <button class="btn btn-space btn-secondary">Cancel</button>
+                                <button type="submit" class="col-sm-3 pl-3 btn btn-space btn-primary">Agregar</button>
                         </div>
 
                             </div>
