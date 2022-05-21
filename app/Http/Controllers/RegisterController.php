@@ -19,9 +19,8 @@ class RegisterController extends Controller
             '*' => 'required',              // Todos los campos obligatorios
             'email' => ' email | required | unique:users,email' , // obligatorio + unico
             'documento' => 'required | unique:users,documento', // obligatorio + unico
-            'password' => 'required',
-            'password' => 'min:6|required_with:password-confirm|same:password-confirmn',
-            'password-confirm' => 'min:6'
+            'password' => 'min:6| same:password-confirm',
+            'password-confirm' => 'min:6 | required | same:password'
         ]);
 
         User::create([
