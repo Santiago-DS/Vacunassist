@@ -38,12 +38,16 @@
                                 <div class="page-header">
                                     <h2 class="pageheader-title">Historia Clínica</h2>
                                     <div class="page-breadcrumb">
+
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></li>
                                                 <li class="breadcrumb-item active" aria-current="page">Mis Vacunas</li>
                                             </ol>
                                         </nav>
+                                            <br>
+                                            <a class="btn btn-warning ml-lg-3" href="/formhistoriaclinica">Agregar</a>
+                                            <a class="btn btn-danger ml-lg-3" target="_blank" href="{{ route('emitir-certificado') }}">Emitir Certificado</a>
                                     </div>
                                 </div>
 

@@ -169,7 +169,7 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                                 </div>
                             </div>
 
-                                        <button type="submit" class="btn btn-space btn-secondary">Guardar</button>
+                            <button type="submit" class="btn btn-space btn-secondary">Guardar</button>
                         </div>
 
                             </div>
