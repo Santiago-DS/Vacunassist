@@ -91,4 +91,4 @@
             </div>
         </div>
 
-        @include('partials.menu-scripts');
+        @include('partials.menu-scripts')

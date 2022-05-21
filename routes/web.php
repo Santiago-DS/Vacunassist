@@ -43,6 +43,8 @@ Route::view('historiaclinica', 'historiaclinica')->name('historiaclinica')->midd
 Route::view('formhistoriaclinica', 'formhistoriaclinica')->name('formhistoriaclinica')->middleware('auth');
 Route::view('generar-pdf', 'generar-pdf')->name('generar-pdf')->middleware('auth');
 Route::view('miperfil', 'miperfil')->name('miperfil')->middleware('auth');
+Route::view('turno-automatico-registro', 'turno-automatico-registro')->name('turno-automatico-registro')->middleware('auth');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -66,3 +68,4 @@ Route::post('logout', [LoginController::class, 'logout']);
 Route::post('register', [RegisterController::class, 'store']);
 Route::post('solicitar-turno', [TurnoController::class, 'store']);
 Route::post('formhistoriaclinica', [HistoriaclinicaController::class, 'store']);
+Route::post('turno-automatico-registro', [TurnoController::class, 'turnoAutomatico']);
