@@ -17,9 +17,9 @@ class RegisterController extends Controller
         //Validacion
         request()->validate([
             '*' => 'required',              // Todos los campos obligatorios
-            'email' => 'required | unique:users,email' , // obligatorio + unico
+            'email' => ' email | required | unique:users,email' , // obligatorio + unico
             'documento' => 'required | unique:users,documento', // obligatorio + unico
-            'password' => 'required | unique:users,documento',
+            'password' => 'required',
             'password' => 'min:6|required_with:password-confirm|same:password-confirmn',
             'password-confirm' => 'min:6'
         ]);

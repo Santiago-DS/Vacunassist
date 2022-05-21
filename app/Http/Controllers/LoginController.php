@@ -9,15 +9,16 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     public function login(){
-        $credentials = request()->validate([ 
-            'email' => ['required','email','string'],
-            'password' => ['required','string'] 
+        $credentials = request()->validate([
+            'email' => 'email| required | exists:users',
+            'password' => 'required',
         ]);
-    
+
         if (Auth::attempt($credentials)){
           request()->session()->regenerate();
           return redirect('home');
         }
+
         return redirect('login');
     }
 

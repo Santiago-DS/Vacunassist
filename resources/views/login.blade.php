@@ -23,7 +23,7 @@
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label">Correo</label>
-                            <input name="email" type="email" autofous value="{{ old('email') }}" class="form-control">
+                            <input name="email" type="email" autofocus value="{{ old('email') }}" class="form-control">
                             @error('email')<small style="color: red" class="error">*{{ $message }}</small>@enderror
                           </div>
                         </div>
