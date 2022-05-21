@@ -16,14 +16,14 @@
         <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
         <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     </head>
-    
+
     <body>
-     
+
         <div class="dashboard-main-wrapper">
-            
+
                 <div class="dashboard-header">
                     <nav class="fixed-top">
-                        @include('partials.nav')  
+                        @include('partials.nav')
                     </nav>
                 </div>
 
@@ -35,27 +35,28 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title"> Historia clínica </h2>
-                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
-                                <div class="page-breadcrumb">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                        <a class="btn btn-warning ml-lg-3" href="/formhistoriaclinica">Agregar</a>
-                                        <a class="btn btn-danger ml-lg-3" target="_blank" href="{{ route('emitir-certificado') }}">Emitir Certificado</a>
-
-                                        </ol>
-                                    </nav>
+                                <div class="page-header">
+                                    <h2 class="pageheader-title">Historia Clínica</h2>
+                                    <div class="page-breadcrumb">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Mis Vacunas</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                     <div class="ecommerce-widget">
-                    
+
                 <div class="row">
                     <div class="col-xl-5 col-lg-12 col-md-6 col-sm-12 col-12">
             <div class="card">
                 <h5 class="card-header">Mis vacunas</h5>
-                <div class="card-body">           
+                <div class="card-body">
                 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -64,19 +65,19 @@
           <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Fecha de vacunación</th>
-          </tr>        
+          </tr>
         </thead>
         <tbody>
-        <?php 
+        <?php
             $id_usuario=auth()->id();
-            $historiasclinica = DB::table('historiaclinica')->distinct()->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')->where('id_paciente', $id_usuario)->get();     
+            $historiasclinica = DB::table('historiaclinica')->distinct()->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')->where('id_paciente', $id_usuario)->get();
         ?>
         @foreach ($historiasclinica as $historiaclinica)
           <tr>
             <th scope="row">{{ $historiaclinica->nombreVacuna }}</th>
-             <?php $date = date_create($historiaclinica->fecha) 
-                
-             
+             <?php $date = date_create($historiaclinica->fecha)
+
+
              ?>
             <td><?php echo date_format($date,"d/m/Y") ?></td>
           </tr>
@@ -85,18 +86,18 @@
       </table>
     </div>
   </div>
-</div>    
+</div>
                     </div>
                 </div>
             </div>
         </div>
                 </div>
             </div>
-            
+
         </div>
-        
+
         </div>
-        
+
         @include('partials.footer')
         </div>
     </body>
