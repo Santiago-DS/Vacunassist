@@ -10,16 +10,21 @@ use App\Models\User;
 class RegisterController extends Controller
 {
 
-    
+
 
     public function store() {
 
         //Validacion
         request()->validate([
-            '*' => 'required' //   
+            '*' => 'required',              // Todos los campos obligatorios
+            'email' => 'required | unique:users,email' , // obligatorio + unico
+            'documento' => 'required | unique:users,documento', // obligatorio + unico
+            'password' => 'required | unique:users,documento',
+            'password' => 'min:6|required_with:password-confirm|same:password-confirmn',
+            'password-confirm' => 'min:6'
         ]);
 
-        User::create([ 
+        User::create([
         'name'=> request()->get('nombre'),
         'email'=>request()->get('email'),
         'password'=> bcrypt(request()->get('password')),
