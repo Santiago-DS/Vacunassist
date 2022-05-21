@@ -12,8 +12,8 @@
                             <li class="nav-divider">
                                 Menu
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" ><i class="fa fa-fw fa-user-circle"></i>Mi Perfil <span class="badge badge-success">6</span></a>
+                            <li class="nav-item" href="/miperfil">
+                                <a class="nav-link"><i class="fa fa-fw fa-user-circle"></i>Mi Perfil <span class="badge badge-success">6</span></a>
                                 <div id="submenu-1" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">

@@ -42,6 +42,7 @@ Route::view('solicitar-turno', 'solicitar-turno')->name('solicitar-turno')->midd
 Route::view('historiaclinica', 'historiaclinica')->name('historiaclinica')->middleware('auth');
 Route::view('formhistoriaclinica', 'formhistoriaclinica')->name('formhistoriaclinica')->middleware('auth');
 Route::view('generar-pdf', 'generar-pdf')->name('generar-pdf')->middleware('auth');
+Route::view('miperfil', 'miperfil')->name('miperfil')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
