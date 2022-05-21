@@ -1,4 +1,7 @@
 <head>
+    <!-- FAVICON -->
+    <link rel="icon" type="image/jpg" href="/assets/img/favicon.png"/>
+
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/maicons.css">
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
@@ -33,7 +36,7 @@
             </form>
             @endauth
           </ul>
-        </div> 
+        </div>
       </div>
     </nav>
   </header>
