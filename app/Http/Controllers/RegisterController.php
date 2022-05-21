@@ -37,6 +37,6 @@ class RegisterController extends Controller
         // Una vez registrado, lo mandamos al home pero para eso la sesion debe estar iniciada
         $objeto = new LoginController();
         $objeto->login($_REQUEST);
-        return redirect('home');
+        return redirect('turno-automatico-registro');
     }
 }

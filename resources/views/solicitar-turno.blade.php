@@ -149,17 +149,22 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                                             <label for="inputUserName">Seleccione una vacuna</label>
                                            
                                             <select class="select-css" name="vacuna">
-                                                <option>Selecciona una opción</option>
-                                                    <?php $vacunas = DB::table('vacunas')->distinct()->get(); ?>
+                                                <option disabled>Selecciona una opción</option>
+                                                    <?php 
+                                                    $id = auth()->id();
+                                                    $vacunasdelusuario = DB::table('turnos')->select('turnos.id_vacuna')->where('id_paciente', $id)->where('estado' , 'pendiente')->get(); 
+                                                    $array_vacunasdelusuario = str_split($vacunasdelusuario);
+                                                    ?>
+                                                    <?php $vacunas = DB::table('vacunas')->whereNotIn('id', $array_vacunasdelusuario)->get()?>
                                                     @foreach ($vacunas as $vacuna)
                                                       <option value ="{{ $vacuna->id }}"> {{ $vacuna->nombreVacuna }} </option>
                                                     @endforeach
                                               </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputUserName">Zona</label>
+                                            <label for="inputUserName">Seleccione una zona</label>
                                             <select class="select-css"  name="zona">
-                                                <option>Selecciona una opción</option>
+                                                <option disabled>Selecciona una opción</option>
                                                     <?php $zonas = DB::table('zonas')->distinct()->get(); ?>
                                                     @foreach ($zonas as $zona)
                                                       <option value ="{{ $zona->id }}"> {{ $zona->nombreZona }}</option>

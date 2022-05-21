@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HistoriaclinicaController;
 use App\Models\HistoriaClinica;
 use Illuminate\Support\Facades\App;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +58,7 @@ Route::get('turnos/{id}', [TurnoController::class, 'edit'])->name('turnos.edit')
 Route::get('emitir-certificado', [HistoriaclinicaController::class, 'generarPDF'])->name('emitir-certificado');
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Post Routes
@@ -69,3 +71,4 @@ Route::post('register', [RegisterController::class, 'store']);
 Route::post('solicitar-turno', [TurnoController::class, 'store']);
 Route::post('formhistoriaclinica', [HistoriaclinicaController::class, 'store']);
 Route::post('turno-automatico-registro', [TurnoController::class, 'turnoAutomatico']);
+Route::post('miperfil', [UserController::class, 'edit']);

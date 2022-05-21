@@ -17,6 +17,7 @@
     <title>Home</title>
 </head>
 
+           
 <body>
     <!-- ============================================================== -->
     <!-- main wrapper -->
@@ -64,7 +65,54 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-warning">gg</button>
+                    <div class="container rounded bg-white mt-5 mb-5">
+                        <div class="row">
+                            <div class="col-md-3 border-right">
+                                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="../assets/img/logo.png"><span class="font-weight-bold"><?php echo auth()->user()->name?></span><span class="text-black-50"><?php echo auth()->user()->email?></span><span> </span></div>
+                            </div>
+                            <div class="col-md-5 border-right">
+                                <div class="p-3 py-5">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="text-right">Configuracion</h4>
+                                    </div>
+                                    <form action="{{ route('miperfil') }}" class="mx-1 mx-md-4" method="POST">
+                                    @csrf
+                                    <div class="row mt-2">
+                                        <div class="col-md-6"><label class="labels">Nombre</label><input type="text" name="name" class="form-control" value="<?php echo auth()->user()->name?>"></div>
+                                        <div class="col-md-6"><label class="labels">Apellido</label><input type="text" name="apellido" class="form-control" value="<?php echo auth()->user()->apellido?>"></div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-12"><label class="labels">Telefono</label><input type="text" name="telefono"  class="form-control" value="<?php echo auth()->user()->telefono?>"></div>
+                                        <div class="col-md-12"><label class="labels">Direccion</label><input type="text" name="direccion"  class="form-control"  value="<?php echo auth()->user()->direccion?>"></div>
+                                        <div class="col-md-12"><label class="labels">Fecha de Nacimiento</label><input type="date" name="fecha_nacimiento"  class="form-control" value="<?php echo auth()->user()->fecha_nacimiento?>" disabled></div>
+                                        <div class="col-md-12"><label class="labels">DNI</label><input type="text" class="form-control" name="documento" value="<?php echo auth()->user()->documento?>" disabled></div>
+                                    </div>
+                                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Guardar</button></div>
+                                </div>
+                            </div>
+                        </form>
+                            <div class="col-md-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                </div>
+                                <div class="p-3 py-5">
+                                    <div class="col-md-12"><label class="labels">Contraseña Actual</label><input type="text" class="form-control" value=""></div> <br>
+                                    <div class="col-md-12"><label class="labels">Nueva Contraseña</label><input type="text" class="form-control"  value=""></div><br>
+                                    <div class="col-md-12"><label class="labels">Repetir Contraseña</label><input type="text" class="form-control" value=""></div>
+                                </div>
+        
+                                <div class="mt-0 text-center"><button class="btn btn-primary profile-button" type="button">Actualizar Contraseña</button></div>
+                            </div>
+                       
+                            
+                           
+                        </div>
+                    </div>
+                    </div>
+                    </div>
                     <!-- ============================================================== -->
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->

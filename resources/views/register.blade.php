@@ -93,7 +93,7 @@
                       </div>
                         <div class="f-flex align-items-center mb-2">
                           <i class="fas fa-user fa-lg me-1 fa-fw"></i>
-                          <div class="form-outline mb-4" style="margin-right: 70%">
+                          <div class="form-outline mb-4">
                             <label class="form-label">Fecha de Nacimiento</label>
                             <input type="date" name='fecha_nacimiento' class="form-control" value="{{ old('fecha_nacimiento')}}"/>
                             @error('fecha_nacimiento') <small style="color: red" >*{{ $message }}</small> @enderror
@@ -101,19 +101,13 @@
                         </div>
                         <div class="f-flex align-items-center mb-2">
                           <i class="fas fa-user fa-lg me-1 fa-fw"></i>
-                          <div class="form-outline mb-0" style="margin-right: 70%">
+                          <div class="form-outline mb-0">
                             <label class="form-label">Documento</label>
                             <input type="text" name='documento' class="form-control" value="{{ old('documento')}}"/>
                             @error('documento') <small style="color: red" >*{{ $message }}</small> @enderror
 
                           </div>
-                          <div>
-                            <br><br>
-                            <label>¿Cúantas dosis tenés de la vacuna contra el COVID?</label><br><br>
-                            <input type="checkbox" id="cbox1" value="first_checkbox"> Ningna</label><br><br>
-                            <input type="checkbox" id="cbox1" value="first_checkbox"> 1 Dosis</label><br><br>
-                            <input type="checkbox" id="cbox1" value="first_checkbox"> 2 Dosis</label><br><br>
-                          </div>
+                          
                         </div>
                       </div>
 

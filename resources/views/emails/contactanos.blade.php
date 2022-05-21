@@ -2,6 +2,16 @@
 
 $turno = DB::table('turnos')->latest()->first();
 
+            //$turnos2 = DB::table('turnos')->
+            //select('turnos.id AS id_turno' , 'turnos.id_vacuna' ,
+            //'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna' , 'zonas.nombreZona')
+            //->latest()->first()
+            //->join('vacunas', 'vacunas.id', '=', 'turnos.id_vacuna')
+            //->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
+            //->get();
+
+            //dump($turnos2);
+
 switch ($turno->id_vacuna) {
     case 1:
         $nombre= "COVID" ;
