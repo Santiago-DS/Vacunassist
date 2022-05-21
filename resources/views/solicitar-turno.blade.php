@@ -16,7 +16,6 @@
         <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
         <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     </head>
-<<<<<<< HEAD
     <style>
             
  
@@ -110,9 +109,6 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
         </style>
        
     
-=======
-
->>>>>>> 831d8e70a355a989a9eedf07e0a490894bb262c6
     <body>
 
 
@@ -159,12 +155,6 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                                                       <option value ="{{ $vacuna->id }}"> {{ $vacuna->nombreVacuna }} </option>
                                                     @endforeach
                                               </select>
-<<<<<<< HEAD
-                                          
-                                            
-=======
-
->>>>>>> 831d8e70a355a989a9eedf07e0a490894bb262c6
                                         </div>
                                         <div class="form-group">
                                             <label for="inputUserName">Zona</label>
