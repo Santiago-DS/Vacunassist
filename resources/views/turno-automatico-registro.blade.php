@@ -17,18 +17,21 @@
 
                           <div>
 
-                            <br><br>
+                          
                             <label>¿Cúantas dosis tenés de la vacuna contra el COVID?</label><br><br>
-                            <input type="checkbox" name="ninguna">
+                            <input type="checkbox" id="uno" name="ninguna" onclick="javascript:seleccionar();">
+                            <label for="uno">Ninguna</label><br><br>
 
-                            <br><br>
-                            <input type="checkbox" name="una_dosis">
-                            <label>1 Dosis</label><br><br>
+                         
+                            <input type="checkbox" id="dos" name="una_dosis" onclick="javascript:seleccionar();"">
+                            <label for="dos">1 Dosis</label>
+                            <p>Fecha de Aplicacion</p>
                             <input type="date" name="fecha_primera">
 
                             <br><br>
-                            <input type="checkbox" name="dos_dosis">
-                            <label>2 Dosis</label><br><br>
+                            <input type="checkbox" id="tres" name="dos_dosis" onclick="javascript:seleccionar();">
+                            <label for="tres">2 Dosis</label>
+                            <p>Fechas de Aplicacion</p>
                             <input type="date" name="fecha_primera_dos">
                             <input type="date" name="fecha_segunda">
 
@@ -54,5 +57,34 @@
       </section>
 </body>
 </html>
+<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script>
+  function seleccionar() {
+    $("#uno").on('change', function(ev){
+      ev.preventDefault();
+     
+      $("#uno").prop("checked", true);
+      $("#dos").prop("checked", false);
+      $("#tres").prop("checked", false);
 
+    });
 
+    $("#dos").on('change', function(ev){
+      ev.preventDefault();
+     
+      $("#dos").prop("checked", true);
+      $("#uno").prop("checked", false);
+      $("#tres").prop("checked", false);
+
+    });
+
+    $("#tres").on('change', function(ev){
+      ev.preventDefault();
+     
+      $("#tres").prop("checked", true);
+      $("#uno").prop("checked", false);
+      $("#dos").prop("checked", false);
+
+    });
+  }
+</script>

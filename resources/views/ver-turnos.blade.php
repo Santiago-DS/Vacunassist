@@ -148,6 +148,26 @@
     </script>
 @endif
 
+@if (session('ninguna') == 'ok')
+    <script>
+        Swal.fire(
+        'Turno exitoso!',
+        'Se generó el turno correctamente para la primer dosis de covid.',
+        'success'
+    )
+    </script>
+@endif
+
+@if (session('una_dosis') == 'ok')
+    <script>
+        Swal.fire(
+        'Turno exitoso!',
+        'Se generó el turno correctamente para la segunda dosis de covid.',
+        'success'
+    )
+    </script>
+@endif
+
 
 
 </html>

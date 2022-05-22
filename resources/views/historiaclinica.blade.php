@@ -154,6 +154,16 @@
         });
     </script>
 
+@if (session('dos_dosis') == 'ok')
+<script>
+    Swal.fire(
+    'Registro Exitoso!',
+    'Se actualizo su historia clinica correctamente.',
+    'success'
+)
+</script>
+@endif
+
 
 
 

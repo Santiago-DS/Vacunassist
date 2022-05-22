@@ -51,7 +51,7 @@ class TurnoController extends Controller
 
             $controlador = new MailController;
             $controlador->send();
-            return redirect('ver-turnos');
+            return redirect('ver-turnos')->with('ninguna','ok');
 
         }
         else if (isset($_POST['una_dosis'])) {
@@ -76,7 +76,7 @@ class TurnoController extends Controller
 
 
 
-            return redirect('ver-turnos');
+            return redirect('ver-turnos')->with('una_dosis','ok');
 
         }
         else if (isset($_POST['dos_dosis'])) {
@@ -93,7 +93,7 @@ class TurnoController extends Controller
                 'id_vacuna' => 1
             ]);
             
-            return redirect('ver-turnos');
+            return redirect('historiaclinica')->with('dos_dosis','ok');
 
         }
 
