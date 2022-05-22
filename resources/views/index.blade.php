@@ -34,36 +34,23 @@
     <div class="container">
       <div class="row px-md-3">
         <div class="col-sm-6 col-lg-3 py-3">
-          <h5>Company</h5>
+          <h5>Empresa</h5>
           <ul class="footer-menu">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Career</a></li>
-            <li><a href="#">Editorial Team</a></li>
-            <li><a href="#">Protection</a></li>
+            <li><a href="#">Sobre nosotros</a></li>
           </ul>
         </div>
         <div class="col-sm-6 col-lg-3 py-3">
-          <h5>More</h5>
+          <h5>Más</h5>
           <ul class="footer-menu">
             <li><a href="#">Terms & Condition</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Advertise</a></li>
-            <li><a href="#">Join as Doctors</a></li>
           </ul>
         </div>
+       
         <div class="col-sm-6 col-lg-3 py-3">
-          <h5>Our partner</h5>
-          <ul class="footer-menu">
-            <li><a href="#">One-Fitness</a></li>
-            <li><a href="#">One-Drugs</a></li>
-            <li><a href="#">One-Live</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-6 col-lg-3 py-3">
-          <h5>Contact</h5>
-          <p class="footer-link mt-2">351 Willow Street Franklin, MA 02038</p>
-          <a href="#" class="footer-link">701-573-7582</a>
-          <a href="#" class="footer-link">healthcare@temporary.net</a>     
+          <h5>Contacto</h5>
+          <p class="footer-link mt-2">Calle 50 &, Av. 120, La Plata, Provincia de Buenos Aires</p>
+          <a href="#" class="footer-link">0221 427-7270</a>
+          <a href="#" class="footer-link">ofertasproyecto@gmail.com</a>     
         </div>
       </div>
       <hr>

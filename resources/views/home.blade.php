@@ -82,4 +82,18 @@
     <!-- end main wrapper  -->
     <!-- ============================================================== -->
 </body>
+
+
+@if (session('actualizarContrasenia') == 'ok')
+    <script>
+        Swal.fire(
+        'Actualizado!',
+        'Su contraseña se modifico con éxito.',
+        'success'
+    )
+    </script>
+@endif
 </html>
+
+
+

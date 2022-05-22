@@ -121,14 +121,22 @@
 
                                     </div>
                                     <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Guardar</button></div>
-                                    <a class="btn btn-primary profile-button" href="/micontrasenia">Actualizar contraseña</a>
+                                    <div class="mt-5 text-center"><a class="btn btn-space btn-secondary" href="/micontrasenia">Actualizar contraseña</a></div>
                                 </div>
                             </div>
 
 
-
+                           
                         </form>
-                            
+                        @if (session('editar') == 'ok')
+    <script>
+        Swal.fire(
+        'Se guardaron los cambios!',
+        'Se actualizó su perfil.',
+        'success'
+    )
+    </script>
+@endif
 
 
 

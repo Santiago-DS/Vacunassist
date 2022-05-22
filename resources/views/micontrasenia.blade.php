@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
         <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
         <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
                         
     <style>
@@ -108,7 +109,8 @@
         }
                 </style>                
                         
-                        <form action="{{ route('micontrasenia') }}" class="mx-1 mx-md-4" method="POST">
+                        <form action="/micontrasenia" class="mx-1 mx-md-4" method="POST">
+                        @csrf
                             <div class="col-md-4">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                 </div>
@@ -116,15 +118,29 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                 </div>
-                                <h4 class="text-left">Seguridad</h4>
+                                <h4 class="text-left">Cambio de contraseña </h4>
                                 <div class="p-3 py-5">
 
-                                    <div class="col-md-12"><label class="labels">Contraseña Actual</label><input type="text" class="form-control" value=""></div> <br>
-                                    <div class="col-md-12"><label class="labels">Nueva Contraseña</label><input type="text" class="form-control"  value=""></div><br>
-                                    <div class="col-md-12"><label class="labels">Repetir Contraseña</label><input type="text" class="form-control" value=""></div>
-                                </div>
+                                    <div class="col-md-12"><label class="labels">Contraseña Actual</label><input type="text" name=oldPassword class="form-control" value=""></div> <br>
+                                    <div class="col-md-12"><label class="labels">Nueva Contraseña</label><input type="text" name=newPassword class="form-control"  value=""></div><br>
+                                    @error('newPassword') <small style="color: red" >*{{ $message }}</small> @enderror
 
-                                <a class="btn btn-primary profile-button" href="/miperfil">Guardar</a>
+                                    <div class="col-md-12"><label class="labels">Repetir Contraseña</label><input type="text" name=newPassword2 class="form-control" value=""></div>
+                                    @error('newPassword2') <small style="color: red" >*{{ $message }}</small> @enderror
+                                  </div>
+                                <div class="mt-5 "><button class="btn btn-primary profile-button"  type="submit">Guardar</button></div>
+                                <div class="mt-5 "><a class="btn btn-primary profile-button" href="/miperfil">Salir</a></div>
                             </div>
+                          
 
                          </form>
+                         @if (session('actualizarContrasenia') == 'no')
+                         <script>
+        Swal.fire(
+        'Ha fallado!',
+        'La contraseña ingresada debe coincidir con la actual.',
+        'error'
+    )
+    </script>
+                         @endif
+                         

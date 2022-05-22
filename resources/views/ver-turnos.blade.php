@@ -138,4 +138,16 @@
 })
         });
     </script>
+@if (session('solicitar') == 'ok')
+    <script>
+        Swal.fire(
+        'Turno exitoso!',
+        'Se generó el turno correctamente.',
+        'success'
+    )
+    </script>
+@endif
+
+
+
 </html>

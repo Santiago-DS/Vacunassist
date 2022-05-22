@@ -24,7 +24,7 @@ class TurnoController extends Controller
         $controlador = new MailController;
         $controlador->send();
 
-        return redirect('home');
+        return redirect('ver-turnos')->with('solicitar','ok');
 
     }
 

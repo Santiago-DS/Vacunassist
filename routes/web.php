@@ -73,6 +73,6 @@ Route::post('solicitar-turno', [TurnoController::class, 'store']);
 Route::post('formhistoriaclinica', [HistoriaclinicaController::class, 'store']);
 Route::post('turno-automatico-registro', [TurnoController::class, 'turnoAutomatico']);
 Route::post('miperfil', [UserController::class, 'edit']);
-Route::post('micontrasenia', [UserController::class, 'edit']);
+Route::post('micontrasenia', [UserController::class, 'actualizarContrasenia']);
 
 

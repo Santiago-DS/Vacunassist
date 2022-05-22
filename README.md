@@ -8,7 +8,7 @@
 
 
 
-6) Una vez instalado todo, deberías ejecutar php artisan serve y poder acceder a tu local host y  ver una pantalla como la siguiente:<br/><br/>
+6) Una vez instalado todo, deberías ejecutar php artisan serve para poder acceder a tu local host y  ver una pantalla como la siguiente:<br/><br/>
 ![image](portada.png)<br/><br/><br/>
 
 
