@@ -17,7 +17,7 @@
     <title>Home</title>
 </head>
 
-           
+
 <body>
     <!-- ============================================================== -->
     <!-- main wrapper -->
@@ -37,7 +37,7 @@
         <!-- end navbar -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
-            @include('partials.menu');
+            @include('partials.menu')
 
         <!-- ============================================================== -->
         <!-- end left sidebar -->
@@ -68,12 +68,18 @@
                     <div class="container rounded bg-white mt-5 mb-5">
                         <div class="row">
                             <div class="col-md-3 border-right">
-                                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="../assets/img/logo.png"><span class="font-weight-bold"><?php echo auth()->user()->name?></span><span class="text-black-50"><?php echo auth()->user()->email?></span><span> </span></div>
+                                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                    <img class="rounded-circle mt-5" width="150px" src="../assets/img/logo.png">
+                                    <p></p>
+                                    <span class="font-weight-bold">Email</span>
+                                    <span class="text-black-50"><?php echo auth()->user()->email?></span>
+                                    <span> </span>
+                                </div>
                             </div>
                             <div class="col-md-5 border-right">
                                 <div class="p-3 py-5">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h4 class="text-right">Configuracion</h4>
+                                        <h4 class="text-right">Información Personal</h4>
                                     </div>
                                     <form action="{{ route('miperfil') }}" class="mx-1 mx-md-4" method="POST">
                                     @csrf
@@ -98,17 +104,19 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                 </div>
+                                <h4 class="text-left">Seguridad</h4>
                                 <div class="p-3 py-5">
+
                                     <div class="col-md-12"><label class="labels">Contraseña Actual</label><input type="text" class="form-control" value=""></div> <br>
                                     <div class="col-md-12"><label class="labels">Nueva Contraseña</label><input type="text" class="form-control"  value=""></div><br>
                                     <div class="col-md-12"><label class="labels">Repetir Contraseña</label><input type="text" class="form-control" value=""></div>
                                 </div>
-        
+
                                 <div class="mt-0 text-center"><button class="btn btn-primary profile-button" type="button">Actualizar Contraseña</button></div>
                             </div>
-                       
-                            
-                           
+
+
+
                         </div>
                     </div>
                     </div>
