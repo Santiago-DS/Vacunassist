@@ -8,6 +8,12 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function edit(){
+
+        request()->validate([
+            '*' => 'required'              // Todos los campos obligatorios
+        ]);
+
+
         $id = auth()->id();
         User::where("id", $id)->update([
             'name'=> request()->get('name'),

@@ -83,19 +83,50 @@
                                     </div>
                                     <form action="{{ route('miperfil') }}" class="mx-1 mx-md-4" method="POST">
                                     @csrf
-                                    <div class="row mt-2">
-                                        <div class="col-md-6"><label class="labels">Nombre</label><input type="text" name="name" class="form-control" value="<?php echo auth()->user()->name?>"></div>
-                                        <div class="col-md-6"><label class="labels">Apellido</label><input type="text" name="apellido" class="form-control" value="<?php echo auth()->user()->apellido?>"></div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <label class="labels">Nombre</label>
+                                            <input type="text" name="name" class="form-control" value="<?php echo auth()->user()->name?>">
+                                            @error('name')<small style="color: red" class="error">*{{ $message }}</small>@enderror
+
+                                        </div>
+
+
+                                        <div class="col-md-6"><label class="labels">Apellido</label><input type="text" name="apellido" class="form-control" value="<?php echo auth()->user()->apellido?>">
+                                            @error('apellido')<small style="color: red" class="error">*{{ $message }}</small>@enderror
+
+                                        </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-md-12"><label class="labels">Telefono</label><input type="text" name="telefono"  class="form-control" value="<?php echo auth()->user()->telefono?>"></div>
-                                        <div class="col-md-12"><label class="labels">Direccion</label><input type="text" name="direccion"  class="form-control"  value="<?php echo auth()->user()->direccion?>"></div>
-                                        <div class="col-md-12"><label class="labels">Fecha de Nacimiento</label><input type="date" name="fecha_nacimiento"  class="form-control" value="<?php echo auth()->user()->fecha_nacimiento?>" disabled></div>
-                                        <div class="col-md-12"><label class="labels">DNI</label><input type="text" class="form-control" name="documento" value="<?php echo auth()->user()->documento?>" disabled></div>
+                                        <div class="col-md-12"><label class="labels">Teléfono</label><input type="text" name="telefono"  class="form-control" value="<?php echo auth()->user()->telefono?>">
+                                            @error('telefono')<small style="color: red" class="error">*{{ $message }}</small>@enderror
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-12"><label class="labels">Dirección</label><input type="text" name="direccion"  class="form-control"  value="<?php echo auth()->user()->direccion?>">
+                                            @error('direccion')<small style="color: red" class="error">*{{ $message }}</small>@enderror
+
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <br>
+                                            <label class="labels">Fecha de Nacimiento</label>
+                                            <input type="date" name="fecha_nacimiento"  class="form-control" value="<?php echo auth()->user()->fecha_nacimiento?>" disabled>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <br>
+                                            <label class="labels">DNI</label>
+                                            <input type="text" class="form-control" name="documento" value="<?php echo auth()->user()->documento?>" disabled>
+                                        </div>
+
                                     </div>
                                     <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Guardar</button></div>
+
                                 </div>
                             </div>
+
+
+
                         </form>
                             <div class="col-md-4">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
