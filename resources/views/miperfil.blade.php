@@ -121,30 +121,14 @@
 
                                     </div>
                                     <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Guardar</button></div>
-
+                                    <a class="btn btn-primary profile-button" href="/micontrasenia">Actualizar contraseña</a>
                                 </div>
                             </div>
 
 
 
                         </form>
-                            <div class="col-md-4">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                </div>
-                                <h4 class="text-left">Seguridad</h4>
-                                <div class="p-3 py-5">
-
-                                    <div class="col-md-12"><label class="labels">Contraseña Actual</label><input type="text" class="form-control" value=""></div> <br>
-                                    <div class="col-md-12"><label class="labels">Nueva Contraseña</label><input type="text" class="form-control"  value=""></div><br>
-                                    <div class="col-md-12"><label class="labels">Repetir Contraseña</label><input type="text" class="form-control" value=""></div>
-                                </div>
-
-                                <div class="mt-0 text-center"><button class="btn btn-primary profile-button" type="button">Actualizar Contraseña</button></div>
-                            </div>
+                            
 
 
 

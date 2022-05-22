@@ -45,7 +45,7 @@ Route::view('formhistoriaclinica', 'formhistoriaclinica')->name('formhistoriacli
 Route::view('generar-pdf', 'generar-pdf')->name('generar-pdf')->middleware('auth');
 Route::view('miperfil', 'miperfil')->name('miperfil')->middleware('auth');
 Route::view('turno-automatico-registro', 'turno-automatico-registro')->name('turno-automatico-registro')->middleware('auth');
-
+Route::view('micontrasenia', 'micontrasenia')->name('micontrasenia')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
@@ -73,3 +73,6 @@ Route::post('solicitar-turno', [TurnoController::class, 'store']);
 Route::post('formhistoriaclinica', [HistoriaclinicaController::class, 'store']);
 Route::post('turno-automatico-registro', [TurnoController::class, 'turnoAutomatico']);
 Route::post('miperfil', [UserController::class, 'edit']);
+Route::post('micontrasenia', [UserController::class, 'edit']);
+
+
