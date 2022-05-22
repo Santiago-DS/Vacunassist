@@ -56,6 +56,7 @@ Route::view('turno-automatico-registro', 'turno-automatico-registro')->name('tur
 Route::get('contactanos', [MailController::class, 'send']);
 Route::get('turnos/{id}', [TurnoController::class, 'edit'])->name('turnos.edit');
 Route::get('emitir-certificado', [HistoriaclinicaController::class, 'generarPDF'])->name('emitir-certificado');
+Route::get('historia-clinica/{id}', [HistoriaclinicaController::class, 'down'])->name('historia-clinica.down');
 
 
 

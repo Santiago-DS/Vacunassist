@@ -67,24 +67,42 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">Nombre</th>
+            <th scope="col">Tipo de Vacuna</th>
             <th scope="col">Fecha de vacunación</th>
+            <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
         <?php
             $id_usuario=auth()->id();
-            $historiasclinica = DB::table('historiaclinica')->distinct()->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')->where('id_paciente', $id_usuario)->get();
+            $historiasclinica = DB::table('historiaclinica')->distinct()
+            ->select('historiaclinica.id AS id_historia' , 'vacunas.nombreVacuna' , 'historiaclinica.fecha')
+            ->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')
+            ->where('id_paciente', $id_usuario)->get();
         ?>
         @foreach ($historiasclinica as $historiaclinica)
           <tr>
             <th scope="row">{{ $historiaclinica->nombreVacuna }}</th>
              <?php $date = date_create($historiaclinica->fecha)
 
-
              ?>
+
             <td><?php echo date_format($date,"d/m/Y") ?></td>
+
+            <td>
+                <form action="{{ route('historia-clinica.down', ['id'=>$historiaclinica->id_historia]) }}" method="get" class="formulario-eliminar">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">
+                    <i class="far fa-trash-alt"></i> Eliminar </button>
+                </form>
+
+            </td>
+
           </tr>
+
+
+
+
         @endforeach
         </tbody>
       </table>
@@ -105,4 +123,38 @@
         @include('partials.footer')
         </div>
     </body>
+
+    @if (session('eliminar') == 'ok')
+    <script>
+        Swal.fire(
+        'Cancelado!',
+        'El turno se cancelo correctamente.',
+        'success'
+    )
+    </script>
+@endif
+    <script>
+
+        $('.formulario-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+  title: '¿Esta seguro de eliminar esta vacuna de su historia clínica?',
+  text: "Esta acción no puede deshacerse.",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Aceptar',
+  cancelButtonText: 'Cancelar'
+}).then((result) => {
+  if (result.isConfirmed) {
+    this.submit();
+  }
+})
+        });
+    </script>
+
+
+
+
 </html>
