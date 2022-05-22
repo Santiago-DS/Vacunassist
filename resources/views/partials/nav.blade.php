@@ -7,8 +7,15 @@
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/css/theme.css">
 </head>
-<header>
 
+<style>
+  .c {
+    background: white;
+  }
+</style>
+<header>
+    <div class="c">
+    
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="/"><span class="text-primary">Vacun</span>Assist</a>
@@ -39,4 +46,5 @@
         </div>
       </div>
     </nav>
+  </div>
   </header>

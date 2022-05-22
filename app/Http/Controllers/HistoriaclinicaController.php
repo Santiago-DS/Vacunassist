@@ -21,7 +21,7 @@ class HistoriaclinicaController extends Controller
 
     public function generarPDF() {
         $pdf = PDF::loadView('generar-pdf');
-        return $pdf->download('Certificado Vacunassist.pdf');
+        return $pdf->stream('Certificado Vacunassist.pdf');
     }
 
     public function down($id) {

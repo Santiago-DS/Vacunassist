@@ -152,16 +152,18 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                                 
                                 <label for="inputUserName">Seleccione una vacuna</label>
                                 <select class="select-css" name="vacuna">
-                                    <option value="0">Selecciona una opción</option>
+                                    <option value="0" disabled>Selecciona una opción</option>
                                         <?php $vacunas = DB::table('vacunas')->distinct()->get(); ?>
                                         @foreach ($vacunas as $vacuna)
                                           <option value ="{{ $vacuna->id }}"> {{ $vacuna->nombreVacuna }} </option>
                                         @endforeach
                                   </select>
                             </div>
+                            <?php $mytime = Carbon\Carbon::now(); ?>
+
                             <div class="form-group">
                                 <label for="inputRepeatPassword">Fecha de vacunación</label>
-                                <input type="date" name="fecha" data-parsley-equalto="#inputPassword" required="" placeholder="Password" class="form-control">
+                                <input type="date" min='2020-01-01' max=<?php echo $mytime->toDateString();?> name="fecha" data-parsley-equalto="#inputPassword" required="" placeholder="Password" class="form-control">
                             </div>
                             <div class="row">
                                 <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">

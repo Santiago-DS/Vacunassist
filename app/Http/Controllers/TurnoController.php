@@ -35,11 +35,8 @@ class TurnoController extends Controller
 
     public function turnoAutomatico() {
 
-        /*request()->validate([
-            '*' => 'required'   //
-        ]); */
-
         if (isset($_POST['ninguna'])){
+
 
             Turno::create([
                 'fecha' => new DateTime('tomorrow'),
@@ -55,6 +52,10 @@ class TurnoController extends Controller
 
         }
         else if (isset($_POST['una_dosis'])) {
+
+            request()->validate([
+                'fecha_primera' => 'required'   
+            ]); 
 
             Historiaclinica::create([
                 'fecha' => request()->get('fecha_primera'),
@@ -80,6 +81,11 @@ class TurnoController extends Controller
 
         }
         else if (isset($_POST['dos_dosis'])) {
+
+            request()->validate([
+                'fecha_primera_dos' => 'required',   
+                'fecha_segunda' => 'required'  
+            ]);
 
             Historiaclinica::create([
                 'fecha' => request()->get('fecha_primera_dos'),

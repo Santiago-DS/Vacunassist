@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+
+    
     <title>Home</title>
 </head>
 
@@ -36,7 +38,7 @@
         <!-- end navbar -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
-            @include('partials.menu');
+            @include('partials.menu')
 
         <!-- ============================================================== -->
         <!-- end left sidebar -->
@@ -63,13 +65,18 @@
                                 </div>
                             </div>
                         </div>
+
+                        <img src="../assets/img/imagen_home.png" width="1077" height="443"/>
+
                     </div>
                     <!-- ============================================================== -->
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
 
                 </div>
+                
             </div>
+        
 
         </div>
         <!-- ============================================================== -->
@@ -82,6 +89,7 @@
     <!-- end main wrapper  -->
     <!-- ============================================================== -->
 </body>
+
 
 
 @if (session('actualizarContrasenia') == 'ok')

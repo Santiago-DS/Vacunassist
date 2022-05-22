@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('partials.nav')
+<!-- CSS -->
+<link rel="stylesheet" href="../assets/css/maicons.css">
+<link rel="stylesheet" href="../assets/css/bootstrap.css">
+<link rel="stylesheet" href="../assets/css/theme.css">
 <body>
     <section style="background-color: rgb(158, 209, 168); padding-top:2%;">
         <div class="container h-100">
@@ -25,15 +28,16 @@
                          
                             <input type="checkbox" id="dos" name="una_dosis" onclick="javascript:seleccionar();"">
                             <label for="dos">1 Dosis</label>
+                            <?php $mytime = Carbon\Carbon::now(); ?>
                             <p>Fecha de Aplicacion</p>
-                            <input type="date" name="fecha_primera">
+                            <input type="date" max=<?php echo $mytime->toDateString();?> name="fecha_primera">
 
                             <br><br>
                             <input type="checkbox" id="tres" name="dos_dosis" onclick="javascript:seleccionar();">
                             <label for="tres">2 Dosis</label>
                             <p>Fechas de Aplicacion</p>
-                            <input type="date" name="fecha_primera_dos">
-                            <input type="date" name="fecha_segunda">
+                            <input type="date" min='2020-01-01' max=<?php echo $mytime->toDateString();?> name="fecha_primera_dos">
+                            <input type="date" min='2020-01-01' max=<?php echo $mytime->toDateString();?> name="fecha_segunda">
 
                             <!-- <input type="checkbox" name="una_dosis" value="2"><br><br>
                             <label>Fecha de aplicación de la primera dosis</label>
