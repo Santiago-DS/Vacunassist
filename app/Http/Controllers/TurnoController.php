@@ -92,7 +92,8 @@ class TurnoController extends Controller
                 'id_paciente' => auth()->id(),
                 'id_vacuna' => 1
             ]);
-
+            
+            return redirect('ver-turnos');
 
         }
 
