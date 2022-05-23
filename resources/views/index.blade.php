@@ -17,7 +17,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6 py-3 wow fadeInUp">
             <h1>¡Bienvenido a Vacunassist!</h1>
-            <p class="text-grey mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores quasi reiciendis debitis explicabo necessitatibus minus laborum asperiores ducimus tempore minima nemo natus vel ad, fugiat autem quibusdam a libero obcaecati.</p>
+            <p class="text-grey mb-4">VacunAssist es una plataforma práctica y segura con el propósito de facilitar la obtención y gestión de vacunas.  A través de VacunAssist usted podrá solicitar turnos para las vacunas del sistema, cancelarlos y visualizarlos. Nuestro compromiso con el usuario es garantizar una administración confiable e intuitiva de los servicios brindados.</p>
             <img src="../assets/img/logo.png" width="300 " height="185"/>
           </div>
           <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
