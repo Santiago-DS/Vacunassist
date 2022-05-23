@@ -121,11 +121,11 @@
                                 <h4 class="text-left">Cambio de contraseña </h4>
                                 <div class="p-3 py-5">
 
-                                    <div class="col-md-12"><label class="labels">Contraseña Actual</label><input type="text" name=oldPassword class="form-control" value=""></div> <br>
-                                    <div class="col-md-12"><label class="labels">Nueva Contraseña</label><input type="text" name=newPassword class="form-control"  value=""></div><br>
+                                    <div class="col-md-12"><label class="labels">Contraseña Actual</label><input type="password" name=oldPassword class="form-control" value=""></div> <br>
+                                    <div class="col-md-12"><label class="labels">Nueva Contraseña</label><input type="password" name=newPassword class="form-control"  value=""></div><br>
                                     @error('newPassword') <small style="color: red" >*{{ $message }}</small> @enderror
 
-                                    <div class="col-md-12"><label class="labels">Repetir Contraseña</label><input type="text" name=newPassword2 class="form-control" value=""></div>
+                                    <div class="col-md-12"><label class="labels">Repetir Contraseña</label><input type="password" name=newPassword2 class="form-control" value=""></div>
                                     @error('newPassword2') <small style="color: red" >*{{ $message }}</small> @enderror
                                   </div>
                                 <div class="mt-5 "><button class="btn btn-primary profile-button"  type="submit">Guardar</button></div>
