@@ -23,7 +23,7 @@ Ver turnos pendientes
 Historia clínica y emisión de certificado
 Edición de datos personales
 
-![image]("../assets/images/solicitarT.png)<br/><br/><br/>
+![image]("app/public/assets/images/solicitarT.png)<br/><br/><br/>
 ![image]("../assets/images/gestionT.png)<br/><br/><br/>
 ![image]("../assets/images/HC.png)<br/><br/><br/>
 
