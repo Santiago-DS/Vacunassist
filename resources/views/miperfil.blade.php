@@ -111,12 +111,12 @@
                                         <div class="col-md-12">
                                             <br>
                                             <label class="labels">Fecha de Nacimiento</label>
-                                            <input type="date" name="fecha_nacimiento"  class="form-control" value="<?php echo auth()->user()->fecha_nacimiento?>" disabled>
+                                            <input type="date" name="fecha_nacimiento"  class="form-control" value="<?php echo auth()->user()->fecha_nacimiento?>">
                                         </div>
                                         <div class="col-md-12">
                                             <br>
                                             <label class="labels">DNI</label>
-                                            <input type="text" class="form-control" name="documento" value="<?php echo auth()->user()->documento?>" disabled>
+                                            <input type="text" class="form-control" name="documento" value="<?php echo auth()->user()->documento?>">
                                         </div>
 
                                     </div>
@@ -126,7 +126,7 @@
                             </div>
 
 
-                           
+
                         </form>
                         @if (session('editar') == 'ok')
     <script>
@@ -136,6 +136,18 @@
         'success'
     )
     </script>
+@endif
+
+
+
+@if (session('editar') == 'no')
+<script>
+    Swal.fire(
+    '¡Error!',
+    'El DNI ya se encuentra en uso',
+    'error'
+)
+</script>
 @endif
 
 
