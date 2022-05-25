@@ -62,8 +62,17 @@
                 <h5 class="card-header">Mis vacunas</h5>
                 <div class="card-body">
                 <div class="container">
+                     
   <div class="row">
     <div class="col-12">
+        <?php
+            $id_usuario=auth()->id();
+            $historiasclinica = DB::table('historiaclinica')->distinct()
+            ->select('historiaclinica.id AS id_historia' , 'vacunas.nombreVacuna' , 'historiaclinica.fecha')
+            ->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')
+            ->where('id_paciente', $id_usuario)->get();
+        ?>
+        @if ($historiasclinica->count())
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -73,13 +82,6 @@
           </tr>
         </thead>
         <tbody>
-        <?php
-            $id_usuario=auth()->id();
-            $historiasclinica = DB::table('historiaclinica')->distinct()
-            ->select('historiaclinica.id AS id_historia' , 'vacunas.nombreVacuna' , 'historiaclinica.fecha')
-            ->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')
-            ->where('id_paciente', $id_usuario)->get();
-        ?>
         @foreach ($historiasclinica as $historiaclinica)
           <tr>
             <th scope="row">{{ $historiaclinica->nombreVacuna }}</th>
@@ -99,13 +101,12 @@
             </td>
 
           </tr>
-
-
-
-
         @endforeach
         </tbody>
       </table>
+      @else
+        <p>Hasta el momento no se eneuntran vacunas registradas.</p>
+      @endif
     </div>
   </div>
 </div>

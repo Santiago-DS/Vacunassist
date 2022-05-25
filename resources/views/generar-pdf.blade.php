@@ -87,7 +87,13 @@ caption {
   letter-spacing: 1px;
 }
   </style>
-<body>   
+<body>  
+  <?php 
+        $id_usuario=auth()->id();
+        $historiasclinica = DB::table('historiaclinica')->distinct()->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')->where('id_paciente', $id_usuario)->get();     
+    ?>
+    @if ($historiasclinica->count())
+
   <h2>Certificado de Vacunacion</h2>
 <table>
     <thead>
@@ -97,22 +103,20 @@ caption {
       </tr>        
     </thead>
     <tbody>
-    <?php 
-        $id_usuario=auth()->id();
-        $historiasclinica = DB::table('historiaclinica')->distinct()->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')->where('id_paciente', $id_usuario)->get();     
-    ?>
+
     @foreach ($historiasclinica as $historiaclinica)
       <tr>
         <th scope="row">{{ $historiaclinica->nombreVacuna }}</th>
         <?php $date = date_create($historiaclinica->fecha) 
-           
-        
         ?>
        <td><?php echo date_format($date,"d/m/Y") ?></td>
         
       </tr>
     @endforeach
     </tbody>
+    @else
+    <p>Hasta el momento no se encuentran vacunas registradas.</p>
+    @endif
     
     <?php 
         $date = new DateTime();
@@ -120,8 +124,6 @@ caption {
     ?>
 
   </table> 
-  
-  
   <p>Certificado Para: <?php echo auth()->user()->name . " " . auth()->user()->apellido ?><p>
     <p>Fecha de Emisión: <?php echo $result ?><p>
     </body>

@@ -59,16 +59,6 @@
                 <div class="container">
   <div class="row">
     <div class="col-12">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">Vacuna</th>
-            <th scope="col">Fecha del turno</th>
-            <th scope="col">Zona</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
         <?php
             $id_usuario=auth()->id();
             $turnos = DB::table('turnos')
@@ -80,6 +70,18 @@
             ->where('estado' , 'pendiente')
             ->get();
         ?>
+      
+    @if ($turnos->count())
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Vacuna</th>
+            <th scope="col">Fecha del turno</th>
+            <th scope="col">Zona</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
         @foreach ($turnos as $turno)
         <tr>
             <td>{{ $turno->nombreVacuna}}</td>
@@ -95,6 +97,9 @@
         @endforeach
         </tbody>
       </table>
+      @else
+        <p>No hay turnos para mostrar</p>
+      @endif
     </div>
   </div>
 </div>
