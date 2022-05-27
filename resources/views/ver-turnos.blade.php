@@ -70,7 +70,7 @@
             ->where('estado' , 'pendiente')
             ->get();
         ?>
-      
+
     @if ($turnos->count())
       <table class="table table-bordered">
         <thead>
@@ -78,6 +78,7 @@
             <th scope="col">Vacuna</th>
             <th scope="col">Fecha del turno</th>
             <th scope="col">Zona</th>
+            <th scope="col">Estado</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
@@ -87,6 +88,7 @@
             <td>{{ $turno->nombreVacuna}}</td>
             <td>{{ $turno->fecha}}</td>
             <td>{{ $turno->nombreZona}}</td>
+            <td><span class="badge-dot badge-success mr-1"></span> Pendiente</td>
             <td>
                 <form action="{{ route('turnos.edit', ['id'=>$turno->id_turno]) }}" method="get" class="formulario-eliminar">
                     <button type="submit" class="btn btn-danger">
@@ -98,7 +100,7 @@
         </tbody>
       </table>
       @else
-        <p>No hay turnos para mostrar</p>
+      <td><span class="badge-dot badge-brand mr-1"></span> No hay turnos para mostrar</td>
       @endif
     </div>
   </div>

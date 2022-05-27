@@ -62,7 +62,7 @@
                 <h5 class="card-header">Mis vacunas</h5>
                 <div class="card-body">
                 <div class="container">
-                     
+
   <div class="row">
     <div class="col-12">
         <?php
@@ -105,7 +105,7 @@
         </tbody>
       </table>
       @else
-        <p>Hasta el momento no se eneuntran vacunas registradas.</p>
+      <td><span class="badge-dot badge-brand mr-1"></span> Hasta el momento no se encuentran vacunas registradas.</td>
       @endif
     </div>
   </div>
