@@ -47,7 +47,11 @@
                                         </nav>
                                             <br>
                                             <a class="btn btn-warning ml-lg-3" href="/formhistoriaclinica">Agregar</a>
+                                            <!-- Codigo que oculta el boton 'EMITIR CERTIFICADO' si no hay vacunas disponibles -->
+                                            <?php  $hayHistoriaClinica = DB::table('historiaclinica')->where('id_paciente' , auth()->id())?>
+                                            @if ($hayHistoriaClinica->count())
                                             <a class="btn btn-danger ml-lg-3" target="_blank" href="{{ route('emitir-certificado') }}">Emitir Certificado</a>
+                                            @endif
                                     </div>
                                 </div>
 
