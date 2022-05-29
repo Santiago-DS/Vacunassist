@@ -14,7 +14,7 @@ class AddRolYIdVacunatorioToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('rol')->unique()->default("paciente");
+            $table->string('rol')->default("paciente");
             $table->unsignedBigInteger('id_vacunatorio')->nullable();
             $table->foreign("id_vacunatorio")
                 ->references("id")

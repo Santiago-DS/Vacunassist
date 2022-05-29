@@ -58,7 +58,8 @@ Route::get('turnos/{id}', [TurnoController::class, 'edit'])->name('turnos.edit')
 Route::get('emitir-certificado', [HistoriaclinicaController::class, 'generarPDF'])->name('emitir-certificado');
 Route::get('historia-clinica/{id}', [HistoriaclinicaController::class, 'down'])->name('historia-clinica.down');
 
-
+Route::get('registrar-aplicacion/{id_turno}{id_paciente}{id_vacuna}', [HistoriaclinicaController::class, 'registrarAplicacion'])->name('registrar-aplicacion.registrarAplicacion');
+Route::get('registrar-ausencia/{id_turno}', [HistoriaclinicaController::class, 'registrarAusencia'])->name('registrar-aplicacion.registrarAusencia');
 
 /*
 |--------------------------------------------------------------------------
@@ -74,5 +75,7 @@ Route::post('formhistoriaclinica', [HistoriaclinicaController::class, 'store']);
 Route::post('turno-automatico-registro', [TurnoController::class, 'turnoAutomatico']);
 Route::post('miperfil', [UserController::class, 'edit']);
 Route::post('micontrasenia', [UserController::class, 'actualizarContrasenia']);
+
+
 
 

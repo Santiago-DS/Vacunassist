@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Historiaclinica;
+use App\Models\Turno;
 use Barryvdh\DomPDF\Facade as PDF;
+use DateTime;
 
 class HistoriaclinicaController extends Controller
 {
@@ -23,6 +25,25 @@ class HistoriaclinicaController extends Controller
         $pdf = PDF::loadView('generar-pdf');
         return $pdf->stream('Certificado Vacunassist.pdf');
     }
+
+    public function registrarAplicacion($id_turno, $id_paciente, $id_vacuna){
+
+        Turno::where("id", $id_turno)->update(["estado" => "aplicado"]);
+
+        Historiaclinica::create([
+            'fecha' => new DateTime('today'),
+            'id_paciente' => $id_paciente,
+            'id_vacuna' => $id_vacuna,
+        ]);
+
+        return redirect('homeEnfermero');
+    }
+
+    public function registrarAusencia($id_turno, $id_paciente = null, $id_vacuna = null){
+        Turno::where("id", $id_turno)->update(["estado" => "ausente"]);
+        return redirect('homeEnfermero');
+    }
+
 
     public function down($id) {
         $registro = Historiaclinica::findOrFail($id);

@@ -54,7 +54,7 @@
                 <div class="row">
         <div class="col-xl-9 col-lg-8 col-md-11 col-sm-12 col-2">
             <div class="card">
-                <?php $mytime = Carbon\Carbon::now()->format('Y-m-d'); 
+                <?php $mytime = Carbon\Carbon::now()->format('Y-m-d');
                 $mytimev = Carbon\Carbon::now()->format('d/m/Y');
                 ?>
                 <h5 class="card-header">Turnos Pendientes. Fecha: <?php echo $mytimev ?> </h5>
@@ -65,7 +65,7 @@
         <?php
             $id_usuario=auth()->id();
             $turnos = DB::table('turnos')
-            ->select('turnos.id AS id_turno' , 'turnos.id_vacuna' ,
+            ->select('turnos.id AS id_turno' , 'turnos.id_vacuna' , 'turnos.id_paciente AS id_paciente',
             'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna' , 'zonas.nombreZona')
             ->join('vacunas', 'vacunas.id', '=', 'turnos.id_vacuna')
             ->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
@@ -91,12 +91,25 @@
             <td>{{ $turno->nombreZona}}</td>
             <td><span class="badge-dot badge-success mr-1"></span> Pendiente</td>
             <td>
-                <form action="{{ route('turnos.edit', ['id'=>$turno->id_turno]) }}" method="get" class="formulario-eliminar">
-                    <button type="submit" class="btn btn-success">
-                    <i class="fas fa-check"></i>Confirmar</button>
-                    <button type="submit" class="btn btn-info">
-                        <i class="fas fa-frown"></i>Ausente</button>
-                </form>
+
+                    <a class="btn btn-success"
+                    href="
+                    {{ route('registrar-aplicacion.registrarAplicacion',
+                        [   'id_turno'=>$turno->id_turno,
+                            'id_paciente'=>$turno->id_paciente,
+                            'id_vacuna'=>$turno->id_vacuna,
+                        ])
+                    }}">
+                    <i class="fas fa-check"></i> Confirmar</a>
+
+                    <a class="btn btn-info"
+                    href="
+                    {{ route('registrar-aplicacion.registrarAusencia',
+                        ['id_turno'=>$turno->id_turno])
+                    }}">
+                    <i class="fas fa-frown"></i> Ausente</a>
+
+
             </td>
         </tr>
         @endforeach
