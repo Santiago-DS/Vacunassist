@@ -66,9 +66,11 @@
             $id_usuario=auth()->id();
             $turnos = DB::table('turnos')
             ->select('turnos.id AS id_turno' , 'turnos.id_vacuna' , 'turnos.id_paciente AS id_paciente',
-            'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna' , 'zonas.nombreZona')
+            'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna' ,'turnos.id_'
+            , 'zonas.nombreZona' , 'users.name' , 'users.apellido')
             ->join('vacunas', 'vacunas.id', '=', 'turnos.id_vacuna')
             ->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
+            ->join('users', 'users.id', '=', 'turnos.id_paciente')
             ->where('fecha', strval($mytime))
             ->where('estado' , 'pendiente')
             ->get();
@@ -78,18 +80,16 @@
       <table class="table table-bordered">
         <thead>
           <tr>
+            <th scope="col">Nombre del Paciente</th>
             <th scope="col">Vacuna</th>
-            <th scope="col">Zona</th>
-            <th scope="col">Estado</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
         @foreach ($turnos as $turno)
         <tr>
+            <td>{{ $turno->name}} {{ $turno->apellido}}</td>
             <td>{{ $turno->nombreVacuna}}</td>
-            <td>{{ $turno->nombreZona}}</td>
-            <td><span class="badge-dot badge-success mr-1"></span> Pendiente</td>
             <td>
 
                     <a class="btn btn-success"
