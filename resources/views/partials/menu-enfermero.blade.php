@@ -65,10 +65,10 @@
                                 <div id="submenu-5" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="historiaclinica">Ver turnos Pendientes</a>
+                                            <a class="nav-link" href="homeEnfermero">Ver turnos Pendientes</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="formhistoriaclinica">Stock Vacunas</a>
+                                            <a class="nav-link" href="vacunas">Stock Vacunas</a>
                                         </li>
                                     </ul>
                                 </div>

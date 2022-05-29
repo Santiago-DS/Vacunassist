@@ -36,6 +36,22 @@ class HistoriaclinicaController extends Controller
             'id_vacuna' => $id_vacuna,
         ]);
 
+        $cantidad = HistoriaClinica::where("id_paciente", $id_paciente)->where("id_vacuna", '1')->count();
+        
+        if ($cantidad == 1) {
+            Turno::create([
+                'fecha' => new DateTime('1 week'),
+                'hora' => new DateTime('today'),
+                'id_paciente'=> $id_paciente,
+                'id_zona' => 2,
+                'id_vacuna' => 1,
+            ]);
+
+            $controlador = new MailController;
+            $controlador->send();
+            return redirect('homeEnfermero')->with('segundoturno','ok');
+        }
+
         return redirect('homeEnfermero');
     }
 

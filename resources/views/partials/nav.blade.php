@@ -26,7 +26,11 @@
           <ul class="navbar-nav ml-auto">
             @auth
             <li class="nav-item active">
+            @if (auth()->user()->rol =='paciente')
               <a class="btn btn-primary ml-lg-3" href="/home">Home</a>
+            @else
+              <a class="btn btn-primary ml-lg-3" href="/homeEnfermero">Home</a>
+            @endif
             </li>
             @else
             <li class="nav-item">

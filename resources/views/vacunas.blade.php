@@ -37,42 +37,36 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Gestión de Turnos</h2>
-                                <div class="page-breadcrumb">
+                                <h2 class="pageheader-title">Gestión de Vacunas <button type="submit" class="btn btn-success">
+                                   Agregar Vacuna</button></h2>
+                                
+                                    
+                                   
+                                    <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Ver Turnos Pendientes</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Gestion de vacunas</li>
                                         </ol>
                                     </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="ecommerce-widget">
 
                 <div class="row">
         <div class="col-xl-9 col-lg-8 col-md-11 col-sm-12 col-2">
             <div class="card">
-                <?php $mytime = Carbon\Carbon::now()->format('Y-m-d');
-                $mytimev = Carbon\Carbon::now()->format('d/m/Y');
-                ?>
-                <h5 class="card-header">Turnos Pendientes. Fecha: <?php echo $mytimev ?> </h5>
+                <h5 class="card-header">Listado de vacunas </h5>
                 <div class="card-body">
                 <div class="container">
   <div class="row">
     <div class="col-12">
         <?php
             $id_usuario=auth()->id();
-            $turnos = DB::table('turnos')
-            ->select('turnos.id AS id_turno' , 'turnos.id_vacuna' , 'turnos.id_paciente AS id_paciente',
-            'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna' ,'turnos.id'
-            , 'zonas.nombreZona' , 'users.name' , 'users.apellido')
-            ->join('vacunas', 'vacunas.id', '=', 'turnos.id_vacuna')
-            ->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
-            ->join('users', 'users.id', '=', 'turnos.id_paciente')
-            ->where('fecha', strval($mytime))
-            ->where('estado' , 'pendiente')
+            $turnos = DB::table('vacunas')
             ->get();
         ?>
 
@@ -80,7 +74,6 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">Nombre del Paciente</th>
             <th scope="col">Vacuna</th>
             <th scope="col">Acciones</th>
           </tr>
@@ -88,28 +81,16 @@
         <tbody>
         @foreach ($turnos as $turno)
         <tr>
-            <td>{{ $turno->name}} {{ $turno->apellido}}</td>
             <td>{{ $turno->nombreVacuna}}</td>
+            
+
             <td>
-
-                    <a class="btn btn-success"
-                    href="
-                    {{ route('registrar-aplicacion.registrarAplicacion',
-                        [   'id_turno'=>$turno->id_turno,
-                            'id_paciente'=>$turno->id_paciente,
-                            'id_vacuna'=>$turno->id_vacuna,
-                        ])
-                    }}">
-                    <i class="fas fa-check"></i> Confirmar</a>
-
-                    <a class="btn btn-info"
-                    href="
-                    {{ route('registrar-ausencia.registrarAusencia',
-                        ['id_turno'=>$turno->id_turno])
-                    }}">
-                    <i class="fas fa-frown"></i> Ausente</a>
-
-
+                
+                    <button type="submit" class="btn btn-info">
+                        <i class="fa-solid fa-pen-clip"></i>Editar</button>
+                    <button type="submit" class="btn btn-danger">
+                        <i class="far fa-trash-alt"></i>Eliminar</button>
+                
             </td>
         </tr>
         @endforeach
@@ -161,15 +142,33 @@
 })
         });
     </script>
-
-@if (session('segundoturno') == 'ok')
+@if (session('solicitar') == 'ok')
     <script>
         Swal.fire(
-        'Turno automatico exitoso!',
-        'Se generó el turno correctamente para la segunda dosis de covid .',
+        'Turno exitoso!',
+        'Se generó el turno correctamente.',
+        'success'
+    )
+    </script>
+@endif
+
+@if (session('ninguna') == 'ok')
+    <script>
+        Swal.fire(
+        'Turno exitoso!',
+        'Se generó el turno correctamente para la primer dosis de covid.',
+        'success'
+    )
+    </script>
+@endif
+
+@if (session('una_dosis') == 'ok')
+    <script>
+        Swal.fire(
+        'Turno exitoso!',
+        'Se generó el turno correctamente para la segunda dosis de covid.',
         'success'
     )
     </script>
 @endif
 </html>
-
