@@ -12,6 +12,7 @@
 ![image](portada.png)<br/><br/><br/>
 
 A través de la portada inicial se podrá acceder al registro o login de usuario<br/>
+
 ![image](registro.png)<br/><br/><br/>
 
 ![image](login.png)<br/><br/><br/>

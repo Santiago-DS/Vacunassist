@@ -63,8 +63,9 @@
 
 
                             <li class="nav-item ">
+                                
                                 <a class="nav-link" href="ver-turnos"><i class="fab fa-fw fa-wpforms"></i>Ver Turnos</a>
-
+                                
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="solicitar-turno"><i class="fas fa-fw fa-table"></i>Solicitar Turno</a>
