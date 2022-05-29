@@ -104,7 +104,7 @@
 
                     <a class="btn btn-info"
                     href="
-                    {{ route('registrar-aplicacion.registrarAusencia',
+                    {{ route('registrar-ausencia.registrarAusencia',
                         ['id_turno'=>$turno->id_turno])
                     }}">
                     <i class="fas fa-frown"></i> Ausente</a>

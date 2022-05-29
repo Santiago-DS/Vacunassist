@@ -59,7 +59,7 @@ Route::get('emitir-certificado', [HistoriaclinicaController::class, 'generarPDF'
 Route::get('historia-clinica/{id}', [HistoriaclinicaController::class, 'down'])->name('historia-clinica.down');
 
 Route::get('registrar-aplicacion/{id_turno}{id_paciente}{id_vacuna}', [HistoriaclinicaController::class, 'registrarAplicacion'])->name('registrar-aplicacion.registrarAplicacion');
-Route::get('registrar-ausencia/{id_turno}', [HistoriaclinicaController::class, 'registrarAusencia'])->name('registrar-aplicacion.registrarAusencia');
+Route::get('registrar-ausencia/{id_turno}', [HistoriaclinicaController::class, 'registrarAusencia'])->name('registrar-ausencia.registrarAusencia');
 
 /*
 |--------------------------------------------------------------------------
