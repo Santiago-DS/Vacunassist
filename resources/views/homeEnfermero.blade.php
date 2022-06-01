@@ -67,7 +67,7 @@
             $turnos = DB::table('turnos')
             ->select('turnos.id AS id_turno' , 'turnos.id_vacuna' , 'turnos.id_paciente AS id_paciente',
             'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna' ,'turnos.id'
-            , 'zonas.nombreZona' , 'users.name' , 'users.apellido')
+            , 'zonas.nombreZona' , 'users.name' , 'users.apellido' , 'users.fecha_nacimiento')
             ->join('vacunas', 'vacunas.id', '=', 'turnos.id_vacuna')
             ->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
             ->join('users', 'users.id', '=', 'turnos.id_paciente')
@@ -81,6 +81,7 @@
         <thead>
           <tr>
             <th scope="col">Nombre del Paciente</th>
+            <th scope="col">Edad</th>
             <th scope="col">Vacuna</th>
             <th scope="col">Acciones</th>
           </tr>
@@ -89,6 +90,7 @@
         @foreach ($turnos as $turno)
         <tr>
             <td>{{ $turno->name}} {{ $turno->apellido}}</td>
+            <td>{{ Carbon\Carbon::parse($turno->fecha_nacimiento)->age; }}</td>
             <td>{{ $turno->nombreVacuna}}</td>
             <td>
 
