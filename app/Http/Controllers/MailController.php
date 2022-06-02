@@ -18,9 +18,9 @@ class MailController extends Controller
         }
         else {
             $correo = new TurnoMailable;
-            $paciente = DB::table('users')->
-            select('users.email')->where('id' , $idPaciente)->first();
-            Mail::to($paciente->email)->send($correo);
+            $emailPaciente= DB::table('users')->
+            select('users.email')->where('id' , $idPaciente)->get('email');
+            Mail::to($emailPaciente)->send($correo);
         }
 
         return "Mensaje enviado";

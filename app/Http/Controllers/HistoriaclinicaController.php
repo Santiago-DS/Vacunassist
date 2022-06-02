@@ -48,9 +48,7 @@ class HistoriaclinicaController extends Controller
             ]);
 
             $controlador = new MailController;
-            echo "llame al send";
             $controlador->send($id_paciente);
-            echo "termine el metodo send";
             return redirect('homeEnfermero')->with('segundoturno','ok');
         }
 
