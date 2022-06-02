@@ -12,7 +12,7 @@
 <body>
 
 <strong>Envio automatico por tu registro en Vacunaasist</strong>
-<p> ¡Hola, <?php echo auth()->user()->name ?> ! Te informamos que se ha asignado un turno para recibir
+<p> ¡Hola! Te informamos que se te ha asignado un turno para recibir
     la vacuna <?php echo $turno->nombreVacuna ?> <br>, con el siguiente detalle:</p>
 <p>Fecha: <?php echo $turno->fecha ?></p>
 <p>Lugar :<?php echo $turno->nombreZona ?></p>

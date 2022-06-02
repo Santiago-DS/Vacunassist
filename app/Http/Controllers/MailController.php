@@ -17,19 +17,10 @@ class MailController extends Controller
             Mail::to(auth()->user()->email)->send($correo);
         }
         else {
-
-            /*$paciente = DB::table('users')->select('users.email AS mail')
-            ->where('id' , $idPaciente)
-            ->get(); */
-
             $correo = new TurnoMailable;
-
-            $paciente = DB::table('users')->select('users.email')->where('id' , $idPaciente)->get();
-
-            $email = strval($paciente->email);
-
-            Mail::to($email)->send($correo);
-
+            $paciente = DB::table('users')->
+            select('users.email')->where('id' , $idPaciente)->first();
+            Mail::to($paciente->email)->send($correo);
         }
 
         return "Mensaje enviado";
