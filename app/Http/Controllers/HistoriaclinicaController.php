@@ -37,7 +37,7 @@ class HistoriaclinicaController extends Controller
         ]);
 
         $cantidad = HistoriaClinica::where("id_paciente", $id_paciente)->where("id_vacuna", '1')->count();
-        
+
         if ($cantidad == 1) {
             Turno::create([
                 'fecha' => new DateTime('1 week'),
@@ -48,7 +48,7 @@ class HistoriaclinicaController extends Controller
             ]);
 
             $controlador = new MailController;
-            $controlador->send();
+            $controlador->send($id_paciente);
             return redirect('homeEnfermero')->with('segundoturno','ok');
         }
 
