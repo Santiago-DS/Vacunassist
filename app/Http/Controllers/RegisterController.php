@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -38,5 +39,33 @@ class RegisterController extends Controller
         $objeto = new LoginController();
         $objeto->login($_REQUEST);
         return redirect('turno-automatico-registro');
+    }
+
+    public function storeEnfermero() {
+
+        //Validacion
+        request()->validate([
+            '*' => 'required',              // Todos los campos obligatorios
+            'email' => ' email | required | unique:users,email' , // obligatorio + unico
+            'documento' => 'required | unique:users,documento', // obligatorio + unico
+        ]);
+
+        $password = Str::random(8);
+
+        User::create([
+        'name'=> request()->get('name'),
+        'email'=>request()->get('email'),
+        'password'=> bcrypt($password),
+        'apellido'=> request()->get('apellido'),
+        'direccion'=> request()->get('direccion'),
+        'telefono' => request()->get('telefono'),
+        'documento' => request()->get('documento'),
+        'fecha_nacimiento' => request()->get('fecha_nacimiento'),
+        'id_zona' => request()->get('zona'),
+        'rol' => 'enfemero'
+        ]);
+
+        $controlador = new MailController;
+        $controlador->sendContrasenia(request()->get('email'));
     }
 }

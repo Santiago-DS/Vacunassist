@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mail\TurnoMailable;
+use App\Mail\PasswordMailable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
@@ -23,6 +24,14 @@ class MailController extends Controller
             Mail::to($emailPaciente)->send($correo);
         }
 
+        return "Mensaje enviado";
+    }
+
+    // Envia el mail , se llama en routes/Web.php mediante el controlador
+    public function sendContrasenia($correoEnfermero) {
+            $correo = new PasswordMailable;
+            Mail::to($correoEnfermero)->send($correo);
+    
         return "Mensaje enviado";
     }
 

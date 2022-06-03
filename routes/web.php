@@ -44,9 +44,11 @@ Route::view('historiaclinica', 'historiaclinica')->name('historiaclinica')->midd
 Route::view('formhistoriaclinica', 'formhistoriaclinica')->name('formhistoriaclinica')->middleware('auth');
 Route::view('generar-pdf', 'generar-pdf')->name('generar-pdf')->middleware('auth');
 Route::view('miperfil', 'miperfil')->name('miperfil')->middleware('auth');
+Route::view('registroEnfermero', 'registroEnfermero')->name('registroEnfermero')->middleware('auth');
 Route::view('turno-automatico-registro', 'turno-automatico-registro')->name('turno-automatico-registro')->middleware('auth');
 Route::view('micontrasenia', 'micontrasenia')->name('micontrasenia')->middleware('auth');
 Route::view('homeEnfermero', 'homeEnfermero')->name('homeEnfermero')->middleware('auth');
+Route::view('homeAdministrativo', 'homeAdministrativo')->name('homeAdministrativo')->middleware('auth');
 Route::view('vacunas', 'vacunas')->name('vacunas')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +57,7 @@ Route::view('vacunas', 'vacunas')->name('vacunas')->middleware('auth');
 */
 
 Route::get('contactanos', [MailController::class, 'send']);
+Route::get('password', [MailController::class, 'sendContrasenia']);
 Route::get('turnos/{id}', [TurnoController::class, 'edit'])->name('turnos.edit');
 Route::get('emitir-certificado', [HistoriaclinicaController::class, 'generarPDF'])->name('emitir-certificado');
 Route::get('historia-clinica/{id}', [HistoriaclinicaController::class, 'down'])->name('historia-clinica.down');
@@ -71,6 +74,7 @@ Route::get('registrar-ausencia/{id_turno}', [HistoriaclinicaController::class, '
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout']);
 Route::post('register', [RegisterController::class, 'store']);
+Route::post('registroEnfermero', [RegisterController::class, 'storeEnfermero']);
 Route::post('solicitar-turno', [TurnoController::class, 'store']);
 Route::post('formhistoriaclinica', [HistoriaclinicaController::class, 'store']);
 Route::post('turno-automatico-registro', [TurnoController::class, 'turnoAutomatico']);
