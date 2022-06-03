@@ -65,7 +65,6 @@
         <?php
             $id_usuario=auth()->id();
             $zonaEnfermero = auth()->user()->id_zona;
-            //dump($zonaEnfermero);
             $turnos = DB::table('turnos')
             ->select('turnos.id AS id_turno' , 'turnos.id_vacuna' , 'turnos.id_paciente AS id_paciente',
             'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna' ,'turnos.id'
