@@ -15,10 +15,10 @@ class AddRolYIdVacunatorioToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('rol')->default("paciente");
-            $table->unsignedBigInteger('id_vacunatorio')->nullable();
-            $table->foreign("id_vacunatorio")
+            $table->unsignedBigInteger('id_zona')->nullable();
+            $table->foreign("id_zona")
                 ->references("id")
-                ->on("vacunatorios")
+                ->on("zonas")
                 ->onDelete("cascade")
                 ->onUpdate("cascade");
         });

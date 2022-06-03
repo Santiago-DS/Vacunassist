@@ -64,6 +64,8 @@
     <div class="col-12">
         <?php
             $id_usuario=auth()->id();
+            $zonaEnfermero = auth()->user()->id_zona;
+            //dump($zonaEnfermero);
             $turnos = DB::table('turnos')
             ->select('turnos.id AS id_turno' , 'turnos.id_vacuna' , 'turnos.id_paciente AS id_paciente',
             'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna' ,'turnos.id'
@@ -71,6 +73,7 @@
             ->join('vacunas', 'vacunas.id', '=', 'turnos.id_vacuna')
             ->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
             ->join('users', 'users.id', '=', 'turnos.id_paciente')
+            ->where('turnos.id_zona' , $zonaEnfermero)
             ->where('fecha', strval($mytime))
             ->where('estado' , 'pendiente')
             ->get();
