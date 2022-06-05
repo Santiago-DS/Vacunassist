@@ -68,6 +68,6 @@ class RegisterController extends Controller
         $controlador = new MailController;
         $controlador->sendContrasenia(request()->get('email'));
 
-        return redirect('homeAdministrativo');
+        return redirect('homeAdministrativo')->with('registroE','ok');
     }
 }

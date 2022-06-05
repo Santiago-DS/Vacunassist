@@ -39,8 +39,10 @@
         <!-- ============================================================== -->
             @if (auth()->user()->rol =='paciente')
                 @include('partials.menu')
-            @else
+            @elseif (auth()->user()->rol =='enfemero')
                 @include('partials.menu-enfermero')
+            @else
+                @include('partials.menu-admin')
             @endif
 
         <!-- ============================================================== -->

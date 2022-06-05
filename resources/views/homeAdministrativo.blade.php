@@ -42,7 +42,7 @@
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Ver Turnos Pendientes</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Funcionalidades a futuro</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -53,4 +53,10 @@
                         
 
                     </div>
+                    @if (session('registroE') == 'ok')
+                    <script>
+                        Swal.fire('Enfemero registrado correctamente')
+                    </script>
+                    @endif
 </html>
+

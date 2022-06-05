@@ -29,7 +29,7 @@
                 </nav>
             </div>
 
-        @include('partials.menu-enfermero')
+        @include('partials.menu-admin')
 
         <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">

@@ -70,6 +70,9 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="vacunas">Stock Vacunas</a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="vacunas">Reportes</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
