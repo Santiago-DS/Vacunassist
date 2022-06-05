@@ -62,7 +62,7 @@ class RegisterController extends Controller
         'documento' => request()->get('documento'),
         'fecha_nacimiento' => request()->get('fecha_nacimiento'),
         'id_zona' => request()->get('zona'),
-        'rol' => 'enfemero'
+        'rol' => 'enfermero'
         ]);
 
         $controlador = new MailController;
