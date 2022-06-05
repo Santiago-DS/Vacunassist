@@ -89,6 +89,12 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
   background-size: .65em auto, 100%;
   
 }
+.aver{
+    border: 1px;
+    padding: 15px;
+    background: #f5f4f4;
+    border-radius: 20px;
+}
     </style>
 
 
@@ -125,7 +131,7 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content ">
+                <div class="container-fluid">
                     <!-- ============================================================== -->
                     <!-- pageheader  -->
                     <!-- ============================================================== -->
@@ -134,11 +140,11 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                     </div>
                     <div class="container rounded bg-white mt-5 mb-5">
                         <div class="row">
-                            <div class="col-md-3 border-right">
+                            <div class="col-md-3 border-center">
                                 
                             </div>
-                            <div class="col-md-5 border-right">
-                                <div class="p-3 py-5">
+                            <div class="col-md-5 border-center">
+                                <div class="aver">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <h4 class="text-center">Registrar Enfermero</h4>
                                     </div>
@@ -153,7 +159,7 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                                         </div>
 
 
-                                        <div class="col-md-12"><label class="labels">Apellido</label><input type="text" name="apellido" class="form-control">
+                                        <div class="col-md-12"><br><label class="labels">Apellido</label><input type="text" name="apellido" class="form-control">
                                             @error('apellido')<small style="color: red" class="error">*{{ $message }}</small>@enderror
 
                                         </div>
@@ -180,6 +186,7 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                                             <input type="email" name="email"  class="form-control">
                                         </div>
                                         <div class="col-md-12">
+                                            <br>
                                             <label for="inputUserName">Seleccione una zona</label>
                                             <select class="select-css"  name="zona">
                                                 <option disabled>Selecciona una opción</option>
