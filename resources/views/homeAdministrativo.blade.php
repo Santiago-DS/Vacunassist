@@ -55,7 +55,11 @@
                     </div>
                     @if (session('registroE') == 'ok')
                     <script>
-                        Swal.fire('Enfemero registrado correctamente')
+                        Swal.fire({
+                        title: 'Enefemero registrado correctamente',
+                        timer: 2000,
+                        timerProgressBar: true
+                        })
                     </script>
                     @endif
 </html>
