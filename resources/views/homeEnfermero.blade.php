@@ -96,15 +96,14 @@
             <td>{{ $turno->nombreVacuna}}</td>
             <td>
 
-                    <a class="btn btn-success"
-                    href="
-                    {{ route('registrar-aplicacion.registrarAplicacion',
-                        [   'id_turno'=>$turno->id_turno,
-                            'id_paciente'=>$turno->id_paciente,
-                            'id_vacuna'=>$turno->id_vacuna,
-                        ])
-                    }}">
-                    <i class="fas fa-check"></i> Confirmar</a>
+                <form action=" {{ route('registrar-aplicacion.registrarAplicacion',
+                    ['id_turno'=>$turno->id_turno, 'id_paciente'=>$turno->id_paciente,
+                    'id_vacuna'=>$turno->id_vacuna]) }}" method="GET">
+
+                    <button type="submit" class="btn btn-success"><i class="fas fa-check">
+                        </i> Confirmar</a>
+                    </button>
+
 
                     <a class="btn btn-info"
                     href="
@@ -113,7 +112,7 @@
                     }}">
                     <i class="fas fa-frown"></i> Ausente</a>
 
-
+                </form>
             </td>
         </tr>
         @endforeach
