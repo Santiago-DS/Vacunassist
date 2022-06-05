@@ -98,21 +98,26 @@
 
                 <form action=" {{ route('registrar-aplicacion.registrarAplicacion',
                     ['id_turno'=>$turno->id_turno, 'id_paciente'=>$turno->id_paciente,
-                    'id_vacuna'=>$turno->id_vacuna]) }}" method="GET">
+                    'id_vacuna'=>$turno->id_vacuna]) }}" method="GET" class="confirmar-presencia">
 
-                    <button type="submit" class="btn btn-success"><i class="fas fa-check">
+                    <button  type="submit" class="btn btn-success"><i class="fas fa-check">
                         </i> Confirmar</a>
                     </button>
 
+                </form>
 
-                    <a class="btn btn-info"
-                    href="
-                    {{ route('registrar-ausencia.registrarAusencia',
+                <form action="{{ route('registrar-ausencia.registrarAusencia',
                         ['id_turno'=>$turno->id_turno])
-                    }}">
-                    <i class="fas fa-frown"></i> Ausente</a>
+                        }}" method="GET" class="ausencia">
+
+                    <button type="submit" class="btn btn-info"><i class="fas fa-frown"></i> Ausente</button>
 
                 </form>
+
+
+
+
+
             </td>
         </tr>
         @endforeach
@@ -174,5 +179,115 @@
     )
     </script>
 @endif
+
+
+
+
+
+title: 'document.write(param);',
+  html: `<input type="text" id="login" class="swal2-input" placeholder="Ingrese Lote">
+  <select class="swal2-input" name="vacuna">
+  <option disabled>Selecciona una opción</option>
+  <?php
+  $id = auth()->id();
+  $laboratorios = DB::table('laboratorios')->get();
+  ?>
+  @foreach ($laboratorios as $lab)
+ <option value ="{{ $lab->id }}"> {{ $lab->nombreLaboratorio }} </option>
+  @endforeach
+  </select>`,
+  confirmButtonText: 'Registrar Aplicacion',
+  focusConfirm: false,
+  preConfirm: () => {
+    const login = Swal.getPopup().querySelector('#login').value
+    const password = Swal.getPopup().querySelector('#password').value
+    if (!login || !password) {
+      Swal.showValidationMessage(`Please enter login and password`)
+    }
+    return { login: login, password: password }
+  }
+}).then((result) => {
+
+Swal.fire
+(`
+    Login: ${result.value.login}
+    Password: ${result.value.password}
+  `.trim())
+})
+    }
+
+
+
+
+
+
+
+<script>
+
+    $('.confirmar-presencia').submit(function(e){
+        e.preventDefault();
+        Swal.fire({
+title: '¿Esta seguro de que desea registrar este turno como ausente?',
+
+
+html: `<input type="text" id="login" class="swal2-input" placeholder="Ingrese Lote">
+  <select class="swal2-input" name="vacuna">
+  <option disabled>Selecciona una opción</option>
+  <?php
+  $id = auth()->id();
+  $laboratorios = DB::table('laboratorios')->get();
+  ?>
+  @foreach ($laboratorios as $lab)
+ <option value ="{{ $lab->id }}"> {{ $lab->nombreLaboratorio }} </option>
+  @endforeach
+</select>`,
+
+
+text: "Esta acción no puede deshacerse.",
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+confirmButtonText: 'Aceptar',
+cancelButtonText: 'Cancelar'
+}).then((result) => {
+if (result.isConfirmed) {
+this.submit();
+}
+})
+    });
+</script>
+
+
+
+
+
+
+
+<!-- HASTA ACA ESTA BIEN -->
+<script>
+
+    $('.ausencia').submit(function(e){
+        e.preventDefault();
+        Swal.fire({
+title: '¿Esta seguro de que desea registrar este turno como ausente?',
+text: "Esta acción no puede deshacerse.",
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+confirmButtonText: 'Aceptar',
+cancelButtonText: 'Cancelar'
+}).then((result) => {
+if (result.isConfirmed) {
+this.submit();
+}
+})
+    });
+</script>
+
+
+
+
 </html>
 

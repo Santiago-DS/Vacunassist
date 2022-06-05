@@ -26,7 +26,7 @@
   line-height: 1.3;
   padding: .4em 1.4em .3em .8em;
   width: 400px;
-  max-width: 100%; 
+  max-width: 100%;
   box-sizing: border-box;
   border: 1px solid #aaa;
   box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
@@ -40,7 +40,7 @@
   background-repeat: no-repeat, repeat;
   background-position: right .7em top 50%, 0 0;
   background-size: .65em auto, 100%;
-  
+
 cursor: pointer;
 }
 .select-css::-ms-expand {
@@ -53,7 +53,7 @@ cursor: pointer;
   border-color: #aaa;
   box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
   box-shadow: 0 0 0 3px -moz-mac-focusring;
-  color: #222; 
+  color: #222;
   outline: none;
 }
 .select-css option {
@@ -71,7 +71,7 @@ cursor: pointer;
 /* OTROS ESTILOS*/
 .styled-select { width: 240px; height: 34px; overflow: hidden; background: url(new_arrow.png) no-repeat right #ddd; border: 1px solid #ccc; }
 
- 
+
 
 .sidebar-box select{
 display:block;
@@ -87,7 +87,7 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
   background-repeat: no-repeat, repeat;
   background-position: right .7em top 50%, 0 0;
   background-size: .65em auto, 100%;
-  
+
 }
 .aver{
     border: 1px;
@@ -136,12 +136,12 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                     <!-- pageheader  -->
                     <!-- ============================================================== -->
                     <div class="row">
-                        
+
                     </div>
                     <div class="container rounded bg-white mt-5 mb-5">
                         <div class="row">
                             <div class="col-md-3 border-center">
-                                
+
                             </div>
                             <div class="col-md-5 border-center">
                                 <div class="aver">
@@ -153,24 +153,24 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                                     <div class="row mt-3">
                                         <div class="col-md-12">
                                             <label class="labels">Nombre</label>
-                                            <input type="text" name="name" class="form-control">
+                                            <input type="text" name="name" class="form-control" value="{{ old('name') }}">
                                             @error('name')<small style="color: red" class="error">*{{ $message }}</small>@enderror
 
                                         </div>
 
 
-                                        <div class="col-md-12"><br><label class="labels">Apellido</label><input type="text" name="apellido" class="form-control">
+                                        <div class="col-md-12"><br><label class="labels">Apellido</label><input type="text" name="apellido" class="form-control" value="{{ old('apellido') }}">
                                             @error('apellido')<small style="color: red" class="error">*{{ $message }}</small>@enderror
 
                                         </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-md-12"><label class="labels">Teléfono</label><input type="text" name="telefono"  class="form-control">
+                                        <div class="col-md-12"><label class="labels">Teléfono</label><input type="text" name="telefono"  class="form-control" value="{{ old('telefono') }}">
                                             @error('telefono')<small style="color: red" class="error">*{{ $message }}</small>@enderror
                                         </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-md-12"><label class="labels">Dirección</label><input type="text" name="direccion"  class="form-control">
+                                        <div class="col-md-12"><label class="labels">Dirección</label><input type="text" name="direccion"  class="form-control" value="{{ old('direccion') }}">
                                             @error('direccion')<small style="color: red" class="error">*{{ $message }}</small>@enderror
 
                                         </div>
@@ -178,12 +178,16 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                                         <div class="col-md-12">
                                             <br>
                                             <label class="labels">Fecha de Nacimiento</label>
-                                            <input type="date" name="fecha_nacimiento"  class="form-control">
+                                            <input type="date" name="fecha_nacimiento"  class="form-control" value="{{ old('fecha_naciemento') }}">
+                                            @error('fecha_nacimiento')<small style="color: red" class="error">*{{ $message }}</small>@enderror
+
                                         </div>
                                         <div class="col-md-12">
                                             <br>
                                             <label class="labels">Email</label>
-                                            <input type="email" name="email"  class="form-control">
+                                            <input type="email" name="email"  class="form-control" value="{{ old('email') }}">
+                                            @error('email')<small style="color: red" class="error">*{{ $message }}</small>@enderror
+
                                         </div>
                                         <div class="col-md-12">
                                             <br>
@@ -200,6 +204,8 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                                             <br>
                                             <label class="labels">DNI</label>
                                             <input type="text" class="form-control" name="documento">
+                                            @error('documento')<small style="color: red" class="error">*{{ $message }}</small>@enderror
+
                                         </div>
 
                                     </div>
