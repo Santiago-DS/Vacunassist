@@ -227,7 +227,7 @@ Swal.fire
     $('.confirmar-presencia').submit(function(e){
         e.preventDefault();
         Swal.fire({
-title: '¿Esta seguro de que desea registrar este turno como ausente?',
+title: '¿Esta seguro de que desea registrar esta vacuna como aplicada?',
 
 
 html: `<input type="text" id="login" class="swal2-input" placeholder="Ingrese Lote">
