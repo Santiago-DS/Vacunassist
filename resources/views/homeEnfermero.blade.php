@@ -181,55 +181,12 @@
 @endif
 
 
-
-
-
-title: 'document.write(param);',
-  html: `<input type="text" id="login" class="swal2-input" placeholder="Ingrese Lote">
-  <select class="swal2-input" name="vacuna">
-  <option disabled>Selecciona una opción</option>
-  <?php
-  $id = auth()->id();
-  $laboratorios = DB::table('laboratorios')->get();
-  ?>
-  @foreach ($laboratorios as $lab)
- <option value ="{{ $lab->id }}"> {{ $lab->nombreLaboratorio }} </option>
-  @endforeach
-  </select>`,
-  confirmButtonText: 'Registrar Aplicacion',
-  focusConfirm: false,
-  preConfirm: () => {
-    const login = Swal.getPopup().querySelector('#login').value
-    const password = Swal.getPopup().querySelector('#password').value
-    if (!login || !password) {
-      Swal.showValidationMessage(`Please enter login and password`)
-    }
-    return { login: login, password: password }
-  }
-}).then((result) => {
-
-Swal.fire
-(`
-    Login: ${result.value.login}
-    Password: ${result.value.password}
-  `.trim())
-})
-    }
-
-
-
-
-
-
-
 <script>
 
     $('.confirmar-presencia').submit(function(e){
         e.preventDefault();
         Swal.fire({
 title: '¿Esta seguro de que desea registrar esta vacuna como aplicada?',
-
-
 html: `<input type="text" id="login" class="swal2-input" placeholder="Ingrese Lote">
   <select class="swal2-input" name="vacuna">
   <option disabled>Selecciona una opción</option>
@@ -241,7 +198,6 @@ html: `<input type="text" id="login" class="swal2-input" placeholder="Ingrese Lo
  <option value ="{{ $lab->id }}"> {{ $lab->nombreLaboratorio }} </option>
   @endforeach
 </select>`,
-
 
 text: "Esta acción no puede deshacerse.",
 icon: 'warning',
@@ -257,10 +213,6 @@ this.submit();
 })
     });
 </script>
-
-
-
-
 
 
 
