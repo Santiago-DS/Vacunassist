@@ -96,7 +96,7 @@
             <td>{{ $turno->nombreVacuna}}</td>
             <td>
 
-                <form action=" {{ route('registrar-aplicacion.registrarAplicacion',
+                <form style="display: inline-block" action=" {{ route('registrar-aplicacion.registrarAplicacion',
                     ['id_turno'=>$turno->id_turno, 'id_paciente'=>$turno->id_paciente,
                     'id_vacuna'=>$turno->id_vacuna]) }}" method="GET" class="confirmar-presencia">
 
@@ -106,7 +106,7 @@
 
                 </form>
 
-                <form action="{{ route('registrar-ausencia.registrarAusencia',
+                <form style="display: inline-block" action="{{ route('registrar-ausencia.registrarAusencia',
                         ['id_turno'=>$turno->id_turno])
                         }}" method="GET" class="ausencia">
 
