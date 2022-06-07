@@ -178,7 +178,7 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                                         <div class="col-md-12">
                                             <br>
                                             <label class="labels">Fecha de Nacimiento</label>
-                                            <input type="date" name="fecha_nacimiento"  class="form-control" value="{{ old('fecha_naciemento') }}">
+                                            <input type="date" name="fecha_nacimiento"  class="form-control" value="{{ old('fecha_nacimiento') }}">
                                             @error('fecha_nacimiento')<small style="color: red" class="error">*{{ $message }}</small>@enderror
 
                                         </div>
@@ -192,18 +192,18 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                                         <div class="col-md-12">
                                             <br>
                                             <label for="inputUserName">Seleccione una zona</label>
-                                            <select class="select-css"  name="zona">
+                                            <select name="zona" class="select-css">
                                                 <option disabled>Selecciona una opción</option>
                                                     <?php $zonas = DB::table('zonas')->distinct()->get(); ?>
                                                     @foreach ($zonas as $zona)
-                                                      <option value ="{{ $zona->id }}"> {{ $zona->nombreZona }}</option>
+                                                      <option value ="{{ $zona->id }}"> {{ $zona->nombreZona }} </option>
                                                     @endforeach
                                               </select>
                                         </div>
                                         <div class="col-md-12">
                                             <br>
                                             <label class="labels">DNI</label>
-                                            <input type="text" class="form-control" name="documento">
+                                            <input type="text" class="form-control" name="documento"  value="{{ old('documento') }}">
                                             @error('documento')<small style="color: red" class="error">*{{ $message }}</small>@enderror
 
                                         </div>

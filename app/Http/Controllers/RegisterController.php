@@ -52,7 +52,7 @@ class RegisterController extends Controller
 
         $password = Str::random(8);
 
-        User::create([
+        $user = User::create([
         'name'=> request()->get('name'),
         'email'=>request()->get('email'),
         'password'=> bcrypt($password),
@@ -61,9 +61,11 @@ class RegisterController extends Controller
         'telefono' => request()->get('telefono'),
         'documento' => request()->get('documento'),
         'fecha_nacimiento' => request()->get('fecha_nacimiento'),
-        'id_zona' => request()->get('zona'),
         'rol' => 'enfermero'
         ]);
+
+        $user->id_zona = request()->get('zona');    //Hago esto porque no se porque mierda la zona no se guarda si lo ponemos arriba
+        $user->save();
 
         $controlador = new MailController;
         $controlador->sendContrasenia(request()->get('email'));
