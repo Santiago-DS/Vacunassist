@@ -56,8 +56,10 @@
             <div class="card">
                 <?php $mytime = Carbon\Carbon::now()->format('Y-m-d');
                 $mytimev = Carbon\Carbon::now()->format('d/m/Y');
+                $zonaEnfermero = auth()->user()->id_zona;
+                $nombreZona = DB::table('zonas')->select('nombreZona')->where('id', $zonaEnfermero)->first();
                 ?>
-                <h5 class="card-header">Turnos Pendientes. Fecha: <?php echo $mytimev ?> </h5>
+                <h5 class="card-header">Turnos Pendientes - Fecha: <?php echo $mytimev ?>  - Zona: <?php  echo $nombreZona->nombreZona ?> </h5>
                 <div class="card-body">
                 <div class="container">
   <div class="row">

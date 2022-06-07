@@ -50,13 +50,13 @@
                         </div>
                     </div>
                     <div class="ecommerce-widget">
-                        
+
 
                     </div>
                     @if (session('registroE') == 'ok')
                     <script>
                         Swal.fire({
-                        title: 'Enefemero registrado correctamente',
+                        title: 'Enfermero registrado correctamente',
                         timer: 2000,
                         timerProgressBar: true
                         })
