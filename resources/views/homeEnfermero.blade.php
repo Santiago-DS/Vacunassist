@@ -70,7 +70,7 @@
             $turnos = DB::table('turnos')
             ->select('turnos.id AS id_turno' , 'turnos.id_vacuna' , 'turnos.id_paciente AS id_paciente',
             'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna' ,'turnos.id'
-            , 'zonas.nombreZona' , 'users.name' , 'users.apellido' , 'users.fecha_nacimiento')
+            , 'zonas.nombreZona' , 'users.name' , 'users.apellido' , 'users.fecha_nacimiento', 'users.documento')
             ->join('vacunas', 'vacunas.id', '=', 'turnos.id_vacuna')
             ->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
             ->join('users', 'users.id', '=', 'turnos.id_paciente')
@@ -92,7 +92,7 @@
         </thead>
         <tbody>
         @foreach ($turnos as $turno)
-        <tr> 
+        <tr>
             <td style="cursor: pointer" alt="ver detalle" onclick="datosPaciente('{{ $turno->id_paciente }}', '{{ $turno->name }}')">{{ $turno->name}} {{ $turno->apellido}}</td>
             <td>{{ Carbon\Carbon::parse($turno->fecha_nacimiento)->age; }}</td>
             <td>{{ $turno->nombreVacuna}}</td>
@@ -229,13 +229,14 @@ this.submit();
   <input type="hidden" id="id_paciente"  value="${id_paciente}">
   <input type="hidden" id="nombre_paciente" value="${nombrePaciente}">
   <div class="" name="vacuna">
+<p>Documento <?php echo $turno->documento ?> </p>
   <p>Vacunas registradas </p>
-  <?php 
+  <?php
   $id = auth()->id();
   $historiasclinica = DB::table('historiaclinica')->distinct()
             ->select('historiaclinica.id AS id_historia' , 'vacunas.nombreVacuna' , 'historiaclinica.fecha')
             ->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')
-            ->where('id_paciente', 1)->get(); 
+            ->where('id_paciente', $turno->id_paciente)->get();
   ?>
   @foreach ($historiasclinica as $lab)
  <span> {{ $lab->nombreVacuna }} {{ $lab->fecha }} <br></span>
@@ -243,7 +244,7 @@ this.submit();
   </div>`,
   confirmButtonText: 'Aceptar',
   focusConfirm: false,
-  
+
 })
     }
     </script>
