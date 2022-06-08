@@ -92,8 +92,8 @@
         </thead>
         <tbody>
         @foreach ($turnos as $turno)
-        <tr>
-            <td>{{ $turno->name}} {{ $turno->apellido}}</td>
+        <tr> 
+            <td style="cursor: pointer" alt="ver detalle" onclick="datosPaciente('{{ $turno->id_paciente }}', '{{ $turno->name }}')">{{ $turno->name}} {{ $turno->apellido}}</td>
             <td>{{ Carbon\Carbon::parse($turno->fecha_nacimiento)->age; }}</td>
             <td>{{ $turno->nombreVacuna}}</td>
             <td>
@@ -216,6 +216,39 @@ this.submit();
     });
 </script>
 
+<script>
+    function datosPaciente(id_paciente, nombrePaciente){
+        //$parametro1 = ${param};
+        console.log(id_paciente)
+        console.log(nombrePaciente)
+        //document.write(param);
+        //alert(param)
+        Swal.fire({
+  title: `Datos del Paciente: ${nombrePaciente}`,
+  html: `
+  <input type="hidden" id="id_paciente"  value="${id_paciente}">
+  <input type="hidden" id="nombre_paciente" value="${nombrePaciente}">
+  <div class="" name="vacuna">
+  <p>Vacunas registradas </p>
+  <?php 
+  $id = auth()->id();
+  $historiasclinica = DB::table('historiaclinica')->distinct()
+            ->select('historiaclinica.id AS id_historia' , 'vacunas.nombreVacuna' , 'historiaclinica.fecha')
+            ->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')
+            ->where('id_paciente', 1)->get(); 
+  ?>
+  @foreach ($historiasclinica as $lab)
+ <span> {{ $lab->nombreVacuna }} {{ $lab->fecha }} <br></span>
+  @endforeach
+  </div>`,
+  confirmButtonText: 'Aceptar',
+  focusConfirm: false,
+  
+})
+    }
+    </script>
+
+<script>
 
 
 <!-- HASTA ACA ESTA BIEN -->
