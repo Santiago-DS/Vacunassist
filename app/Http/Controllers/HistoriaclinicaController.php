@@ -40,7 +40,7 @@ class HistoriaclinicaController extends Controller
 
         if ($cantidad == 1) {
             Turno::create([
-                'fecha' => new DateTime('1 week'),
+                'fecha' => new DateTime('2 week'),
                 'hora' => new DateTime('today'),
                 'id_paciente'=> $id_paciente,
                 'id_zona' => 2,

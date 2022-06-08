@@ -54,8 +54,8 @@ class TurnoController extends Controller
         else if (isset($_POST['una_dosis'])) {
 
             request()->validate([
-                'fecha_primera' => 'required'   
-            ]); 
+                'fecha_primera' => 'required'
+            ]);
 
             Historiaclinica::create([
                 'fecha' => request()->get('fecha_primera'),
@@ -65,7 +65,7 @@ class TurnoController extends Controller
 
 
             Turno::create([
-                'fecha' => new DateTime('+1 week'),
+                'fecha' => new DateTime('+2 week'),
                 'hora' => new DateTime('today'),
                 'id_paciente'=> auth()->id(),
                 'id_zona' => 2,
@@ -83,8 +83,8 @@ class TurnoController extends Controller
         else if (isset($_POST['dos_dosis'])) {
 
             request()->validate([
-                'fecha_primera_dos' => 'required',   
-                'fecha_segunda' => 'required'  
+                'fecha_primera_dos' => 'required',
+                'fecha_segunda' => 'required'
             ]);
 
             Historiaclinica::create([
@@ -98,7 +98,7 @@ class TurnoController extends Controller
                 'id_paciente' => auth()->id(),
                 'id_vacuna' => 1
             ]);
-            
+
             return redirect('historiaclinica')->with('dos_dosis','ok');
 
         }
