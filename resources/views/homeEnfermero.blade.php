@@ -216,6 +216,8 @@ this.submit();
     });
 </script>
 
+
+
 <script>
     function datosPaciente(id_paciente, nombrePaciente){
         //$parametro1 = ${param};
@@ -229,14 +231,19 @@ this.submit();
   <input type="hidden" id="id_paciente"  value="${id_paciente}">
   <input type="hidden" id="nombre_paciente" value="${nombrePaciente}">
   <div class="" name="vacuna">
-<p>Documento <?php echo $turno->documento ?> </p>
+  <p>Documento <?php if(isset($turno)){ echo $turno->documento; } ?> </p>
   <p>Vacunas registradas </p>
   <?php
   $id = auth()->id();
+
+  $id_paciente = 0;
+  if(isset($turno))
+    $id_paciente = $turno->id_paciente;
+
   $historiasclinica = DB::table('historiaclinica')->distinct()
             ->select('historiaclinica.id AS id_historia' , 'vacunas.nombreVacuna' , 'historiaclinica.fecha')
             ->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')
-            ->where('id_paciente', $turno->id_paciente)->get();
+            ->where('id_paciente', $id_paciente)->get();
   ?>
   @foreach ($historiasclinica as $lab)
  <span> {{ $lab->nombreVacuna }} {{ $lab->fecha }} <br></span>
