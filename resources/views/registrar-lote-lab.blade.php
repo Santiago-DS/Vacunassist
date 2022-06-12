@@ -26,7 +26,7 @@
             <input hidden type="text" class="form-control" name="id_historia" value="<?php echo $id_historia ?>">
             <input hidden type="text" class="form-control" name="boolean" value="<?php echo $boolean ?>">
 
-            <input type="text" class="form-control" name="lote">
+            <input type="text" class="form-control" name="lote" required>
         </div>
         <div class="mb-3">
             <label class="form-label">Laboratorios</label>
