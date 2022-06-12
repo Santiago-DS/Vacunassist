@@ -189,24 +189,12 @@
         e.preventDefault();
         Swal.fire({
 title: '¿Esta seguro de que desea registrar esta vacuna como aplicada?',
-html: `<input type="text" id="login" class="swal2-input" placeholder="Ingrese Lote">
-  <select class="swal2-input" name="vacuna">
-  <option disabled>Selecciona una opción</option>
-  <?php
-  $id = auth()->id();
-  $laboratorios = DB::table('laboratorios')->get();
-  ?>
-  @foreach ($laboratorios as $lab)
- <option value ="{{ $lab->id }}"> {{ $lab->nombreLaboratorio }} </option>
-  @endforeach
-</select>`,
-
 text: "Esta acción no puede deshacerse.",
 icon: 'warning',
 showCancelButton: true,
 confirmButtonColor: '#3085d6',
 cancelButtonColor: '#d33',
-confirmButtonText: 'Aceptar',
+confirmButtonText: 'Continuar',
 cancelButtonText: 'Cancelar'
 }).then((result) => {
 if (result.isConfirmed) {
@@ -215,48 +203,6 @@ this.submit();
 })
     });
 </script>
-
-
-
-<script>
-    function datosPaciente(id_paciente, nombrePaciente){
-        //$parametro1 = ${param};
-        console.log(id_paciente)
-        console.log(nombrePaciente)
-        //document.write(param);
-        //alert(param)
-        Swal.fire({
-  title: `Datos del Paciente: ${nombrePaciente}`,
-  html: `
-  <input type="hidden" id="id_paciente"  value="${id_paciente}">
-  <input type="hidden" id="nombre_paciente" value="${nombrePaciente}">
-  <div class="" name="vacuna">
-  <p>Documento <?php if(isset($turno)){ echo $turno->documento; } ?> </p>
-  <p>Vacunas registradas </p>
-  <?php
-  $id = auth()->id();
-
-  $id_paciente = 0;
-  if(isset($turno))
-    $id_paciente = $turno->id_paciente;
-
-  $historiasclinica = DB::table('historiaclinica')->distinct()
-            ->select('historiaclinica.id AS id_historia' , 'vacunas.nombreVacuna' , 'historiaclinica.fecha')
-            ->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')
-            ->where('id_paciente', $id_paciente)->get();
-  ?>
-  @foreach ($historiasclinica as $lab)
- <span> {{ $lab->nombreVacuna }} {{ $lab->fecha }} <br></span>
-  @endforeach
-  </div>`,
-  confirmButtonText: 'Aceptar',
-  focusConfirm: false,
-
-})
-    }
-    </script>
-
-<script>
 
 
 <!-- HASTA ACA ESTA BIEN -->

@@ -49,10 +49,21 @@ class HistoriaclinicaController extends Controller
 
             $controlador = new MailController;
             $controlador->send($id_paciente);
-            return redirect('homeEnfermero')->with('segundoturno','ok');
+
+            $id_historia = HistoriaClinica::select('id')
+            ->where('id_paciente' , $id_paciente)
+            ->latest()->first();
+
+
+            return redirect()->route('registrar-lote-lab', ['id_historia' => $id_historia, 'boolean' => '1']);
+
         }
 
-        return redirect('homeEnfermero');
+        $id_historia = HistoriaClinica::select('id')
+            ->where('id_paciente' , $id_paciente)
+            ->latest()->first();
+
+        return redirect()->route('registrar-lote-lab', ['id_historia' => $id_historia]);
     }
 
     public function registrarAusencia($id_turno, $id_paciente = null, $id_vacuna = null){
@@ -65,6 +76,18 @@ class HistoriaclinicaController extends Controller
         $registro = Historiaclinica::findOrFail($id);
         $registro->delete();
         return redirect('historiaclinica');
+    }
+
+    public function registrarLote() {
+        $id_historia = request()->get('id_historia');
+        Historiaclinica::where("id", $id_historia)->update(["id_laboratorio" => request()->get('id_laboratorio')]);
+        Historiaclinica::where("id", $id_historia)->update(["lote" => request()->get('lote')]);
+
+        $boolean = request()->get('boolean');
+        if($boolean){
+            return redirect('homeEnfermero')->with('segundoturno','ok');
+        }
+        return redirect('homeEnfermero');
     }
 
 }

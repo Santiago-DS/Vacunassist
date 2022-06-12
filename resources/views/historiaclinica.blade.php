@@ -72,8 +72,10 @@
         <?php
             $id_usuario=auth()->id();
             $historiasclinica = DB::table('historiaclinica')->distinct()
-            ->select('historiaclinica.id AS id_historia' , 'vacunas.nombreVacuna' , 'historiaclinica.fecha')
+            ->select('historiaclinica.id AS id_historia' , 'vacunas.nombreVacuna'
+            , 'historiaclinica.fecha', 'historiaclinica.lote', 'laboratorios.nombreLaboratorio')
             ->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')
+            ->join('laboratorios', 'laboratorios.id', '=', 'historiaclinica.id_laboratorio')
             ->where('id_paciente', $id_usuario)->get();
         ?>
         @if ($historiasclinica->count())
@@ -82,18 +84,24 @@
           <tr>
             <th scope="col">Tipo de Vacuna</th>
             <th scope="col">Fecha de vacunación</th>
+            <th scope="col">Lote</th>
+            <th scope="col">Laboratorio</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
         @foreach ($historiasclinica as $historiaclinica)
           <tr>
-            <th scope="row">{{ $historiaclinica->nombreVacuna }}</th>
-             <?php $date = date_create($historiaclinica->fecha)
+            <td scope="row">{{ $historiaclinica->nombreVacuna }}</td>
 
-             ?>
 
-            <td><?php echo date_format($date,"d/m/Y") ?></td>
+
+            <?php $date = date_create($historiaclinica->fecha) ?>
+            <td scope="row"><?php echo date_format($date,"d/m/Y") ?></td>
+
+            <td scope="row">{{ $historiaclinica->lote }}</td>
+
+            <td scope="row">{{ $historiaclinica->nombreLaboratorio }}</td>
 
             <td>
                 <form action="{{ route('historia-clinica.down', ['id'=>$historiaclinica->id_historia]) }}" method="get" class="formulario-eliminar">
@@ -103,6 +111,8 @@
                 </form>
 
             </td>
+
+
 
           </tr>
         @endforeach

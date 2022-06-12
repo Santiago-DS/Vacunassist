@@ -50,6 +50,8 @@ Route::view('micontrasenia', 'micontrasenia')->name('micontrasenia')->middleware
 Route::view('homeEnfermero', 'homeEnfermero')->name('homeEnfermero')->middleware('auth');
 Route::view('homeAdministrativo', 'homeAdministrativo')->name('homeAdministrativo')->middleware('auth');
 Route::view('vacunas', 'vacunas')->name('vacunas')->middleware('auth');
+Route::view('registrar-lote-lab', 'registrar-lote-lab')->name('registrar-lote-lab')->middleware('auth');
+
 /*
 |--------------------------------------------------------------------------
 | Get Routes
@@ -61,9 +63,9 @@ Route::get('password', [MailController::class, 'sendContrasenia']);
 Route::get('turnos/{id}', [TurnoController::class, 'edit'])->name('turnos.edit');
 Route::get('emitir-certificado', [HistoriaclinicaController::class, 'generarPDF'])->name('emitir-certificado');
 Route::get('historia-clinica/{id}', [HistoriaclinicaController::class, 'down'])->name('historia-clinica.down');
-
 Route::get('registrar-aplicacion/{id_turno}{id_paciente}{id_vacuna}', [HistoriaclinicaController::class, 'registrarAplicacion'])->name('registrar-aplicacion.registrarAplicacion');
 Route::get('registrar-ausencia/{id_turno}', [HistoriaclinicaController::class, 'registrarAusencia'])->name('registrar-ausencia.registrarAusencia');
+Route::get('registrar-lote-lab/{id_historia}', [HistoriaclinicaController::class, 'registrarLote'])->name('registrar-lote-lab.registrarLote');
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +82,7 @@ Route::post('formhistoriaclinica', [HistoriaclinicaController::class, 'store']);
 Route::post('turno-automatico-registro', [TurnoController::class, 'turnoAutomatico']);
 Route::post('miperfil', [UserController::class, 'edit']);
 Route::post('micontrasenia', [UserController::class, 'actualizarContrasenia']);
+Route::post('registrar-lote-lab', [HistoriaclinicaController::class, 'registrarLote']);
 
 
 
