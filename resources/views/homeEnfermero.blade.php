@@ -177,7 +177,16 @@
         Swal.fire(
         'Turno automatico exitoso!',
         'Se generó el turno correctamente para la segunda dosis de covid .',
+        'El turno ha sido confirmado, se cargo correctamente el lote y el laboratorio .',
         'success'
+    )
+    </script>
+@endif
+
+@if (session('cargalotelab') == 'ok')
+    <script>
+        Swal.fire(
+        'El turno ha sido confirmado, se cargo correctamente el lote y el laboratorio .',
     )
     </script>
 @endif

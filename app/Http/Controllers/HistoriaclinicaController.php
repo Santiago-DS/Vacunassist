@@ -87,7 +87,7 @@ class HistoriaclinicaController extends Controller
         if($boolean){
             return redirect('homeEnfermero')->with('segundoturno','ok');
         }
-        return redirect('homeEnfermero');
+        return redirect('homeEnfermero')->with('cargalotelab', 'ok');
     }
 
 }
