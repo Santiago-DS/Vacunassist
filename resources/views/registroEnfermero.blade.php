@@ -117,11 +117,13 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
         <!-- end navbar -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
-            @if (auth()->user()->rol =='paciente')
-                @include('partials.menu')
-            @else
-                @include('partials.menu-enfermero')
-            @endif
+        @if (auth()->user()->rol =='paciente')
+        @include('partials.menu')
+    @elseif (auth()->user()->rol =='enfermero')
+        @include('partials.menu-enfermero')
+    @else
+        @include('partials.menu-admin')
+    @endif
 
         <!-- ============================================================== -->
         <!-- end left sidebar -->

@@ -61,7 +61,7 @@
                     <div class="ecommerce-widget">
 
                 <div class="row">
-                    <div class="col-xl-5 col-lg-12 col-md-6 col-sm-12 col-12">
+                    <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
             <div class="card">
                 <h5 class="card-header">Mis vacunas</h5>
                 <div class="card-body">

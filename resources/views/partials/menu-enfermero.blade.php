@@ -67,9 +67,6 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="homeEnfermero">Ver turnos Pendientes</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="vacunas">Stock Vacunas</a>
-                                        </li>
                                     </ul>
                                 </div>
                             </li>
