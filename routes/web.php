@@ -14,6 +14,7 @@ use App\Http\Controllers\HistoriaclinicaController;
 use App\Models\HistoriaClinica;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VacunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,7 @@ Route::view('homeEnfermero', 'homeEnfermero')->name('homeEnfermero')->middleware
 Route::view('homeAdministrativo', 'homeAdministrativo')->name('homeAdministrativo')->middleware('auth');
 Route::view('vacunas', 'vacunas')->name('vacunas')->middleware('auth');
 Route::view('registrar-lote-lab', 'registrar-lote-lab')->name('registrar-lote-lab')->middleware('auth');
+Route::view('agregar-vacuna', 'agregar-vacuna')->name('agregar-vacuna')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
@@ -83,7 +85,7 @@ Route::post('turno-automatico-registro', [TurnoController::class, 'turnoAutomati
 Route::post('miperfil', [UserController::class, 'edit']);
 Route::post('micontrasenia', [UserController::class, 'actualizarContrasenia']);
 Route::post('registrar-lote-lab', [HistoriaclinicaController::class, 'registrarLote']);
-
+Route::post('agregar-vacuna', [VacunaController::class, 'agregarVacuna']);
 
 
 

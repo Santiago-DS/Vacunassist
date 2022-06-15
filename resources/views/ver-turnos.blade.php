@@ -67,7 +67,7 @@
             ->join('vacunas', 'vacunas.id', '=', 'turnos.id_vacuna')
             ->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
             ->where('id_paciente', $id_usuario)
-            ->where('estado' , 'pendiente')
+            ->where('turnos.estado' , 'pendiente')
             ->get();
         ?>
 

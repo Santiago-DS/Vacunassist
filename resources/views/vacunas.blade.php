@@ -36,12 +36,16 @@
                 <div class="container-fluid dashboard-content ">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
                             <div class="page-header">
-                                <h2 class="pageheader-title">Gestión de Vacunas <button type="submit" class="btn btn-success">
-                                   Agregar Vacuna</button></h2>
-                                
-                                    
-                                   
+
+
+
+                                <h2 class="pageheader-title">Gestión de Vacunas <a href="agregar-vacuna" class="btn btn-success">
+                                   Agregar Vacuna</a></h2>
+
+
+
                                     <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -51,9 +55,10 @@
                                     </nav>
                                 </div>
                             </div>
+
                         </div>
                     </div>
-                    
+
                     <div class="ecommerce-widget">
 
                 <div class="row">
@@ -82,15 +87,15 @@
         @foreach ($turnos as $turno)
         <tr>
             <td>{{ $turno->nombreVacuna}}</td>
-            
+
 
             <td>
-                
+
                     <button type="submit" class="btn btn-info">
                         <i class="fa-solid fa-pen-clip"></i>Editar</button>
                     <button type="submit" class="btn btn-danger">
                         <i class="far fa-trash-alt"></i>Eliminar</button>
-                
+
             </td>
         </tr>
         @endforeach
