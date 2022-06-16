@@ -11,12 +11,14 @@ class VacunaController extends Controller
 
     public function agregarVacuna() {
 
-        echo "ok";
+        request()->validate([
+            '*' => 'required'
+        ]);
+
         Vacuna::create([
             'nombreVacuna' => request()->get('nombreVacuna'),
             'estado' => 1
         ]);
-
     }
 
 }

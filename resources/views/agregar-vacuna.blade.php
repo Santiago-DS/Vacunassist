@@ -3,6 +3,7 @@
 <head>
     <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
 </head>
+
 <style>
 
 
@@ -49,20 +50,26 @@ cursor: pointer;
 .contenedor{
     background: #f5f0f0;
     padding: 20px;
-    margin-left: 35%;
     width: 30%;
     border-radius: 30px;
+    margin: auto;
+    margin-top: 10%;
 }
 
 .inputs{
     padding: 15px;
 }
 
+.form-label {
+    font-size: 120%;
+
+}
+
 
 
 .b{
     padding: 20px;
-    margin-left: 30%;
+    margin-left: 35%;
 }
 
         </style>
@@ -71,18 +78,42 @@ cursor: pointer;
 
 
     <div class="contenedor">
-    <form action=" {{ route('agregar-vacuna') }} " method="POST">
+    <form action="{{ route('agregar-vacuna') }}" method="POST" class="formulario">
         @csrf
         <div class="inputs">
-            <label class="form-label">Ingrese nombre de la nueva vacuna</label>
-            <input type="text" class="form-control control" class="estilos" name="nombreVacuna" required>
+            <label class="form-label">Ingrese nombre de la nueva vacuna:</label><br><br>
+            <input type="text" class="form-control control" class="estilos" name="nombreVacuna">
+            @error('nombreVacuna')<small style="color: red" class="error">*{{ $message }}</small>@enderror
         </div>
         <div class="b">
-        <button type="submit" class="btn btn-primary">Aceptar</button>
+            <button type="submit" class="btn btn-primary">Aceptar</button>
         </div>
-      </form>
+    </form>
     </div>
 
-
 </body>
+
+@include('partials.menu-scripts')
+
+<script>
+
+    $('.formulario').submit(function(e){
+    e.preventDefault();
+    Swal.fire({
+    title: '¿Esta seguro de cargar esta vacuna?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Aceptar',
+    cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            this.submit();
+        }
+    })
+    });
+
+</script>
+
 </html>
