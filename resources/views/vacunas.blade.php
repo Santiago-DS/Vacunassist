@@ -176,4 +176,14 @@
     )
     </script>
 @endif
+
+
+@if (session('vacuna-cargada') == 'ok')
+    <script>
+        Swal.fire(
+        'Vacuna registrada con éxito',
+    )
+    </script>
+@endif
+
 </html>
