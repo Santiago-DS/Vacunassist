@@ -76,7 +76,7 @@
             ->join('users', 'users.id', '=', 'turnos.id_paciente')
             ->where('turnos.id_zona' , $zonaEnfermero)
             ->where('fecha', strval($mytime))
-            ->where('estado' , 'pendiente')
+            ->where('turnos.estado' , 'pendiente')
             ->get();
         ?>
 
