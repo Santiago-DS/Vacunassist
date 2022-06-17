@@ -53,7 +53,8 @@ Route::view('homeAdministrativo', 'homeAdministrativo')->name('homeAdministrativ
 Route::view('vacunas', 'vacunas')->name('vacunas')->middleware('auth');
 Route::view('registrar-lote-lab', 'registrar-lote-lab')->name('registrar-lote-lab')->middleware('auth');
 Route::view('agregar-vacuna', 'agregar-vacuna')->name('agregar-vacuna')->middleware('auth');
-
+Route::view('actualizar-sede', 'actualizar-sede')->name('actualizar-sede')->middleware('auth');
+Route::view('form-actualizar-sede', 'form-actualizar-sede')->name('form-actualizar-sede')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Get Routes
@@ -68,6 +69,7 @@ Route::get('historia-clinica/{id}', [HistoriaclinicaController::class, 'down'])-
 Route::get('registrar-aplicacion/{id_turno}{id_paciente}{id_vacuna}', [HistoriaclinicaController::class, 'registrarAplicacion'])->name('registrar-aplicacion.registrarAplicacion');
 Route::get('registrar-ausencia/{id_turno}', [HistoriaclinicaController::class, 'registrarAusencia'])->name('registrar-ausencia.registrarAusencia');
 Route::get('registrar-lote-lab/{id_historia}', [HistoriaclinicaController::class, 'registrarLote'])->name('registrar-lote-lab.registrarLote');
+Route::get('form-actualizar-sede/{id_enfermero}', [UserController::class, 'actualizarSede'])->name('form-actualizar-sede.actualizarSede');
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +88,6 @@ Route::post('miperfil', [UserController::class, 'edit']);
 Route::post('micontrasenia', [UserController::class, 'actualizarContrasenia']);
 Route::post('registrar-lote-lab', [HistoriaclinicaController::class, 'registrarLote']);
 Route::post('agregar-vacuna', [VacunaController::class, 'agregarVacuna']);
-
+Route::post('form-actualizar-sede', [UserController::class, 'actualizarSedeEfectivo']);
 
 
