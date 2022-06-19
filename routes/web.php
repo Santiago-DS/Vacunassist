@@ -53,6 +53,7 @@ Route::view('homeAdministrativo', 'homeAdministrativo')->name('homeAdministrativ
 Route::view('vacunas', 'vacunas')->name('vacunas')->middleware('auth');
 Route::view('registrar-lote-lab', 'registrar-lote-lab')->name('registrar-lote-lab')->middleware('auth');
 Route::view('agregar-vacuna', 'agregar-vacuna')->name('agregar-vacuna')->middleware('auth');
+Route::view('eliminar-Vacuna-Administrativo', 'eliminar-Vacuna-Administrativo')->name('eliminar-Vacuna-Administrativo')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +87,7 @@ Route::post('miperfil', [UserController::class, 'edit']);
 Route::post('micontrasenia', [UserController::class, 'actualizarContrasenia']);
 Route::post('registrar-lote-lab', [HistoriaclinicaController::class, 'registrarLote']);
 Route::post('agregar-vacuna', [VacunaController::class, 'agregarVacuna']);
+Route::post('eliminar-Vacuna-Administrativo', [VacunaController::class, 'eliminarVacuna']);
 
 
 

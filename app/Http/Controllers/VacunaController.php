@@ -21,4 +21,22 @@ class VacunaController extends Controller
         ]);
     }
 
+// VER//
+    public function eliminarVacuna() {
+
+        request()->validate([
+            '*' => 'required'
+        ]);
+        $nombreVacuna = request()->get('nombreVacuna');
+        $nombreVacuna = strtoupper($nombreVacuna);              // cnvierte a mayusculas.
+        $vacuna = Vacuna::where("nombreVacuna", $nombreVacuna)->where("nombreVacuna", 'nombreVacuna');
+
+        if ($vacuna == 1) {
+            Vacuna::update([
+   
+                'estado'=> "noDisponible",
+               
+            ]);
+    }
+
 }
