@@ -68,6 +68,9 @@
                                             <a class="nav-link" href="registroEnfermero">Registrar Enfermero</a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" href="actualizar-sede">Actualizar Sede</a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a class="nav-link" href="vacunas">Stock Vacunas</a>
                                         </li>
                                         <li class="nav-item">

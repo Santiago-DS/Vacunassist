@@ -76,4 +76,17 @@ class UserController extends Controller
     return redirect('micontrasenia')->with('actualizarContrasenia','no');
 
     }
+
+    public function actualizarSede($id_enfermero) {
+        return redirect()->route('form-actualizar-sede', ['id_enfermero' => $id_enfermero]);
+    }
+
+    public function actualizarSedeEfectivo() {
+
+        User::where("id", request()->get('id_enfermero'))->update([
+            'id_zona'=> request()->get('id_zona')
+        ]);
+
+        return redirect('actualizar-sede')->with('sede-actualizada','ok');
+    }
 }

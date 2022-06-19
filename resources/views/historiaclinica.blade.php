@@ -73,9 +73,16 @@
             $id_usuario=auth()->id();
             $historiasclinica = DB::table('historiaclinica')->distinct()
             ->select('historiaclinica.id AS id_historia' , 'vacunas.nombreVacuna'
-            , 'historiaclinica.fecha', 'historiaclinica.lote', 'historiaclinica.id_laboratorio')
+            , 'historiaclinica.fecha', 'historiaclinica.lote', 'historiaclinica.id_laboratorio', 'vacunas.id')
             ->join('vacunas', 'vacunas.id', '=', 'historiaclinica.id_vacuna')
-            ->where('id_paciente', $id_usuario)->get();
+            ->where('id_paciente', $id_usuario)
+            ->orderBy('vacunas.id', 'ASC')
+            ->orderBy('historiaclinica.fecha', 'ASC')
+            ->get();
+
+            /* Importante el orderBY por ID, ya que agrupa las de COVID al inicio (ID 1)
+                y esto es fundamental para que los indices del for each no queden mal */
+
         ?>
         @if ($historiasclinica->count())
       <table class="table table-bordered">
@@ -99,16 +106,22 @@
             ?>
 
           <tr>
-            <th scope="row">{{ $historiaclinica->nombreVacuna }}</th>
-             <?php $date = date_create($historiaclinica->fecha)
 
-             ?>
+            @if ( $historiaclinica->nombreVacuna == 'COVID' )
+                    <th scope="row">{{ $historiaclinica->nombreVacuna }}
+                        <?php echo"(dosis" ?> {{ $loop->index + 1}}<?php echo")" ?>
+                    </th>
+            @else
+                    <th scope="row">{{ $historiaclinica->nombreVacuna }}   </th>
+            @endif
+
+            <?php $date = date_create($historiaclinica->fecha) ?>
 
             <td><?php echo date_format($date,"d/m/Y") ?></td>
 
-            <td><?php if(isset($historiaclinica->lote)) echo $historiaclinica->lote ?> </td>
+            <td><?php if(isset($historiaclinica->lote)) echo $historiaclinica->lote; else echo "N/A" ?> </td>
 
-            <td><?php if(isset($laboratorio)) echo $laboratorio->nombreLaboratorio ?> </td>
+            <td><?php if(isset($laboratorio)) echo $laboratorio->nombreLaboratorio; else echo "N/A" ?> </td>
 
             <td>
                 <form action="{{ route('historia-clinica.down', ['id'=>$historiaclinica->id_historia]) }}" method="get" class="formulario-eliminar">
@@ -120,6 +133,7 @@
             </td>
 
           </tr>
+
         @endforeach
         </tbody>
       </table>
