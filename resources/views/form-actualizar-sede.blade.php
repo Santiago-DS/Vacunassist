@@ -124,7 +124,20 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
             <label class="form-label">Seleccione la Nueva Zona</label>
             <select class="select-css" name="id_zona">
                 <option disabled>Seleccione una opción</option>
-                <?php $zonas = DB::table('zonas')->get(); ?>
+                <?php
+                    $id_enfermero = $_GET['id_enfermero'];
+
+                    $zonaActual = DB::table('users')
+                    ->select('zonas.id' , 'zonas.nombreZona')
+                    ->where('users.id', '=', $id_enfermero)
+                    ->join('zonas', 'zonas.id', '=', 'users.id_zona')
+                    ->first();
+
+                    $zonas = DB::table('zonas')->where('zonas.id' , '!=' , $zonaActual->id)->get();
+
+
+                ?>
+                <option value ="{{ $zonaActual->id }}"> {{ $zonaActual->nombreZona }} (zona actual)</option>
                 @foreach ($zonas as $zona)
                     <option value ="{{ $zona->id }}"> {{ $zona->nombreZona }} </option>
                 @endforeach
