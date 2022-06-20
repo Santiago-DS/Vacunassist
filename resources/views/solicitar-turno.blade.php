@@ -155,7 +155,7 @@ background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22h
                                                     $vacunasdelusuario = DB::table('turnos')->select('turnos.id_vacuna')->where('id_paciente', $id)->where('estado' , 'pendiente')->get(); 
                                                     $array_vacunasdelusuario = str_split($vacunasdelusuario);
                                                     ?>
-                                                    <?php $vacunas = DB::table('vacunas')->whereNotIn('id', $array_vacunasdelusuario)->get()?>
+                                                    <?php $vacunas = DB::table('vacunas')->whereNotIn('id', $array_vacunasdelusuario)->where('estado',1)->get()?>
                                                     @foreach ($vacunas as $vacuna)
                                                       <option value ="{{ $vacuna->id }}"> {{ $vacuna->nombreVacuna }} </option>
                                                     @endforeach

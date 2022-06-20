@@ -71,7 +71,7 @@
     <div class="col-12">
         <?php
             $id_usuario=auth()->id();
-            $turnos = DB::table('vacunas')
+            $turnos = DB::table('vacunas')->where('estado',1)
             ->get();
         ?>
 
@@ -87,22 +87,23 @@
         @foreach ($turnos as $turno)
         <tr>
             <td>{{ $turno->nombreVacuna}}</td>
-
-
-            <td>
-
-                    <button type="submit" class="btn btn-info">
-                        <i class="fa-solid fa-pen-clip"></i>Editar</button>
+            <td> @if ($turno->id == 1 || $turno->id == 2 || $turno->id == 3 )
+                <button type="button" disabled class="btn btn-danger">
+                    <i class="far fa-trash-alt"></i>Eliminar</button>
+                
+                @else
+                <form action="{{ route('vacunas.edit', ['id'=>$turno->id]) }}" method="get" class="formulario-eliminar">
                     <button type="submit" class="btn btn-danger">
-                        <i class="far fa-trash-alt"></i>Eliminar</button>
-
+                <i class="far fa-trash-alt"></i>Eliminar</button>
+                </form>
+                @endif
             </td>
         </tr>
         @endforeach
         </tbody>
       </table>
       @else
-      <td><span class="badge-dot badge-brand mr-1"></span> No hay turnos para mostrar</td>
+      <td><span class="badge-dot badge-brand mr-1"></span> No hay vacunas para mostrar</td>
       @endif
     </div>
   </div>
@@ -121,8 +122,8 @@
     @if (session('eliminar') == 'ok')
     <script>
         Swal.fire(
-        'Cancelado!',
-        'El turno se cancelo correctamente.',
+        'Elminada!',
+        'La vacuna se elimino correctamente.',
         'success'
     )
     </script>
@@ -132,8 +133,8 @@
         $('.formulario-eliminar').submit(function(e){
             e.preventDefault();
             Swal.fire({
-  title: '¿Está seguro de cancelar el turno?',
-  text: "el turno se cancelara definitivamente",
+  title: '¿Está seguro de elimimar esta vacuna?',
+  text: "la vacuna se eliminara definitivamente",
   icon: 'warning',
   showCancelButton: true,
   confirmButtonColor: '#3085d6',

@@ -56,6 +56,9 @@ Route::view('agregar-vacuna', 'agregar-vacuna')->name('agregar-vacuna')->middlew
 Route::view('eliminar-Vacuna-Administrativo', 'eliminar-Vacuna-Administrativo')->name('eliminar-Vacuna-Administrativo')->middleware('auth');
 Route::view('actualizar-sede', 'actualizar-sede')->name('actualizar-sede')->middleware('auth');
 Route::view('form-actualizar-sede', 'form-actualizar-sede')->name('form-actualizar-sede')->middleware('auth');
+Route::view('reportes', 'reportes')->name('reportes')->middleware('auth');
+Route::view('por-vacunatorio', 'por-vacunatorio')->name('por-vacunatorio')->middleware('auth');
+Route::view('probando', 'probando')->name('probando')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Get Routes
@@ -71,6 +74,8 @@ Route::get('registrar-aplicacion/{id_turno}{id_paciente}{id_vacuna}', [Historiac
 Route::get('registrar-ausencia/{id_turno}', [HistoriaclinicaController::class, 'registrarAusencia'])->name('registrar-ausencia.registrarAusencia');
 Route::get('registrar-lote-lab/{id_historia}', [HistoriaclinicaController::class, 'registrarLote'])->name('registrar-lote-lab.registrarLote');
 Route::get('form-actualizar-sede/{id_enfermero}', [UserController::class, 'actualizarSede'])->name('form-actualizar-sede.actualizarSede');
+Route::get('obtenerdatos', [TurnoController::class, 'obtenerdatos'])->name('obtenerdatos')->middleware('auth');
+Route::get('vacunas/{id}', [VacunaController::class, 'edit'])->name('vacunas.edit');
 
 /*
 |--------------------------------------------------------------------------

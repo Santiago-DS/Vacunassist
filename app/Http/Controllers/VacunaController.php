@@ -23,22 +23,26 @@ class VacunaController extends Controller
         return redirect('/vacunas')->with('vacuna-cargada', 'ok');
     }
 
-// VER//
-    public function eliminarVacuna() {
-
-        request()->validate([
-            '*' => 'required'
-        ]);
-        $nombreVacuna = request()->get('nombreVacuna');
-        $nombreVacuna = strtoupper($nombreVacuna);              // cnvierte a mayusculas.
-        $vacuna = Vacuna::where("nombreVacuna", $nombreVacuna)->where("nombreVacuna", 'nombreVacuna');
-
-        if ($vacuna == 1) {
-            Vacuna::update([
-   
-                'estado'=> "noDisponible",
-               
-            ]);
+    public function edit($id) {
+        Vacuna::where("id", $id)->update(["estado" => 0]);
+        return redirect('/vacunas')->with('eliminar','ok');
     }
 
+// VER//
+    //public function eliminarVacuna() {
+
+//        request()->validate([
+  //          '*' => 'required'
+    //    ]);
+     //   $nombreVacuna = request()->get('nombreVacuna');
+     //   $nombreVacuna = strtoupper($nombreVacuna);              // cnvierte a mayusculas.
+     //   $vacuna = Vacuna::where("nombreVacuna", $nombreVacuna)->where("nombreVacuna", 'nombreVacuna');
+
+      //  if ($vacuna == 1) {
+      //      Vacuna::update([
+   
+    //            'estado'=> "noDisponible",
+               
+      //      ]);
+    //}
 }

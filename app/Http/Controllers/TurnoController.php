@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Date;
 
 class TurnoController extends Controller
 {
-
+  
     public function store(){
 
         Turno::create([
@@ -105,4 +105,29 @@ class TurnoController extends Controller
 
     }
 
+    function obtenerDatos(){
+
+       // $turnosporzona = DB::table('turnos')
+         //   ->select('zonas.nombreZona', (DB::raw('count(*) as cantidad')))
+         //   ->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
+         //   ->groupBy('zonas.id','zonas.nombreZona')->get();
+
+           // $json=json_decode($turnosporzona);
+           // $textos = array();
+           // $valores = array();
+           // for ( $contador = 0; $contador < ($turnosporzona->count()); $contador = $contador + 1 ) {
+            //    array_push($textos, $json[$contador]->nombreZona);
+            //   array_push($valores, $json[$contador]->cantidad);
+           // }
+        
+        // Valores con PHP. Estos podrían venir de una base de datos o de cualquier lugar del servidor
+        $etiquetas = ["Cementerio Municipal","Municipal","Terminal"];
+        $datosVentas = [15,2,3];
+        // Ahora las imprimimos como JSON para pasarlas a AJAX, pero las agrupamos
+        $respuesta = [
+            "etiquetas" => $etiquetas,
+            "datos" => $datosVentas,
+        ];
+        echo json_encode($respuesta);
+    }
 }
