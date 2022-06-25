@@ -58,6 +58,7 @@ Route::view('actualizar-sede', 'actualizar-sede')->name('actualizar-sede')->midd
 Route::view('form-actualizar-sede', 'form-actualizar-sede')->name('form-actualizar-sede')->middleware('auth');
 Route::view('reportes', 'reportes')->name('reportes')->middleware('auth');
 Route::view('por-vacunatorio', 'por-vacunatorio')->name('por-vacunatorio')->middleware('auth');
+Route::view('por-zona', 'por-zona')->name('por-zona')->middleware('auth');
 Route::view('probando', 'probando')->name('probando')->middleware('auth');
 /*
 |--------------------------------------------------------------------------

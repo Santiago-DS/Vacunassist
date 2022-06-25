@@ -82,7 +82,7 @@
                                             <a class="nav-link" href="reportes">Generales</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="por-vacunatorio">Por Zona</a>
+                                            <a class="nav-link" href="por-zona">Por Zona</a>
                                         </li>
                                     </ul>
                                 </div>
