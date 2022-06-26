@@ -1,7 +1,7 @@
 <?php
 $turnosporzona = DB::table('turnos')
-->select('zonas.nombreZona', (DB::raw('count(*) as cantidad')))
-->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
+->select('zonas.nombreZona', (DB::raw('count(id_zona) as cantidad')))
+->rightjoin('zonas', 'zonas.id', '=', 'turnos.id_zona', 'estado', '=','aplicado')
 ->groupBy('zonas.id','zonas.nombreZona')->get();
 
 $json=json_decode($turnosporzona);

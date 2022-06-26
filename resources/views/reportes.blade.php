@@ -60,7 +60,7 @@
             <script>
                 const ctx = document.getElementById('myChart').getContext('2d');
                 const myChart = new Chart(ctx, {
-                    type: 'polarArea',
+                    type: 'doughnut',
                     //doughnut
                     data: {
                         labels: ['Aplicadas COVID', 'Turnos Cancelados', 'Aplicadas Fiebre Amarilla'],
