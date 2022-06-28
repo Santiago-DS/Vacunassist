@@ -79,7 +79,7 @@ Route::get('form-actualizar-sede/{id_enfermero}', [UserController::class, 'actua
 Route::get('obtenerdatos', [TurnoController::class, 'obtenerdatos'])->name('obtenerdatos')->middleware('auth');
 Route::get('vacunas/{id}', [VacunaController::class, 'edit'])->name('vacunas.edit');
 Route::get('confirmar-turno/{id_turno}', [VacunaController::class, 'confirmarTurno'])->name('confirmar-turno.confirmarTurno');
-Route::get('denegar-turno/{id_turno}', [VacunaController::class, 'denegarTurno'])->name('denegar-turno.denegarTurno');
+Route::get('denegar-turno/{email}{id_turno}', [VacunaController::class, 'denegarTurno'])->name('denegar-turno.denegarTurno');
 
 /*
 |--------------------------------------------------------------------------

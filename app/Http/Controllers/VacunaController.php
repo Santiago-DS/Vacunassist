@@ -6,6 +6,7 @@ use App\Models\Turno;
 use App\Models\Vacuna;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class VacunaController extends Controller
 {
@@ -53,7 +54,9 @@ class VacunaController extends Controller
         return redirect('/aprobacion-turnos')->with('confirmar-turno','ok');
     }
 
-    public function denegarTurno($id_turno) {
+    public function denegarTurno($email , $id_turno) {
+        $controlador = new MailController;
+        $controlador->sendAvisoTurnoRechazado($email);
         Turno::where("id", $id_turno)->update(["estado" => 'cancelado']);
         return redirect('/aprobacion-turnos')->with('denegar-turno','ok');
     }

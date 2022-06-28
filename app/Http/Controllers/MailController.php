@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Mail\TurnoMailable;
 use App\Mail\PasswordMailable;
+use App\Mail\TurnoRechazadoMailable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
@@ -31,8 +32,13 @@ class MailController extends Controller
     public function sendContrasenia($correoEnfermero) {
             $correo = new PasswordMailable;
             Mail::to($correoEnfermero)->send($correo);
-    
+
         return "Mensaje enviado";
+    }
+
+    public function sendAvisoTurnoRechazado($correoPaciente) {
+            $correo = new TurnoRechazadoMailable;
+            Mail::to($correoPaciente)->send($correo);
     }
 
 }

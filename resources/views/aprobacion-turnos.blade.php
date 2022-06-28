@@ -63,7 +63,7 @@
     ->select('turnos.id AS id_turno' , 'turnos.id_vacuna' , 'turnos.id_paciente AS id_paciente',
     'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna' ,'turnos.id'
     , 'zonas.nombreZona' , 'users.name' , 'users.apellido' , 'users.fecha_nacimiento'
-    , 'users.documento' , 'users.telefono')
+    , 'users.documento' , 'users.telefono' , 'users.email')
     ->join('vacunas', 'vacunas.id', '=', 'turnos.id_vacuna')
     ->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
     ->join('users', 'users.id', '=', 'turnos.id_paciente')
@@ -102,7 +102,7 @@
         </form>
 
         <form style="display: inline-block" action="{{ route('denegar-turno.denegarTurno',
-                ['id_turno'=>$turno->id_turno])
+                ['email'=>$turno->email , 'id_turno'=>$turno->id_turno])
                 }}" method="GET" class="denegar-turno">
 
             <button type="submit" class="btn btn-danger"><i class="fas fa-ban"></i> Rechazar</button>
@@ -164,7 +164,7 @@ this.submit();
         e.preventDefault();
         Swal.fire({
 title: '¿Está seguro de rechazar este turno?',
-text: "El turno será rechazado.",
+text: "El turno será rechazado y se enviará un correo al usuario informando de la situación.",
 icon: 'warning',
 showCancelButton: true,
 confirmButtonColor: '#3085d6',
