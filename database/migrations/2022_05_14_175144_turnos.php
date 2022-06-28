@@ -20,7 +20,7 @@ class Turnos extends Migration
             $table->unsignedBigInteger('id_paciente');
             $table->date("fecha");
             $table->date("hora");
-            $table->enum("estado", ["aplicado", "cancelado", "ausente","pendiente"])->default("pendiente");
+            $table->enum("estado", ["aplicado", "cancelado", "ausente", "pendiente" , 'aprobacion'])->default("pendiente");
             $table->foreign("id_vacuna")
                 ->references("id")
                 ->on("vacunas")

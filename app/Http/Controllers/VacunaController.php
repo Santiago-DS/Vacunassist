@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Turno;
 use App\Models\Vacuna;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -45,6 +46,16 @@ class VacunaController extends Controller
     public function edit($id) {
         Vacuna::where("id", $id)->update(["estado" => 0]);
         return redirect('/vacunas')->with('eliminar','ok');
+    }
+
+    public function confirmarTurno($id_turno) {
+        Turno::where("id", $id_turno)->update(["estado" => 'pendiente']);
+        return redirect('/aprobacion-turnos')->with('confirmar-turno','ok');
+    }
+
+    public function denegarTurno($id_turno) {
+        Turno::where("id", $id_turno)->update(["estado" => 'cancelado']);
+        return redirect('/aprobacion-turnos')->with('denegar-turno','ok');
     }
 
 }

@@ -10,17 +10,23 @@ use Illuminate\Support\Facades\Date;
 
 class TurnoController extends Controller
 {
+    // y esto????
     const arreglo = ["Cementerio Municipal","Cementerio Municipal","Cementerio Municipal"];
-  
+
     public function store(){
 
-        Turno::create([
+        $turno = Turno::create([
             'fecha' => request()->get('fecha'),
             'hora' => new DateTime('today'),
             'id_paciente'=> auth()->id(),
             'id_zona' => request()->get('zona'),
             'id_vacuna' => request()->get('vacuna'),
         ]);
+
+        if(request()->get('vacuna') == 2) { // Si id vacuna es fiebre amarilla
+            $turno->update(["estado" => "aprobacion"]); // el turno queda pendiente de aprobacion por un admin
+            $turno->save();
+        }
 
         $controlador = new MailController;
         $controlador->send();
@@ -105,5 +111,5 @@ class TurnoController extends Controller
         }
 
     }
-    
+
 }

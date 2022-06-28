@@ -60,6 +60,7 @@ Route::view('reportes', 'reportes')->name('reportes')->middleware('auth');
 Route::view('por-vacunatorio', 'por-vacunatorio')->name('por-vacunatorio')->middleware('auth');
 Route::view('por-zona', 'por-zona')->name('por-zona')->middleware('auth');
 Route::view('probando', 'probando')->name('probando')->middleware('auth');
+Route::view('aprobacion-turnos', 'aprobacion-turnos')->name('aprobacion-turnos')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Get Routes
@@ -77,6 +78,8 @@ Route::get('registrar-lote-lab/{id_historia}', [HistoriaclinicaController::class
 Route::get('form-actualizar-sede/{id_enfermero}', [UserController::class, 'actualizarSede'])->name('form-actualizar-sede.actualizarSede');
 Route::get('obtenerdatos', [TurnoController::class, 'obtenerdatos'])->name('obtenerdatos')->middleware('auth');
 Route::get('vacunas/{id}', [VacunaController::class, 'edit'])->name('vacunas.edit');
+Route::get('confirmar-turno/{id_turno}', [VacunaController::class, 'confirmarTurno'])->name('confirmar-turno.confirmarTurno');
+Route::get('denegar-turno/{id_turno}', [VacunaController::class, 'denegarTurno'])->name('denegar-turno.denegarTurno');
 
 /*
 |--------------------------------------------------------------------------

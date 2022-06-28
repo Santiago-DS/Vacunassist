@@ -63,11 +63,12 @@
             $id_usuario=auth()->id();
             $turnos = DB::table('turnos')
             ->select('turnos.id AS id_turno' , 'turnos.id_vacuna' ,
-            'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna' , 'zonas.nombreZona')
+            'turnos.fecha' , 'turnos.id_zona' , 'vacunas.nombreVacuna'
+             , 'zonas.nombreZona' , 'turnos.estado')
             ->join('vacunas', 'vacunas.id', '=', 'turnos.id_vacuna')
             ->join('zonas', 'zonas.id', '=', 'turnos.id_zona')
             ->where('id_paciente', $id_usuario)
-            ->where('turnos.estado' , 'pendiente')
+            ->where('turnos.estado' , 'pendiente')->orWhere('turnos.estado' , 'aprobacion')
             ->get();
         ?>
 
@@ -88,7 +89,12 @@
             <td>{{ $turno->nombreVacuna}}</td>
             <td>{{ $turno->fecha}}</td>
             <td>{{ $turno->nombreZona}}</td>
-            <td><span class="badge-dot badge-success mr-1"></span> Pendiente</td>
+            @if ($turno->estado == 'pendiente')
+                <td><span class="badge-dot badge-success mr-1"></span> Pendiente</td>
+            @elseif ($turno->estado == 'aprobacion')
+                <td><span class="badge-dot badge-brand mr-1"></span> Pendiente para Aprobación</td>
+            @endif
+
             <td>
                 <form action="{{ route('turnos.edit', ['id'=>$turno->id_turno]) }}" method="get" class="formulario-eliminar">
                     <button type="submit" class="btn btn-danger">
