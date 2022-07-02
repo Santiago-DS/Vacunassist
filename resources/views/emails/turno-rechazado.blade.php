@@ -5,7 +5,7 @@
 <p>Estimado usuario:</p>
 <p>Le informamos que su solicitud para un turno de la vacuna
     fiebre amarilla ha sido rechazado debido a que uested es considerado
-    un paciente de riesg.
+    un paciente de <strong>riesgo</strong>
     Disculpe las molestias.
 </p>
 <span> Por favor no respondas a este mensaje.
