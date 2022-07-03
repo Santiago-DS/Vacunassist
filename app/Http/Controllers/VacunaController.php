@@ -7,6 +7,8 @@ use App\Models\Vacuna;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Barryvdh\DomPDF\Facade as PDF;
+use DateTime;
 
 class VacunaController extends Controller
 {
@@ -61,4 +63,26 @@ class VacunaController extends Controller
         return redirect('/aprobacion-turnos')->with('denegar-turno','ok');
     }
 
+    public function generarReporteZona() {
+        $pdf = PDF::loadView('generar-pdf-zona');
+        return $pdf->stream('falopa.pdf');
+    }
+
+// VER//
+    //public function eliminarVacuna() {
+
+//        request()->validate([
+  //          '*' => 'required'
+    //    ]);
+     //   $nombreVacuna = request()->get('nombreVacuna');
+     //   $nombreVacuna = strtoupper($nombreVacuna);              // cnvierte a mayusculas.
+     //   $vacuna = Vacuna::where("nombreVacuna", $nombreVacuna)->where("nombreVacuna", 'nombreVacuna');
+
+      //  if ($vacuna == 1) {
+      //      Vacuna::update([
+   
+    //            'estado'=> "noDisponible",
+               
+      //      ]);
+    //}
 }

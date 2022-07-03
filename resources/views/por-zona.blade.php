@@ -36,6 +36,12 @@ $datosVentas = $valores;
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js">
         
     </script>
+    <style>
+        .cont{
+            text-align: center;
+            padding:15px;
+        }
+        </style>
 
     <body>
 
@@ -67,6 +73,9 @@ $datosVentas = $valores;
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="cont">
+                    <a class="btn btn-info ml-lg-3" target="_blank" href="{{ route('emitir-reporte-zona') }}">Generar Reporte</a>
                     </div>
                     <div class="ecommerce-widget">
                         <div class="row justify-content-center">
@@ -123,5 +132,5 @@ $datosVentas = $valores;
                             }
                         });
                     </script>
-                    
+            
 </html>

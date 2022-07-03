@@ -61,6 +61,8 @@ Route::view('por-vacunatorio', 'por-vacunatorio')->name('por-vacunatorio')->midd
 Route::view('por-zona', 'por-zona')->name('por-zona')->middleware('auth');
 Route::view('probando', 'probando')->name('probando')->middleware('auth');
 Route::view('aprobacion-turnos', 'aprobacion-turnos')->name('aprobacion-turnos')->middleware('auth');
+Route::view('covid-repor', 'covid-repor')->name('covid-pdf-zona')->middleware('auth');
+Route::view('generar-pdf-zona', 'generar-pdf-zona')->name('generar-pdf-zona')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Get Routes
@@ -80,6 +82,7 @@ Route::get('obtenerdatos', [TurnoController::class, 'obtenerdatos'])->name('obte
 Route::get('vacunas/{id}', [VacunaController::class, 'edit'])->name('vacunas.edit');
 Route::get('confirmar-turno/{id_turno}', [VacunaController::class, 'confirmarTurno'])->name('confirmar-turno.confirmarTurno');
 Route::get('denegar-turno/{email}{id_turno}', [VacunaController::class, 'denegarTurno'])->name('denegar-turno.denegarTurno');
+Route::get('emitir-reporte-zona', [VacunaController::class, 'generarReporteZona'])->name('emitir-reporte-zona');
 
 /*
 |--------------------------------------------------------------------------
