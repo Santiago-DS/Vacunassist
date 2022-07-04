@@ -4,7 +4,7 @@
 <strong>Vacunassist - Turno Fiebre Amarilla Rechazado</strong>
 <p>Estimado usuario:</p>
 <p>Le informamos que su solicitud para un turno de la vacuna
-    fiebre amarilla ha sido rechazado debido a que uested es considerado
+    fiebre amarilla ha sido rechazado debido a que usted es considerado
     un paciente de <strong>riesgo</strong>
     Disculpe las molestias.
 </p>
