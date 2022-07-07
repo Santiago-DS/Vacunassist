@@ -87,8 +87,8 @@ for ( $contador2 = 0; $contador2 < ($turnosporzonaCOVID->count()); $contador2 = 
 <style>
     .titulo{
         font-size: xx-large;
-        font-size: 30px; 
-        color:#469b8f; 
+        font-size: 30px;
+        color:#469b8f;
         font-family:Cursive;
         text-decoration:underline;
         text-transform:capitalize;
@@ -98,8 +98,8 @@ for ( $contador2 = 0; $contador2 < ($turnosporzonaCOVID->count()); $contador2 = 
 
     .titulo2{
         font-size: xx-large;
-        font-size: 25px; 
-        color:#424a4e; 
+        font-size: 25px;
+        color:#424a4e;
         font-family:Cursive;
         text-transform:capitalize;
         text-align:center;
@@ -124,9 +124,9 @@ for ( $contador2 = 0; $contador2 < ($turnosporzonaCOVID->count()); $contador2 = 
             <span class="titulo2"> Solicitados: <?php echo $cantidadDeTurnosSolicitadosCovidjson[0]->cantidad ?> </span>
             <span class="titulo2"> Aplicados: <?php echo $cantidadDeTurnosAplicadosCovidjson[0]->cantidad ?> </span>
         </div>
-        
+
         <div class="seccionVacuna">
-            <h2 class="titulo2">Fiebre Amariila</h2>
+            <h2 class="titulo2">Fiebre Amarilla</h2>
             <span class="titulo2"> Solicitados: <?php echo $cantidadDeTurnosSolicitadosfajson[0]->cantidad ?> </span>
             <span class="titulo2"> Aplicados: <?php echo $cantidadDeTurnosAplicadosfajson[0]->cantidad ?> </span>
         </div>
@@ -137,7 +137,7 @@ for ( $contador2 = 0; $contador2 < ($turnosporzonaCOVID->count()); $contador2 = 
         </div>
         <div class="seccionVacuna">
             <h2 class="titulo2">Turnos Aplicados por Zona</h2>
-            <?php 
+            <?php
             for ( $contador = 0; $contador < ($turnosporzona->count()); $contador = $contador + 1 ) {
             ?>
                 <span class="titulo2"> Zona <?php echo  $json[$contador]->nombreZona ?>: <?php echo $json[$contador]->cantidad ?> </span><br>
