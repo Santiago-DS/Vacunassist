@@ -7,14 +7,15 @@
     + *[Descargar MySQL ](https://www.mysql.com/downloads/)* <br/><br/>
 
 
+Para poder configurar las tablas de la base de datos se deberán ejecutar los siguientes comandos
+
+***php artisan db:wipe*** <br/><br/>
+***php artisan migrate*** <br/><br/>
+
 
  Una vez instalado todo, deberías ejecutar ***php artisan serve*** para poder acceder a tu local host y  ver una pantalla como la siguiente:<br/><br/>
 ![image](portada.png)<br/><br/><br/>
 
-Para poder configurar las tablas de la base de datos se deberán ejecutar los siguientes comandos
-
-php artisan db:wipe <br/><br/>
-php artisan migrate <br/><br/>
 
 
 A través de la portada inicial se podrá acceder al registro o login de usuario<br/>
